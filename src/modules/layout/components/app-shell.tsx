@@ -24,12 +24,14 @@ export function AppShell({}: PropsWithChildren) {
             onClick={toggleMobile}
             hiddenFrom="sm"
             size="sm"
+            color="violet"
           />
           <Burger
             opened={!desktopOpened}
             onClick={toggleDesktop}
             visibleFrom="sm"
             size="sm"
+            color="violet"
           />
           <Logo />
         </Group>
