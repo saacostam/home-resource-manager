@@ -4,10 +4,10 @@ import { HomeModernIcon } from "../icons";
 export function Logo() {
   return (
     <Flex direction="row" align="center" gap="xs">
-      <ThemeIcon size="md" variant="white" color="indigo" radius="sm">
+      <ThemeIcon size="sm" variant="white" color="indigo" radius="sm">
         <HomeModernIcon />
       </ThemeIcon>
-      <Title order={2} size="h5">
+      <Title order={2} size="h5" fw="normal">
         Home Resource Manager
       </Title>
     </Flex>
