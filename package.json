@@ -15,6 +15,18 @@
     "postpack": "pinst --enable"
   },
   "dependencies": {
+    "@mantine/core": "^8.0.1",
+    "@mantine/dates": "^8.0.1",
+    "@mantine/form": "^8.0.1",
+    "@mantine/hooks": "^8.0.1",
+    "@mantine/modals": "^8.0.1",
+    "@mantine/notifications": "^8.0.1",
+    "@mantine/tiptap": "^8.0.1",
+    "@tiptap/extension-link": "^2.12.0",
+    "@tiptap/pm": "^2.12.0",
+    "@tiptap/react": "^2.12.0",
+    "@tiptap/starter-kit": "^2.12.0",
+    "dayjs": "^1.11.13",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
@@ -31,6 +43,9 @@
     "globals": "^16.0.0",
     "husky": "^9.1.7",
     "pinst": "^3.0.0",
+    "postcss": "^8.5.3",
+    "postcss-preset-mantine": "^1.17.0",
+    "postcss-simple-vars": "^7.0.1",
     "prettier": "^3.5.3",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
