@@ -1,9 +1,14 @@
 import { useDisclosure } from "@mantine/hooks";
-import { AppShell as MantineAppShell, Burger, Group } from "@mantine/core";
+import {
+  AppShell as MantineAppShell,
+  Burger,
+  Group,
+  Container,
+} from "@mantine/core";
 import type { PropsWithChildren } from "react";
 import { FeatureInProgressMessage, Logo } from "../../core.components";
 
-export function AppShell({}: PropsWithChildren) {
+export function AppShell({ children }: PropsWithChildren) {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
   const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
 
@@ -39,7 +44,9 @@ export function AppShell({}: PropsWithChildren) {
       <MantineAppShell.Navbar p="md">
         <FeatureInProgressMessage />
       </MantineAppShell.Navbar>
-      <MantineAppShell.Main>Main</MantineAppShell.Main>
+      <MantineAppShell.Main bg="violet.0">
+        <Container>{children}</Container>
+      </MantineAppShell.Main>
     </MantineAppShell>
   );
 }
