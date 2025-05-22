@@ -6,6 +6,7 @@ import {
   Skeleton,
 } from "@mantine/core";
 import type { PropsWithChildren } from "react";
+import { Logo } from "../../core.components";
 
 export function AppShell({}: PropsWithChildren) {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
@@ -35,7 +36,7 @@ export function AppShell({}: PropsWithChildren) {
             visibleFrom="sm"
             size="sm"
           />
-          Header
+          <Logo />
         </Group>
       </MantineAppShell.Header>
       <MantineAppShell.Navbar p="md">
