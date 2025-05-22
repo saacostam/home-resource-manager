@@ -1,12 +1,7 @@
 import { useDisclosure } from "@mantine/hooks";
-import {
-  AppShell as MantineAppShell,
-  Burger,
-  Group,
-  Skeleton,
-} from "@mantine/core";
+import { AppShell as MantineAppShell, Burger, Group } from "@mantine/core";
 import type { PropsWithChildren } from "react";
-import { Logo } from "../../core.components";
+import { FeatureInProgressMessage, Logo } from "../../core.components";
 
 export function AppShell({}: PropsWithChildren) {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
@@ -18,7 +13,7 @@ export function AppShell({}: PropsWithChildren) {
       navbar={{
         width: 300,
         breakpoint: "sm",
-        collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
+        collapsed: { mobile: !mobileOpened, desktop: desktopOpened },
       }}
       padding="md"
     >
@@ -31,7 +26,7 @@ export function AppShell({}: PropsWithChildren) {
             size="sm"
           />
           <Burger
-            opened={desktopOpened}
+            opened={!desktopOpened}
             onClick={toggleDesktop}
             visibleFrom="sm"
             size="sm"
@@ -40,12 +35,7 @@ export function AppShell({}: PropsWithChildren) {
         </Group>
       </MantineAppShell.Header>
       <MantineAppShell.Navbar p="md">
-        Navbar
-        {Array(15)
-          .fill(0)
-          .map((_, index) => (
-            <Skeleton key={index} h={28} mt="sm" animate={false} />
-          ))}
+        <FeatureInProgressMessage />
       </MantineAppShell.Navbar>
       <MantineAppShell.Main>Main</MantineAppShell.Main>
     </MantineAppShell>
