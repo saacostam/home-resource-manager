@@ -4,8 +4,8 @@ import { RocketLaunchIcon } from "../icons";
 export function FeatureInProgressMessage() {
   return (
     <Alert
-      variant="light"
-      color="blue"
+      variant="filled"
+      color="indigo"
       title="Feature in Progress"
       icon={<RocketLaunchIcon />}
     >

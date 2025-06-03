@@ -29,14 +29,12 @@ export function AppShell({ children }: PropsWithChildren) {
             onClick={toggleMobile}
             hiddenFrom="sm"
             size="sm"
-            color="violet"
           />
           <Burger
             opened={!desktopOpened}
             onClick={toggleDesktop}
             visibleFrom="sm"
             size="sm"
-            color="violet"
           />
           <Logo />
         </Group>
@@ -44,7 +42,7 @@ export function AppShell({ children }: PropsWithChildren) {
       <MantineAppShell.Navbar p="md">
         <FeatureInProgressMessage />
       </MantineAppShell.Navbar>
-      <MantineAppShell.Main bg="violet.0">
+      <MantineAppShell.Main>
         <Container>{children}</Container>
       </MantineAppShell.Main>
     </MantineAppShell>

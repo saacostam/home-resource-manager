@@ -12562,7 +12562,7 @@ var yb = function () {
             .join(""),
           `
   }
-  
+
   .`,
         )
         .concat(
@@ -12575,7 +12575,7 @@ var yb = function () {
           r,
           `;
   }
-  
+
   .`,
         )
         .concat(
@@ -12588,7 +12588,7 @@ var yb = function () {
           r,
           `;
   }
-  
+
   .`,
         )
         .concat(iu, " .")
@@ -12601,7 +12601,7 @@ var yb = function () {
           r,
           `;
   }
-  
+
   .`,
         )
         .concat(ru, " .")
@@ -12614,7 +12614,7 @@ var yb = function () {
           r,
           `;
   }
-  
+
   body[`,
         )
         .concat(
@@ -13728,7 +13728,7 @@ const fa = gn,
       "#9c36b5",
       "#862e9c",
     ],
-    violet: [
+    indigo: [
       "#f3f0ff",
       "#e5dbff",
       "#d0bfff",
@@ -20922,13 +20922,13 @@ function hE() {
           size: "sm",
           variant: "white",
           radius: "sm",
-          color: "violet",
+          color: "indigo",
           children: j.jsx(dE, {}),
         }),
         j.jsx(Du, {
           order: 2,
           size: "h5",
-          c: "violet",
+          c: "indigo",
           children: "Home Resource Manager",
         }),
       ],
@@ -20957,21 +20957,21 @@ function pE({ children: l }) {
               onClick: o,
               hiddenFrom: "sm",
               size: "sm",
-              color: "violet",
+              color: "indigo",
             }),
             j.jsx(vu, {
               opened: !r,
               onClick: s,
               visibleFrom: "sm",
               size: "sm",
-              color: "violet",
+              color: "indigo",
             }),
             j.jsx(hE, {}),
           ],
         }),
       }),
       j.jsx(je.Navbar, { p: "md", children: j.jsx(mE, {}) }),
-      j.jsx(je.Main, { bg: "violet.0", children: j.jsx(yf, { children: l }) }),
+      j.jsx(je.Main, { bg: "indigo.0", children: j.jsx(yf, { children: l }) }),
     ],
   });
 }
@@ -20989,7 +20989,7 @@ function gE() {
         children: [
           j.jsx(Du, {
             size: "h3",
-            c: "violet",
+            c: "indigo",
             order: 4,
             children: "Today's Tasks",
           }),
@@ -21015,12 +21015,12 @@ function gE() {
                   gap: "sm",
                   align: "center",
                   children: [
-                    j.jsx(xa, { color: "violet", defaultChecked: l.checked }),
+                    j.jsx(xa, { color: "indigo", defaultChecked: l.checked }),
                     j.jsx(Ai, {
                       style: { flex: 1 },
                       children: j.jsx(wi, { size: "sm", children: l.label }),
                     }),
-                    j.jsx(gf, { color: "violet", children: l.category }),
+                    j.jsx(gf, { color: "indigo", children: l.category }),
                   ],
                 }),
               },
