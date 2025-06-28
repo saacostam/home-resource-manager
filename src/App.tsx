@@ -1,8 +1,9 @@
 import "@mantine/core/styles.css";
+
+import { AuthSessionProvider } from "@/modules/auth";
 import { MantineProvider } from "@mantine/core";
 import { router } from "@/modules/router";
 import { RouterProvider } from "react-router-dom";
-import { AuthSessionProvider } from "@/modules/auth";
 
 function App() {
   return (
