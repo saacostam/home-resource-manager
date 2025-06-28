@@ -4,13 +4,17 @@ import {
   Burger,
   Group,
   Container,
+  Button,
 } from "@mantine/core";
 import type { PropsWithChildren } from "react";
 import { FeatureInProgressMessage, Logo } from "../../core.components";
+import { useAuth } from "@/modules/auth";
 
 export function AppShell({ children }: PropsWithChildren) {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
   const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
+
+  const { logout } = useAuth();
 
   return (
     <MantineAppShell
@@ -41,6 +45,9 @@ export function AppShell({ children }: PropsWithChildren) {
       </MantineAppShell.Header>
       <MantineAppShell.Navbar p="md">
         <FeatureInProgressMessage />
+        <Button mt="auto" onClick={logout}>
+          Log Out
+        </Button>
       </MantineAppShell.Navbar>
       <MantineAppShell.Main>
         <Container>{children}</Container>

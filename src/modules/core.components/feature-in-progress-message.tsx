@@ -5,7 +5,6 @@ export function FeatureInProgressMessage() {
   return (
     <Alert
       variant="filled"
-      color="indigo"
       title="Feature in Progress"
       icon={<RocketLaunchIcon />}
     >

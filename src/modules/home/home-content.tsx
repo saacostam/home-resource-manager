@@ -36,11 +36,11 @@ export function HomeContent() {
           <div key={index}>
             <Paper p="sm">
               <Flex gap="sm" align="center">
-                <Checkbox color="indigo" defaultChecked={task.checked} />
+                <Checkbox defaultChecked={task.checked} />
                 <Paper style={{ flex: 1 }}>
                   <Text size="sm">{task.label}</Text>
                 </Paper>
-                <Badge color="indigo">{task.category}</Badge>
+                <Badge>{task.category}</Badge>
               </Flex>
             </Paper>
             {index < tasks.length - 1 && <Divider />}
