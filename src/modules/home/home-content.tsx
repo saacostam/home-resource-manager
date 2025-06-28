@@ -8,7 +8,7 @@ import {
   Text,
   Title,
 } from "@mantine/core";
-import { AppShell } from "../../modules/layout";
+import { AppShell } from "@/modules/layout";
 
 const mockTasks = [
   { label: "Water the Plants", category: "Garden", checked: true },

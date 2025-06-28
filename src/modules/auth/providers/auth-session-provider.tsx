@@ -1,5 +1,37 @@
-import type { PropsWithChildren } from "react";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { genRoute, TRouteType } from "@/modules/routing";
+import { usePrivateAuth } from "./use-private-auth";
+import { useAuth } from "./use-auth";
+import { authContext } from "./auth-context";
 
-export function AuthSessionProvider({ children }: PropsWithChildren) {
-  return children;
+const ROUTES_WITHOUT_AUTH = [
+  genRoute({
+    type: TRouteType.LOGIN,
+  }),
+];
+
+function AuthSessionGuard() {
+  const { pathname } = useLocation();
+  const { status } = useAuth();
+
+  const shouldRedirectToLogin =
+    status === "unauthenticated" && !ROUTES_WITHOUT_AUTH.includes(pathname);
+  const shouldRedirectToBaseUrl =
+    status === "authenticated" && ROUTES_WITHOUT_AUTH.includes(pathname);
+
+  return shouldRedirectToLogin ? (
+    <Navigate to={genRoute({ type: TRouteType.LOGIN })} replace />
+  ) : shouldRedirectToBaseUrl ? (
+    <Navigate to={genRoute({ type: TRouteType.BASE })} replace />
+  ) : (
+    <Outlet />
+  );
+}
+
+export function AuthSessionProvider() {
+  return (
+    <authContext.Provider value={usePrivateAuth()}>
+      <AuthSessionGuard />
+    </authContext.Provider>
+  );
 }

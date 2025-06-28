@@ -11,11 +11,14 @@ export const LocalStorageUtils = {
     if (rawValue === null) return null;
 
     try {
-      const val: unknown = JSON.parse(rawValue);
-      if (!(typeof val === "string")) return null;
-      return val;
+      if (!(typeof rawValue === "string")) return null;
+      return rawValue;
     } catch {
       return null;
     }
+  },
+
+  remove(key: LocalStorageKey) {
+    localStorage.removeItem(key);
   },
 };

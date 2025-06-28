@@ -1,3 +1,11 @@
+import { Title } from "@mantine/core";
+
 export function LoginPage() {
-  return <>Login</>;
+  return (
+    <>
+      <Title size="h2" order={4}>
+        Login
+      </Title>
+    </>
+  );
 }
