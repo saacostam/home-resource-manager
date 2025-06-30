@@ -8,6 +8,9 @@ const ROUTES_WITHOUT_AUTH = [
   genRoute({
     type: TRouteType.LOGIN,
   }),
+  genRoute({
+    type: TRouteType.SIGNUP,
+  }),
 ];
 
 function AuthSessionGuard() {

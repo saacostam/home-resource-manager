@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { ErrorPage, HomePage, LoginPage } from "@/modules/pages";
+import { ErrorPage, HomePage, LoginPage, SignupPage } from "@/modules/pages";
 import { AuthSessionProvider } from "../auth";
 
 export const router = createBrowserRouter([
@@ -14,6 +14,10 @@ export const router = createBrowserRouter([
       {
         path: "login",
         element: <LoginPage />,
+      },
+      {
+        path: "signup",
+        element: <SignupPage />,
       },
       {
         path: "*",
