@@ -1,5 +1,7 @@
 import { AuthLayout } from "@/modules/layout";
+import { genRoute, TRouteType } from "@/modules/routing";
 import {
+  Anchor,
   Button,
   Grid,
   PasswordInput,
@@ -8,6 +10,7 @@ import {
   TextInput,
   Title,
 } from "@mantine/core";
+import { Link } from "react-router-dom";
 
 export function Signup() {
   return (
@@ -18,7 +21,7 @@ export function Signup() {
       <Text size="sm" c="dark" ta="center">
         🏡 Manage. Streamline. Love your home.
       </Text>
-      <Space my="md" />
+      <Space my="xl" />
       <form>
         <Grid gutter="sm">
           <Grid.Col span={{ sm: 12, md: 6 }}>
@@ -37,6 +40,14 @@ export function Signup() {
           Sign Up
         </Button>
       </form>
+      <Space h="xl" />
+      <Text size="sm" c="dark" ta="center">
+        Already have an account?{" "}
+        <Anchor component={Link} to={genRoute({ type: TRouteType.LOGIN })}>
+          Login
+        </Anchor>
+      </Text>
+      <Space h="md" />
     </AuthLayout>
   );
 }

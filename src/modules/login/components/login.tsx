@@ -1,4 +1,5 @@
 import {
+  Anchor,
   Button,
   PasswordInput,
   Space,
@@ -8,6 +9,8 @@ import {
 } from "@mantine/core";
 import { useLogin } from "../hooks";
 import { AuthLayout } from "@/modules/layout";
+import { genRoute, TRouteType } from "@/modules/routing";
+import { Link } from "react-router-dom";
 
 export function Login() {
   const { onSubmit } = useLogin();
@@ -35,6 +38,14 @@ export function Login() {
           Login
         </Button>
       </form>
+      <Space h="xl" />
+      <Text size="sm" c="dark" ta="center">
+        Don't have an account?{" "}
+        <Anchor component={Link} to={genRoute({ type: TRouteType.SIGNUP })}>
+          Sign up
+        </Anchor>
+      </Text>
+      <Space h="md" />
     </AuthLayout>
   );
 }
