@@ -3,6 +3,7 @@ export enum QueryKey {
 }
 
 export enum MutationKey {
+  POST_CREATE_CATEGORY = "Post Create Category",
   POST_LOGIN = "Post Login",
   POST_SIGNUP = "Post Signup",
 }
