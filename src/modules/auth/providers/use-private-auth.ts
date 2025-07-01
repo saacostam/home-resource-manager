@@ -1,5 +1,17 @@
-import { LocalStorageKey, LocalStorageUtils } from "@/modules/local-storage";
 import { useCallback, useMemo, useReducer } from "react";
+import { useNavigate } from "react-router-dom";
+import { useQueryClient } from "@tanstack/react-query";
+import { apiFetcher } from "@/modules/fetcher";
+import { LocalStorageKey, LocalStorageUtils } from "@/modules/local-storage";
+import { genRoute, TRouteType } from "@/modules/routing";
+import { isAuthError } from "../utils";
+
+type FetchWithAuth = <TResponse = unknown>(params: {
+  endpoint: string;
+  method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  body?: any;
+}) => Promise<TResponse>;
 
 function tokenReducer(
   state: string | null,
@@ -21,6 +33,9 @@ function tokenReducer(
 }
 
 export function usePrivateAuth() {
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
+
   const [token, dispatch] = useReducer(tokenReducer, null, () =>
     LocalStorageUtils.safelyGetString(LocalStorageKey.AUTH),
   );
@@ -38,8 +53,41 @@ export function usePrivateAuth() {
     });
   }, []);
 
+  const fetch = useMemo(() => {
+    const apply: FetchWithAuth = async <Response = unknown>(params: {
+      endpoint: string;
+      method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
+      body?: never;
+    }) => {
+      try {
+        const response = await apiFetcher.request<Body>({
+          method: params.method,
+          url: params.endpoint,
+          data: params.body,
+          headers: {
+            Authorization: `Bearer ${token ?? ""}`,
+          },
+        });
+        return response.data as unknown as Response;
+      } catch (error) {
+        const authError = isAuthError(error);
+
+        if (authError) {
+          logout();
+          void navigate(genRoute({ type: TRouteType.LOGIN }));
+          queryClient.clear();
+        }
+
+        throw error;
+      }
+    };
+
+    return apply;
+  }, [logout, navigate, queryClient, token]);
+
   return useMemo(
     () => ({
+      fetch,
       logout,
       setToken,
       status:
@@ -47,6 +95,6 @@ export function usePrivateAuth() {
           ? ("unauthenticated" as const)
           : ("authenticated" as const),
     }),
-    [logout, setToken, token],
+    [fetch, logout, setToken, token],
   );
 }

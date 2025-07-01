@@ -15,6 +15,7 @@ import { useSignup } from "../hooks";
 
 export function Signup() {
   const { form, isLoading, onSubmit } = useSignup();
+  const { handleSubmit } = form;
 
   return (
     <AuthLayout>
@@ -25,14 +26,16 @@ export function Signup() {
         🏡 Manage. Streamline. Love your home.
       </Text>
       <Space my="xl" />
-      <form onSubmit={form.onSubmit(onSubmit)}>
+      {/* eslint-disable-next-line @typescript-eslint/no-misused-promises */}
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Grid gutter="sm">
           <Grid.Col span={{ sm: 12, md: 6 }}>
             <TextInput
               size="sm"
               label="First Name"
               placeholder="First Name"
-              {...form.getInputProps("firstName")}
+              {...form.register("firstName")}
+              error={form.getFieldState("firstName").error?.message}
             />
           </Grid.Col>
           <Grid.Col span={{ sm: 12, md: 6 }}>
@@ -40,7 +43,8 @@ export function Signup() {
               size="sm"
               label="Last Name"
               placeholder="Last Name"
-              {...form.getInputProps("lastName")}
+              {...form.register("lastName")}
+              error={form.getFieldState("lastName").error?.message}
             />
           </Grid.Col>
         </Grid>
@@ -49,14 +53,16 @@ export function Signup() {
           size="sm"
           label="Username"
           placeholder="Username"
-          {...form.getInputProps("username")}
+          {...form.register("username")}
+          error={form.getFieldState("username").error?.message}
         />
         <Space h="sm" />
         <PasswordInput
           size="sm"
           label="Password"
           placeholder="Password"
-          {...form.getInputProps("password")}
+          {...form.register("password")}
+          error={form.getFieldState("password").error?.message}
         />
         <Space h="xl" />
         <Button type="submit" w="100%" loading={isLoading}>
