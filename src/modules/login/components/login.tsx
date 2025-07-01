@@ -1,4 +1,5 @@
 import {
+  Alert,
   Anchor,
   Button,
   PasswordInput,
@@ -13,7 +14,9 @@ import { genRoute, TRouteType } from "@/modules/routing";
 import { Link } from "react-router-dom";
 
 export function Login() {
-  const { onSubmit } = useLogin();
+  const { form, isLoading, onSubmit } = useLogin();
+
+  const rootErrorMessage = form.formState.errors.root?.message;
 
   return (
     <AuthLayout>
@@ -25,16 +28,32 @@ export function Login() {
       </Text>
       <Space my="sm" />
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          onSubmit();
-        }}
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
+        onSubmit={form.handleSubmit(onSubmit)}
       >
-        <TextInput size="sm" label="Username" placeholder="Username" />
+        <TextInput
+          size="sm"
+          label="Username"
+          placeholder="Username"
+          {...form.register("username")}
+          error={form.getFieldState("username").error?.message}
+        />
         <Space h="sm" />
-        <PasswordInput size="sm" label="Password" placeholder="Password" />
+        <PasswordInput
+          size="sm"
+          label="Password"
+          placeholder="Password"
+          {...form.register("password")}
+          error={form.getFieldState("password").error?.message}
+        />
+        {rootErrorMessage && (
+          <>
+            <Space h="xl" />
+            <Alert color="red" title={rootErrorMessage} />
+          </>
+        )}
         <Space h="xl" />
-        <Button type="submit" w="100%">
+        <Button type="submit" w="100%" loading={isLoading}>
           Login
         </Button>
       </form>

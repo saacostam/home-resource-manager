@@ -1,6 +1,7 @@
 import { AuthLayout } from "@/modules/layout";
 import { genRoute, TRouteType } from "@/modules/routing";
 import {
+  Alert,
   Anchor,
   Button,
   Grid,
@@ -16,6 +17,8 @@ import { useSignup } from "../hooks";
 export function Signup() {
   const { form, isLoading, onSubmit } = useSignup();
   const { handleSubmit } = form;
+
+  const rootErrorMessage = form.formState.errors.root?.message;
 
   return (
     <AuthLayout>
@@ -64,6 +67,12 @@ export function Signup() {
           {...form.register("password")}
           error={form.getFieldState("password").error?.message}
         />
+        {rootErrorMessage && (
+          <>
+            <Space h="xl" />
+            <Alert color="red" title={rootErrorMessage} />
+          </>
+        )}
         <Space h="xl" />
         <Button type="submit" w="100%" loading={isLoading}>
           Sign Up
