@@ -9,6 +9,7 @@ import {
   Title,
 } from "@mantine/core";
 import { AppShell } from "@/modules/layout";
+import { ManageCategoriesLoader } from "@/modules/manage-categories";
 
 const mockTasks = [
   { label: "Water the Plants", category: "Garden", checked: true },
@@ -47,6 +48,7 @@ export function HomeContent() {
           </div>
         ))}
       </Paper>
+      <ManageCategoriesLoader mt="lg" />
     </AppShell>
   );
 }
