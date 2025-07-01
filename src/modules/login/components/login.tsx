@@ -16,7 +16,8 @@ import { Link } from "react-router-dom";
 export function Login() {
   const { form, isLoading, onSubmit } = useLogin();
 
-  const rootErrorMessage = form.formState.errors.root?.message;
+  const errors = form.formState.errors;
+  const rootErrorMessage = errors.root?.message;
 
   return (
     <AuthLayout>
@@ -36,7 +37,7 @@ export function Login() {
           label="Username"
           placeholder="Username"
           {...form.register("username")}
-          error={form.getFieldState("username").error?.message}
+          error={errors.username?.message}
         />
         <Space h="sm" />
         <PasswordInput
@@ -44,7 +45,7 @@ export function Login() {
           label="Password"
           placeholder="Password"
           {...form.register("password")}
-          error={form.getFieldState("password").error?.message}
+          error={errors.password?.message}
         />
         {rootErrorMessage && (
           <>

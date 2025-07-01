@@ -18,7 +18,8 @@ export function Signup() {
   const { form, isLoading, onSubmit } = useSignup();
   const { handleSubmit } = form;
 
-  const rootErrorMessage = form.formState.errors.root?.message;
+  const errors = form.formState.errors;
+  const rootErrorMessage = errors.root?.message;
 
   return (
     <AuthLayout>
@@ -38,7 +39,7 @@ export function Signup() {
               label="First Name"
               placeholder="First Name"
               {...form.register("firstName")}
-              error={form.getFieldState("firstName").error?.message}
+              error={errors.firstName?.message}
             />
           </Grid.Col>
           <Grid.Col span={{ sm: 12, md: 6 }}>
@@ -47,7 +48,7 @@ export function Signup() {
               label="Last Name"
               placeholder="Last Name"
               {...form.register("lastName")}
-              error={form.getFieldState("lastName").error?.message}
+              error={errors.lastName?.message}
             />
           </Grid.Col>
         </Grid>
@@ -57,7 +58,7 @@ export function Signup() {
           label="Username"
           placeholder="Username"
           {...form.register("username")}
-          error={form.getFieldState("username").error?.message}
+          error={errors.username?.message}
         />
         <Space h="sm" />
         <PasswordInput
@@ -65,7 +66,7 @@ export function Signup() {
           label="Password"
           placeholder="Password"
           {...form.register("password")}
-          error={form.getFieldState("password").error?.message}
+          error={errors.password?.message}
         />
         {rootErrorMessage && (
           <>
