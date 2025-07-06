@@ -4,7 +4,10 @@ import { useQuery } from "@tanstack/react-query";
 export function useGetApiHealth() {
   return useQuery({
     queryKey: [QueryKey.GET_API_HEALTH],
-    queryFn: () => apiFetcher.get("../health"),
+    queryFn: () =>
+      apiFetcher.get("../health", {
+        timeout: 2000,
+      }),
     retry: true,
     retryDelay: 10_000,
     refetchInterval: 20_000,
