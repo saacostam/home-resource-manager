@@ -9,6 +9,8 @@ import {
 import type { PropsWithChildren } from "react";
 import { FeatureInProgressMessage, Logo } from "../../core.components";
 import { useAuth } from "@/modules/auth";
+import { Link } from "react-router-dom";
+import { genRoute, TRouteType } from "@/modules/routing";
 
 export function AppShell({ children }: PropsWithChildren) {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
@@ -40,7 +42,9 @@ export function AppShell({ children }: PropsWithChildren) {
             visibleFrom="sm"
             size="sm"
           />
-          <Logo />
+          <Link to={genRoute({ type: TRouteType.BASE })}>
+            <Logo />
+          </Link>
         </Group>
       </MantineAppShell.Header>
       <MantineAppShell.Navbar p="md">
