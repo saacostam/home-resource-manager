@@ -1,5 +1,6 @@
 export enum QueryKey {
   GET_ALL_CATEGORIES = "Get All Categories",
+  GET_API_HEALTH = "Get Api Health",
 }
 
 export enum MutationKey {

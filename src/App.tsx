@@ -1,5 +1,6 @@
 import "@mantine/core/styles.css";
 
+import { AvailabilitySplashScreenLoader } from "@/modules/availability-splash-screen";
 import { MantineProvider } from "@mantine/core";
 import { router } from "@/modules/router";
 import { RouterProvider } from "react-router-dom";
@@ -11,7 +12,9 @@ function App() {
   return (
     <MantineProvider theme={{ primaryColor: "violet" }}>
       <QueryClientProvider client={client}>
-        <RouterProvider router={router} />
+        <AvailabilitySplashScreenLoader>
+          <RouterProvider router={router} />
+        </AvailabilitySplashScreenLoader>
       </QueryClientProvider>
     </MantineProvider>
   );
