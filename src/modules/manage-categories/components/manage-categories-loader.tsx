@@ -132,7 +132,7 @@ export function ManageCategoriesLoader({ mt, mb }: ManageCategoriesLoader) {
                   }}
                   w="50%"
                   withBorder
-                  px="md"
+                  pl="md"
                 >
                   <Flex direction="row-reverse">
                     <ActionIcon variant="subtle" c="gray" onClick={closeForm}>
