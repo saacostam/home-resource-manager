@@ -7,5 +7,6 @@ export function useGetApiHealth() {
     queryFn: () => apiFetcher.get("../health"),
     retry: true,
     retryDelay: 10_000,
+    refetchInterval: 20_000,
   });
 }
