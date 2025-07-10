@@ -6,13 +6,12 @@ import {
   Container,
   Button,
 } from "@mantine/core";
-import type { PropsWithChildren } from "react";
 import { FeatureInProgressMessage, Logo } from "../../core.components";
 import { useAuth } from "@/modules/auth";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { genRoute, TRouteType } from "@/modules/routing";
 
-export function AppShell({ children }: PropsWithChildren) {
+export function AppShell() {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
   const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
 
@@ -42,7 +41,7 @@ export function AppShell({ children }: PropsWithChildren) {
             visibleFrom="sm"
             size="sm"
           />
-          <Link to={genRoute({ type: TRouteType.BASE })}>
+          <Link to={genRoute({ type: TRouteType.DASHBOARD })}>
             <Logo />
           </Link>
         </Group>
@@ -54,7 +53,9 @@ export function AppShell({ children }: PropsWithChildren) {
         </Button>
       </MantineAppShell.Navbar>
       <MantineAppShell.Main>
-        <Container>{children}</Container>
+        <Container>
+          <Outlet />
+        </Container>
       </MantineAppShell.Main>
     </MantineAppShell>
   );

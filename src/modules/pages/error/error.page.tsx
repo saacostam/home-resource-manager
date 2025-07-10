@@ -31,7 +31,7 @@ export function ErrorPage() {
         <Space h="md" />
         <Button
           component={Link}
-          to={genRoute({ type: TRouteType.BASE })}
+          to={genRoute({ type: TRouteType.DASHBOARD })}
           mx="auto"
           size="sm"
         >

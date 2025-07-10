@@ -25,7 +25,7 @@ function AuthSessionGuard() {
   return shouldRedirectToLogin ? (
     <Navigate to={genRoute({ type: TRouteType.LOGIN })} replace />
   ) : shouldRedirectToBaseUrl ? (
-    <Navigate to={genRoute({ type: TRouteType.BASE })} replace />
+    <Navigate to={genRoute({ type: TRouteType.DASHBOARD })} replace />
   ) : (
     <Outlet />
   );

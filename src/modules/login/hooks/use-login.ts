@@ -37,7 +37,7 @@ export function useLogin() {
         {
           onSuccess: (data) => {
             setToken(data.token);
-            void navigate(genRoute({ type: TRouteType.BASE }));
+            void navigate(genRoute({ type: TRouteType.DASHBOARD }));
           },
           onError: (error) => {
             if (!isAxiosError(error)) {

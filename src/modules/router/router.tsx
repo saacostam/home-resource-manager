@@ -1,5 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import { ErrorPage, HomePage, LoginPage, SignupPage } from "@/modules/pages";
+import { AppShell } from "@/modules/layout";
+import {
+  ErrorPage,
+  HomePage,
+  LoginPage,
+  ManageCategoriesPage,
+  SignupPage,
+} from "@/modules/pages";
 import { AuthSessionProvider } from "../auth";
 
 export const router = createBrowserRouter([
@@ -8,8 +15,11 @@ export const router = createBrowserRouter([
     element: <AuthSessionProvider />,
     children: [
       {
-        index: true,
-        element: <HomePage />,
+        element: <AppShell />,
+        children: [
+          { index: true, element: <HomePage /> },
+          { path: "manage-categories", element: <ManageCategoriesPage /> },
+        ],
       },
       {
         path: "login",

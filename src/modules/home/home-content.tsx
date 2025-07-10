@@ -10,7 +10,8 @@ import {
   Text,
   Title,
 } from "@mantine/core";
-import { AppShell } from "@/modules/layout";
+import { Link } from "react-router-dom";
+import { genRoute, TRouteType } from "../routing";
 
 const mockTasks = [
   { label: "Water the Plants", category: "Garden", checked: true },
@@ -24,8 +25,8 @@ const mockTasks = [
 
 export function HomeContent() {
   return (
-    <AppShell>
-      <Paper p="md">
+    <>
+      <Paper py="md">
         <Title size="h2" order={4}>
           Dashboard
         </Title>
@@ -70,9 +71,26 @@ export function HomeContent() {
         </Paper>
         <Paper p="md" withBorder flex={2}>
           <Flex direction="column" justify="flex-end" gap="sm" h="100%">
-            <Button size="sm">Add New Resource</Button>
-            <Button size="sm">Add New Task</Button>
-            <Button size="sm" variant="outline">
+            <Button
+              size="sm"
+              component={Link}
+              to={genRoute({ type: TRouteType.CATEGORIES })}
+            >
+              Add New Resource
+            </Button>
+            <Button
+              size="sm"
+              component={Link}
+              to={genRoute({ type: TRouteType.CATEGORIES })}
+            >
+              Add New Task
+            </Button>
+            <Button
+              size="sm"
+              component={Link}
+              to={genRoute({ type: TRouteType.CATEGORIES })}
+              variant="outline"
+            >
               Manage Categories
             </Button>
           </Flex>
@@ -89,7 +107,7 @@ export function HomeContent() {
           </Text>
           <Space h="xs" />
           {mockTasks.slice(0, 3).map((task, index, tasks) => (
-            <div key={index}>
+            <div key={+index}>
               <Paper p="sm">
                 <Flex gap="sm" align="center">
                   <Checkbox defaultChecked={task.checked} />
@@ -112,7 +130,7 @@ export function HomeContent() {
           </Text>
           <Space h="xs" />
           {mockTasks.map((task, index, tasks) => (
-            <div key={index}>
+            <div key={+index}>
               <Paper p="sm">
                 <Flex gap="sm" align="center">
                   <Paper style={{ flex: 1 }}>
@@ -126,6 +144,6 @@ export function HomeContent() {
           ))}
         </Paper>
       </Flex>
-    </AppShell>
+    </>
   );
 }
