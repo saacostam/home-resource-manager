@@ -113,12 +113,12 @@ export function ManagementMenu() {
   return (
     <Group gap="xs" justify="end">
       <Tooltip label="Edit Category">
-        <ActionIcon size="sm" variant="outline">
+        <ActionIcon size="sm" variant="light">
           <PencilSquareIcon style={{ width: "80%", height: "80%" }} />
         </ActionIcon>
       </Tooltip>
       <Tooltip label="Delete Category">
-        <ActionIcon size="sm" variant="outline">
+        <ActionIcon size="sm" variant="light">
           <TrashIcon style={{ width: "80%", height: "80%" }} />
         </ActionIcon>
       </Tooltip>
