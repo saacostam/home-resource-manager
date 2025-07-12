@@ -1,0 +1,1 @@
+export { CategoriesTableLoader } from "./components";

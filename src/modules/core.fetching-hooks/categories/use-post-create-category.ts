@@ -1,6 +1,6 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/modules/auth";
 import { MutationKey, QueryKey } from "@/modules/fetcher";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export interface UsePostCreateCategoryRequest {
   name: string;

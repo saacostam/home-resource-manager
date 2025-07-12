@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import { QueryKey } from "../fetcher";
-import { useAuth } from "../auth";
+import { useAuth } from "@/modules/auth";
+import { QueryKey } from "@/modules/fetcher";
 
-export type UseGetAllCategoriesResponse = {
+export type TGetAllCategoriesResponse = {
   id: string;
   name: string;
   description?: string;
@@ -11,7 +11,7 @@ export type UseGetAllCategoriesResponse = {
 export function useGetAllCategories() {
   const { fetch } = useAuth();
 
-  return useQuery<UseGetAllCategoriesResponse>({
+  return useQuery<TGetAllCategoriesResponse>({
     queryKey: [QueryKey.GET_ALL_CATEGORIES],
     queryFn: () =>
       fetch({

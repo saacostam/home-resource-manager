@@ -1,1 +1,1 @@
-export * from "./use-get-all-categories";
+export * from "./categories";

@@ -1,1 +1,0 @@
-export { ManageCategoriesLoader } from "./components";
