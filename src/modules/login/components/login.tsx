@@ -50,7 +50,7 @@ export function Login() {
         {rootErrorMessage && (
           <>
             <Space h="xl" />
-            <Alert color="red" title={rootErrorMessage} />
+            <Alert color="pink" title={rootErrorMessage} />
           </>
         )}
         <Space h="xl" />

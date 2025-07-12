@@ -1,4 +1,4 @@
-import { ActionIcon, Badge, Group, Table, Tooltip } from "@mantine/core";
+import { ActionIcon, Badge, Group, Table, Text, Tooltip } from "@mantine/core";
 import { EmptyQuery } from "@/modules/core.components";
 import { PencilSquareIcon, TrashIcon } from "@/modules/icons";
 import type { TCategoryTableEntry } from "../types";
@@ -30,9 +30,17 @@ export function CategoriesTableContent({
         {tableEntries.map((entry) => (
           <Table.Tr key={entry.id}>
             <Table.Td>
-              <Badge>Kitchen</Badge>
+              <Badge>{entry.name}</Badge>
             </Table.Td>
-            <Table.Td>Kitchen-related stuff</Table.Td>
+            <Table.Td>
+              {!!entry.description ? (
+                entry.description
+              ) : (
+                <Text c="gray" size="sm">
+                  -
+                </Text>
+              )}
+            </Table.Td>
             <Table.Td>
               <ManagementMenu
                 onDelete={() => {

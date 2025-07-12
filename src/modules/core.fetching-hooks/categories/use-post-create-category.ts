@@ -4,7 +4,7 @@ import { MutationKey, QueryKey } from "@/modules/fetcher";
 
 export interface UsePostCreateCategoryRequest {
   name: string;
-  description?: string;
+  description: string | null;
 }
 
 export function usePostCreateCategory() {

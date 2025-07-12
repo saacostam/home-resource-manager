@@ -1,11 +1,12 @@
-import "@mantine/core/styles.css";
-
-import { AvailabilitySplashScreenLoader } from "@/modules/availability-splash-screen";
 import { MantineProvider } from "@mantine/core";
-import { router } from "@/modules/router";
-import { RouterProvider } from "react-router-dom";
+import "@mantine/core/styles.css";
+import { Notifications } from "@mantine/notifications";
+import "@mantine/notifications/styles.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { RouterProvider } from "react-router-dom";
+import { AvailabilitySplashScreenLoader } from "@/modules/availability-splash-screen";
+import { router } from "@/modules/router";
 
 const client = new QueryClient();
 
@@ -16,7 +17,8 @@ function App() {
         <AvailabilitySplashScreenLoader>
           <RouterProvider router={router} />
         </AvailabilitySplashScreenLoader>
-        <ReactQueryDevtools />
+        <Notifications />
+        <ReactQueryDevtools buttonPosition="bottom-left" />
       </QueryClientProvider>
     </MantineProvider>
   );
