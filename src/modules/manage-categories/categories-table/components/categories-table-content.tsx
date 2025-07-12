@@ -5,10 +5,14 @@ import type { TCategoryTableEntry } from "../types";
 
 export interface CategoriesTableContentProps {
   tableEntries: TCategoryTableEntry[];
+  onDelete: (id: string) => void;
+  onEdit: (id: string) => void;
 }
 
 export function CategoriesTableContent({
   tableEntries,
+  onDelete,
+  onEdit,
 }: CategoriesTableContentProps) {
   if (tableEntries.length === 0)
     return <EmptyQuery title="No Categories Yet" />;
@@ -30,7 +34,14 @@ export function CategoriesTableContent({
             </Table.Td>
             <Table.Td>Kitchen-related stuff</Table.Td>
             <Table.Td>
-              <ManagementMenu />
+              <ManagementMenu
+                onDelete={() => {
+                  onDelete(entry.id);
+                }}
+                onEdit={() => {
+                  onEdit(entry.id);
+                }}
+              />
             </Table.Td>
           </Table.Tr>
         ))}
@@ -39,16 +50,21 @@ export function CategoriesTableContent({
   );
 }
 
-export function ManagementMenu() {
+export interface ManagementMenuProps {
+  onDelete: () => void;
+  onEdit: () => void;
+}
+
+export function ManagementMenu({ onDelete, onEdit }: ManagementMenuProps) {
   return (
     <Group gap="xs" justify="end">
       <Tooltip label="Edit Category">
-        <ActionIcon size="sm" variant="light">
+        <ActionIcon size="sm" variant="light" onClick={onEdit}>
           <PencilSquareIcon style={{ width: "80%", height: "80%" }} />
         </ActionIcon>
       </Tooltip>
       <Tooltip label="Delete Category">
-        <ActionIcon size="sm" variant="light">
+        <ActionIcon size="sm" variant="light" onClick={onDelete}>
           <TrashIcon style={{ width: "80%", height: "80%" }} />
         </ActionIcon>
       </Tooltip>

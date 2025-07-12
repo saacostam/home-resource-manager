@@ -33066,37 +33066,35 @@ function e8() {
                 children: "Most immediate tasks.",
               }),
               x.jsx(Mt, { h: "xs" }),
-              zx
-                .slice(0, 3)
-                .map((e, t, r) =>
-                  x.jsxs(
-                    "div",
-                    {
-                      children: [
-                        x.jsx(wn, {
-                          p: "sm",
-                          children: x.jsxs(Gn, {
-                            gap: "sm",
-                            align: "center",
-                            children: [
-                              x.jsx(yo, { defaultChecked: e.checked }),
-                              x.jsx(wn, {
-                                style: { flex: 1 },
-                                children: x.jsx(jt, {
-                                  size: "sm",
-                                  children: e.label,
-                                }),
+              zx.slice(0, 3).map((e, t, r) =>
+                x.jsxs(
+                  "div",
+                  {
+                    children: [
+                      x.jsx(wn, {
+                        p: "sm",
+                        children: x.jsxs(Gn, {
+                          gap: "sm",
+                          align: "center",
+                          children: [
+                            x.jsx(yo, { defaultChecked: e.checked }),
+                            x.jsx(wn, {
+                              style: { flex: 1 },
+                              children: x.jsx(jt, {
+                                size: "sm",
+                                children: e.label,
                               }),
-                              x.jsx(Hu, { children: e.category }),
-                            ],
-                          }),
+                            }),
+                            x.jsx(Hu, { children: e.category }),
+                          ],
                         }),
-                        t < r.length - 1 && x.jsx(Vu, {}),
-                      ],
-                    },
-                    +t,
-                  ),
+                      }),
+                      t < r.length - 1 && x.jsx(Vu, {}),
+                    ],
+                  },
+                  +t,
                 ),
+              ),
             ],
           }),
           x.jsxs(wn, {

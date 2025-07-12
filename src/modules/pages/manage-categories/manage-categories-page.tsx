@@ -1,5 +1,5 @@
-import { CategoriesTableLoader } from "@/modules/manage-categories/categories-table";
+import { CategoriesTable } from "@/modules/manage-categories/categories-table";
 
 export function ManageCategoriesPage() {
-  return <CategoriesTableLoader />;
+  return <CategoriesTable />;
 }

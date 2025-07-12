@@ -1,1 +1,1 @@
-export * from "./categories-table-loader";
+export * from "./categories-table";

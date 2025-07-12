@@ -1,1 +1,1 @@
-export { CategoriesTableLoader } from "./components";
+export { CategoriesTable } from "./components";
