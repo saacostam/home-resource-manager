@@ -1,6 +1,7 @@
 import { Modal } from "@mantine/core";
 import { useCallback } from "react";
 import { CreateCategory } from "@/modules/manage-categories/create-category";
+import { DeleteCategory } from "@/modules/manage-categories/delete-category";
 import { useCategoriesTable } from "../provider";
 
 export function CategoriesTableModalManager() {
@@ -13,6 +14,7 @@ export function CategoriesTableModalManager() {
   return (
     <>
       <Modal
+        centered
         opened={mode.type === "create"}
         onClose={onClose}
         title="Create Category"
@@ -20,13 +22,17 @@ export function CategoriesTableModalManager() {
         {mode.type === "create" && <CreateCategory onClose={onClose} />}
       </Modal>
       <Modal
+        centered
         opened={mode.type === "delete"}
         onClose={onClose}
         title="Delete Category"
       >
-        {mode.type === "delete" && <>Delete {mode.id}</>}
+        {mode.type === "delete" && (
+          <DeleteCategory id={mode.id} onClose={onClose} />
+        )}
       </Modal>
       <Modal
+        centered
         opened={mode.type === "edit"}
         onClose={onClose}
         title="Edit Category"
