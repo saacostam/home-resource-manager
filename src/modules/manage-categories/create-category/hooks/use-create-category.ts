@@ -1,11 +1,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { notifications } from "@mantine/notifications";
 import { isAxiosError } from "axios";
 import { useCallback, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { usePostCreateCategory } from "@/modules/core.fetching-hooks";
 import { handleApiErrors } from "@/modules/forms";
-import { notifications } from "@mantine/notifications";
 
 const createCategorySchema = z.object({
   name: z.string().min(1).max(24),
