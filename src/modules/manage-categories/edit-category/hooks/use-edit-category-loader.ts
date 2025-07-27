@@ -17,11 +17,7 @@ export function useEditCategoryLoader({ id }: UseEditCategoryLoaderProps) {
         : category.isSuccess
           ? {
               status: "success" as const,
-              category: {
-                id: category.data.id,
-                name: category.data.name,
-                description: category.data.description,
-              },
+              category: category.data,
             }
           : {
               status: "error" as const,
