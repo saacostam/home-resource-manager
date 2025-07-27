@@ -41,7 +41,10 @@ export function AppShell() {
             visibleFrom="sm"
             size="sm"
           />
-          <Link to={genRoute({ type: TRouteType.DASHBOARD })}>
+          <Link
+            to={genRoute({ type: TRouteType.DASHBOARD })}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
             <Logo />
           </Link>
         </Group>
