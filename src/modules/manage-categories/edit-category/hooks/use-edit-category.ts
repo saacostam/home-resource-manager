@@ -1,31 +1,35 @@
 import { notifications } from "@mantine/notifications";
 import { isAxiosError } from "axios";
 import { useCallback, useMemo } from "react";
-import { usePostCreateCategory } from "@/modules/core.fetching-hooks";
+import { usePutUpdateCategoryById } from "@/modules/core.fetching-hooks";
 import { handleApiErrors } from "@/modules/forms";
 import {
   type TManageCategoryForm,
   useManageCategoryForm,
 } from "../../manage-category-form";
 
-export interface UseCreateCategoryProps {
+export interface UseEditCategoryProps {
+  id: string;
+  defaultValues: TManageCategoryForm;
   onClose: () => void;
 }
 
-export function useCreateCategory({ onClose }: UseCreateCategoryProps) {
+export function useEditCategory({
+  id,
+  defaultValues,
+  onClose,
+}: UseEditCategoryProps) {
   const form = useManageCategoryForm({
-    defaultValues: {
-      name: "",
-      description: "",
-    },
+    defaultValues,
   });
 
-  const { mutate, isPending } = usePostCreateCategory();
+  const { mutate, isPending } = usePutUpdateCategoryById();
 
   const onSubmit = useCallback(
     (data: TManageCategoryForm) => {
       mutate(
         {
+          id,
           name: data.name,
           description: data.description === "" ? null : data.description,
         },
@@ -34,8 +38,8 @@ export function useCreateCategory({ onClose }: UseCreateCategoryProps) {
             onClose();
             notifications.show({
               color: "green",
-              title: "Created",
-              message: "Category created successfully",
+              title: "Edited",
+              message: "Category edited successfully",
             });
           },
           onError: (error) => {
@@ -52,7 +56,7 @@ export function useCreateCategory({ onClose }: UseCreateCategoryProps) {
         },
       );
     },
-    [form, onClose, mutate],
+    [id, form, onClose, mutate],
   );
 
   return useMemo(

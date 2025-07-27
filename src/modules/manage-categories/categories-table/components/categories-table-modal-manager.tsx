@@ -2,6 +2,7 @@ import { Modal } from "@mantine/core";
 import { useCallback } from "react";
 import { CreateCategory } from "@/modules/manage-categories/create-category";
 import { DeleteCategory } from "@/modules/manage-categories/delete-category";
+import { EditCategory } from "../../edit-category";
 import { useCategoriesTable } from "../provider";
 
 export function CategoriesTableModalManager() {
@@ -37,7 +38,9 @@ export function CategoriesTableModalManager() {
         onClose={onClose}
         title="Edit Category"
       >
-        {mode.type === "edit" && <>Edit {mode.id}</>}
+        {mode.type === "edit" && (
+          <EditCategory id={mode.id} onClose={onClose} />
+        )}
       </Modal>
     </>
   );

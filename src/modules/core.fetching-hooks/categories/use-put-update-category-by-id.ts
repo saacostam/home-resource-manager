@@ -2,20 +2,22 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/modules/auth";
 import { MutationKey, QueryKey } from "@/modules/fetcher";
 
-export interface UseDeleteDeleteCategoryRequest {
+export interface TPutUpdateCategoryByIdRequest {
   id: string;
+  name: string;
+  description: string | null;
 }
 
-export function useDeleteDeleteCategory() {
+export function usePutUpdateCategoryById() {
   const queryClient = useQueryClient();
   const { fetch } = useAuth();
 
-  return useMutation<unknown, Error, UseDeleteDeleteCategoryRequest>({
-    mutationKey: [MutationKey.DELETE_DELETE_CATEGORY],
+  return useMutation<unknown, Error, TPutUpdateCategoryByIdRequest>({
+    mutationKey: [MutationKey.PUT_UPDATE_CATEGORY],
     mutationFn: (data) =>
       fetch({
         endpoint: `/category/${data.id}`,
-        method: "DELETE",
+        method: "PUT",
         body: data,
       }),
     onSettled: (_, __, { id }) => {
