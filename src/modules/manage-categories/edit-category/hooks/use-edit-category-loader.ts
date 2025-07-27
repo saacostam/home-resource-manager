@@ -26,7 +26,14 @@ export function useEditCategoryLoader({ id }: UseEditCategoryLoaderProps) {
           : {
               status: "error" as const,
               retry: category.refetch,
+              isFetching: category.isFetching,
             },
-    [category.data, category.isLoading, category.isSuccess, category.refetch],
+    [
+      category.data,
+      category.isFetching,
+      category.isLoading,
+      category.isSuccess,
+      category.refetch,
+    ],
   );
 }
