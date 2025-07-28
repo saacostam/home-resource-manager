@@ -1,1 +1,1 @@
-export { ResourceTable } from "./components";
+export { ResourcesTable } from "./components";

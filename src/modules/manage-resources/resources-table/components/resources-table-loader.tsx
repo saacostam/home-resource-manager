@@ -2,6 +2,7 @@ import { Button, Flex, Paper, Text, Title } from "@mantine/core";
 import { QueryError } from "@/modules/core.components";
 import { PlusIcon } from "@/modules/icons";
 import { useResourcesTableLoader } from "../hooks";
+import { ResourcesTableContent } from "./resources-table-content";
 import { ResourcesTableSkeleton } from "./resources-table-skeleton";
 
 export function ResourceTableLoader() {
@@ -41,7 +42,7 @@ export function ResourceTableLoader() {
             }}
           />
         ) : (
-          JSON.stringify(tableEntries)
+          <ResourcesTableContent tableEntries={tableEntries} />
         )}
       </Paper>
     </>

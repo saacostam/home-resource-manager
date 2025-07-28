@@ -1,6 +1,6 @@
 import { Anchor, Breadcrumbs, Text } from "@mantine/core";
 import { Link } from "react-router-dom";
-import { ResourceTable } from "@/modules/manage-resources/resources-table";
+import { ResourcesTable } from "@/modules/manage-resources/resources-table";
 import { genRoute, TRouteType } from "@/modules/routing";
 
 export function ManageResourcesPage() {
@@ -12,7 +12,7 @@ export function ManageResourcesPage() {
         </Anchor>
         <Text c="violet">Resources</Text>
       </Breadcrumbs>
-      <ResourceTable />
+      <ResourcesTable />
     </>
   );
 }
