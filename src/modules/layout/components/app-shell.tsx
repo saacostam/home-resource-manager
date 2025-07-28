@@ -1,15 +1,17 @@
-import { useDisclosure } from "@mantine/hooks";
 import {
   AppShell as MantineAppShell,
   Burger,
-  Group,
-  Container,
   Button,
+  Container,
+  Group,
+  NavLink,
 } from "@mantine/core";
-import { FeatureInProgressMessage, Logo } from "../../core.components";
-import { useAuth } from "@/modules/auth";
+import { useDisclosure } from "@mantine/hooks";
 import { Link, Outlet } from "react-router-dom";
+import { useAuth } from "@/modules/auth";
+import { HomeModernIcon, TagIcon } from "@/modules/icons";
 import { genRoute, TRouteType } from "@/modules/routing";
+import { Logo } from "../../core.components";
 
 export function AppShell() {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
@@ -50,7 +52,24 @@ export function AppShell() {
         </Group>
       </MantineAppShell.Header>
       <MantineAppShell.Navbar p="md">
-        <FeatureInProgressMessage />
+        <Group>
+          <NavLink
+            component={Link}
+            to={genRoute({ type: TRouteType.DASHBOARD })}
+            label="Dashboard"
+            description="Overview of your house"
+            variant="light"
+            leftSection={<HomeModernIcon width={20} height={20} />}
+          />
+          <NavLink
+            component={Link}
+            to={genRoute({ type: TRouteType.CATEGORIES })}
+            label="Categories"
+            description="Manage your categories"
+            variant="light"
+            leftSection={<TagIcon width={20} height={20} />}
+          />
+        </Group>
         <Button mt="auto" onClick={logout}>
           Log Out
         </Button>

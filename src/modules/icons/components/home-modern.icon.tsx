@@ -1,4 +1,11 @@
-export function HomeModernIcon() {
+import type { CSSProperties } from "react";
+
+export interface HomeModernIconProps {
+  height?: number;
+  width?: number;
+  style?: CSSProperties;
+}
+export function HomeModernIcon({ height, width, style }: HomeModernIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +13,11 @@ export function HomeModernIcon() {
       viewBox="0 0 24 24"
       strokeWidth={2}
       stroke="currentColor"
+      width={width}
+      height={height}
+      style={style}
     >
+      <title>House Logo</title>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
