@@ -74,7 +74,7 @@ export function HomeContent() {
             <Button
               size="sm"
               component={Link}
-              to={genRoute({ type: TRouteType.CATEGORIES })}
+              to={genRoute({ type: TRouteType.RESOURCES })}
             >
               Add New Resource
             </Button>

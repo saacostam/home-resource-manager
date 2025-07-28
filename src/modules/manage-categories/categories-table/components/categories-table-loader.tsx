@@ -1,15 +1,5 @@
-import {
-  Anchor,
-  Breadcrumbs,
-  Button,
-  Flex,
-  Paper,
-  Text,
-  Title,
-} from "@mantine/core";
-import { Link } from "react-router-dom";
+import { Button, Flex, Paper, Text, Title } from "@mantine/core";
 import { PlusIcon } from "@/modules/icons";
-import { genRoute, TRouteType } from "@/modules/routing";
 import { useCategoriesTableLoader } from "../hooks";
 import { CategoriesTableContent } from "./categories-table-content";
 import { CategoriesTableError } from "./categories-table-error";
@@ -22,12 +12,6 @@ export function CategoriesTableLoader() {
 
   return (
     <>
-      <Breadcrumbs>
-        <Anchor component={Link} to={genRoute({ type: TRouteType.DASHBOARD })}>
-          Dashboard
-        </Anchor>
-        <Text c="violet">Categories</Text>
-      </Breadcrumbs>
       <Flex py="md" align="end" justify="space-between">
         <Paper>
           <Title size="h2" order={4}>

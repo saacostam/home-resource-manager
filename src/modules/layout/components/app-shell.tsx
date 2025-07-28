@@ -9,7 +9,7 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import { Link, Outlet } from "react-router-dom";
 import { useAuth } from "@/modules/auth";
-import { HomeModernIcon, TagIcon } from "@/modules/icons";
+import { HomeModernIcon, RectangleGroupIcon, TagIcon } from "@/modules/icons";
 import { genRoute, TRouteType } from "@/modules/routing";
 import { Logo } from "../../core.components";
 
@@ -65,9 +65,17 @@ export function AppShell() {
             component={Link}
             to={genRoute({ type: TRouteType.CATEGORIES })}
             label="Categories"
-            description="Manage your categories"
+            description="Customize grouping"
             variant="light"
             leftSection={<TagIcon width={20} height={20} />}
+          />
+          <NavLink
+            component={Link}
+            to={genRoute({ type: TRouteType.RESOURCES })}
+            label="Resources"
+            description="Track your house's assets"
+            variant="light"
+            leftSection={<RectangleGroupIcon width={20} height={20} />}
           />
         </Group>
         <Button mt="auto" onClick={logout}>

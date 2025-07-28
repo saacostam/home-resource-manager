@@ -8,6 +8,7 @@ export * from "./list-bullet.icon";
 export * from "./no-symbol.icon";
 export * from "./pencil-square.icon";
 export * from "./plus.icon";
+export * from "./rectangle-group.icon";
 export * from "./rocket-launch.icon";
 export * from "./tag.icon";
 export * from "./trash-icon";
