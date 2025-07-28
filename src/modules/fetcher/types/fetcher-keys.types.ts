@@ -1,5 +1,6 @@
 export enum QueryKey {
   GET_ALL_CATEGORIES = "Get All Categories",
+  GET_ALL_RESOURCES = "Get All Resources",
   GET_API_HEALTH = "Get Api Health",
   GET_CATEGORY_BY_ID = "Get Category By Id",
 }
