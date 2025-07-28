@@ -1,27 +1,6 @@
-import {
-  createContext,
-  type PropsWithChildren,
-  useContext,
-  useMemo,
-  useState,
-} from "react";
-import type { TCategoriesTableMode } from "../types";
-
-function usePrivateCategoriesTable() {
-  const [mode, setMode] = useState<TCategoriesTableMode>({ type: "browse" });
-
-  return useMemo(
-    () => ({
-      mode,
-      setMode,
-    }),
-    [mode],
-  );
-}
-
-const CategoriesTableContext = createContext(
-  null as unknown as ReturnType<typeof usePrivateCategoriesTable>,
-);
+import type { PropsWithChildren } from "react";
+import { CategoriesTableContext } from "./categories-table.context";
+import { usePrivateCategoriesTable } from "./use-categories-table";
 
 export function CategoriesTableProvider({ children }: PropsWithChildren) {
   return (
@@ -29,8 +8,4 @@ export function CategoriesTableProvider({ children }: PropsWithChildren) {
       {children}
     </CategoriesTableContext.Provider>
   );
-}
-
-export function useCategoriesTable() {
-  return useContext(CategoriesTableContext);
 }
