@@ -81,7 +81,6 @@ export function ManageResourceForm({
           form.setValue("categoryId", v);
         }}
         error={errors.categoryId?.message}
-        searchable
         nothingFoundMessage="Nothing found..."
       />
       {rootErrorMessage && (
