@@ -5,7 +5,7 @@ import z from "zod";
 const resourceSchema = z.object({
   name: z.string().nonempty("Name is required").max(24),
   description: z.string().max(255).nullable(),
-  quantity: z.number().nonnegative(),
+  quantity: z.coerce.number().nonnegative(),
   categoryId: z.string().nonempty("Please select a category"),
 });
 
