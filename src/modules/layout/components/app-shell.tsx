@@ -1,5 +1,5 @@
 import {
-  AppShell as MantineAppShell,
+  AppShell as AppShellMantine,
   Burger,
   Button,
   Container,
@@ -7,20 +7,29 @@ import {
   NavLink,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { Link, Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "@/modules/auth";
 import { HomeModernIcon, RectangleGroupIcon, TagIcon } from "@/modules/icons";
 import { genRoute, TRouteType } from "@/modules/routing";
 import { Logo } from "../../core.components";
 
 export function AppShell() {
-  const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
+  const [mobileOpened, { toggle: toggleMobile, close: closeMobile }] =
+    useDisclosure();
   const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
 
   const { logout } = useAuth();
 
+  const { pathname } = useLocation();
+  useEffect(() => {
+    if (pathname) {
+      closeMobile();
+    }
+  }, [closeMobile, pathname]);
+
   return (
-    <MantineAppShell
+    <AppShellMantine
       header={{ height: 60 }}
       navbar={{
         width: 300,
@@ -29,7 +38,7 @@ export function AppShell() {
       }}
       padding="md"
     >
-      <MantineAppShell.Header>
+      <AppShellMantine.Header>
         <Group h="100%" px="md">
           <Burger
             opened={mobileOpened}
@@ -50,8 +59,8 @@ export function AppShell() {
             <Logo />
           </Link>
         </Group>
-      </MantineAppShell.Header>
-      <MantineAppShell.Navbar p="md">
+      </AppShellMantine.Header>
+      <AppShellMantine.Navbar p="md">
         <Group>
           <NavLink
             component={Link}
@@ -81,12 +90,12 @@ export function AppShell() {
         <Button mt="auto" onClick={logout}>
           Log Out
         </Button>
-      </MantineAppShell.Navbar>
-      <MantineAppShell.Main>
+      </AppShellMantine.Navbar>
+      <AppShellMantine.Main>
         <Container>
           <Outlet />
         </Container>
-      </MantineAppShell.Main>
-    </MantineAppShell>
+      </AppShellMantine.Main>
+    </AppShellMantine>
   );
 }
