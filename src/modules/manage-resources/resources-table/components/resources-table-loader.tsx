@@ -4,9 +4,11 @@ import { PlusIcon } from "@/modules/icons";
 import { useResourcesTableLoader } from "../hooks";
 import { ResourcesTableContent } from "./resources-table-content";
 import { ResourcesTableSkeleton } from "./resources-table-skeleton";
+import { ResourcesTableModalManager } from "./resources-table-modal-manager";
 
 export function ResourceTableLoader() {
-  const { status, retry, isFetching, tableEntries } = useResourcesTableLoader();
+  const { status, retry, isFetching, onCreate, tableEntries } =
+    useResourcesTableLoader();
 
   return (
     <>
@@ -25,6 +27,7 @@ export function ResourceTableLoader() {
               <PlusIcon style={{ width: "1.3rem", height: "1.3rem" }} />
             }
             size="sm"
+            onClick={onCreate}
           >
             Add Resource
           </Button>
@@ -45,6 +48,7 @@ export function ResourceTableLoader() {
           <ResourcesTableContent tableEntries={tableEntries} />
         )}
       </Paper>
+      {status === "success" && <ResourcesTableModalManager />}
     </>
   );
 }

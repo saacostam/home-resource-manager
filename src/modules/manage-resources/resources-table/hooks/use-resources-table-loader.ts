@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import {
   type TGetAllResourcesResponse,
   useGetAllResources,
@@ -7,9 +7,13 @@ import { useResourcesTable } from "../provider";
 import type { TResourceTableEntry } from "../types";
 
 export function useResourcesTableLoader() {
-  useResourcesTable();
+  const { setMode } = useResourcesTable();
 
   const allResources = useGetAllResources();
+
+  const onCreate = useCallback(() => {
+    setMode({ type: "create" });
+  }, [setMode]);
 
   return useMemo(
     () =>
@@ -21,6 +25,7 @@ export function useResourcesTableLoader() {
           ? {
               status: "success" as const,
               tableEntries: allResources.data.map(_mapApiResourceToTableEntry),
+              onCreate,
             }
           : {
               status: "error" as const,
@@ -33,6 +38,7 @@ export function useResourcesTableLoader() {
       allResources.isFetching,
       allResources.isSuccess,
       allResources.refetch,
+      onCreate,
     ],
   );
 }

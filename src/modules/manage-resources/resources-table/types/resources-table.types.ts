@@ -5,6 +5,10 @@ export interface TResourceTableEntry {
   quantity: number;
 }
 
-export interface TResourcesTableMode {
-  type: "browse";
-}
+export type TResourcesTableMode =
+  | {
+      type: "browse";
+    }
+  | {
+      type: "create";
+    };

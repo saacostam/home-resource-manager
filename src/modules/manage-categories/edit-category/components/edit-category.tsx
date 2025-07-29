@@ -1,7 +1,6 @@
-import { QueryError } from "@/modules/core.components";
+import { ModalLoader, QueryError } from "@/modules/core.components";
 import { useEditCategoryLoader } from "../hooks";
 import { EditCategoryContent } from "./edit-category-content";
-import { EditCategorySkeleton } from "./edit-category-skeleton";
 
 export interface EditCategoryProps {
   id: string;
@@ -24,5 +23,5 @@ export function EditCategory({ id, onClose }: EditCategoryProps) {
   if (status === "success")
     return <EditCategoryContent category={category} onClose={onClose} />;
 
-  return <EditCategorySkeleton />;
+  return <ModalLoader />;
 }

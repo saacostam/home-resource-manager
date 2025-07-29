@@ -8,6 +8,7 @@ export enum QueryKey {
 export enum MutationKey {
   DELETE_DELETE_CATEGORY = "Delete Delete Category",
   POST_CREATE_CATEGORY = "Post Create Category",
+  POST_CREATE_RESOURCE = "Post Create Resource",
   POST_LOGIN = "Post Login",
   POST_SIGNUP = "Post Signup",
   PUT_UPDATE_CATEGORY = "Put Update Category",
