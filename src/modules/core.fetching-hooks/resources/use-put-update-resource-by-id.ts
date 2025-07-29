@@ -7,7 +7,7 @@ export interface TPutUpdateResourceByIdRequest {
   name: string;
   description: string | null;
   quantity: number;
-  categoryId: string;
+  categoryId: string | null;
 }
 
 export function usePutUpdateResourceById() {

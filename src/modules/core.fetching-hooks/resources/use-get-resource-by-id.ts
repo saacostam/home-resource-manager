@@ -11,7 +11,11 @@ export interface TGetResourceByIdResponse {
   name: string;
   description: string | null;
   quantity: number;
-  categoryId: string;
+  categoryId: string | null;
+  category: {
+    id: string;
+    name: string;
+  } | null;
 }
 
 export function useGetResourceById({ id }: TGetResourceByIdRequest) {

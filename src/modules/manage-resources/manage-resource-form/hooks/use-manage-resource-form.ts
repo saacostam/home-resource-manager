@@ -6,7 +6,7 @@ const resourceSchema = z.object({
   name: z.string().nonempty("Name is required").max(24),
   description: z.string().max(255).nullable(),
   quantity: z.coerce.number().nonnegative(),
-  categoryId: z.string().nonempty("Please select a category"),
+  categoryId: z.string().nullable(),
 });
 
 export type TManageResourceForm = z.infer<typeof resourceSchema>;

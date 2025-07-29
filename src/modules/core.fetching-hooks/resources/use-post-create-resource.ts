@@ -6,7 +6,7 @@ export interface UsePostCreateResourceRequest {
   name: string;
   description: string | null;
   quantity: number;
-  categoryId: string;
+  categoryId: string | null;
 }
 
 export function usePostCreateResource() {

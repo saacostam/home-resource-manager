@@ -7,6 +7,10 @@ export type TGetAllResourcesResponse = {
   name: string;
   description?: string | null;
   quantity: number;
+  category: {
+    id: string;
+    name: string;
+  } | null;
 }[];
 
 export function useGetAllResources() {

@@ -78,7 +78,7 @@ export function ManageResourceForm({
         {...form.register("categoryId")}
         value={form.watch("categoryId")}
         onChange={(v) => {
-          if (v) form.setValue("categoryId", v);
+          form.setValue("categoryId", v);
         }}
         error={errors.categoryId?.message}
       />
