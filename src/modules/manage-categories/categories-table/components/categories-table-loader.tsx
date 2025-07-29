@@ -12,7 +12,13 @@ export function CategoriesTableLoader() {
 
   return (
     <>
-      <Flex py="md" align="end" justify="space-between">
+      <Flex
+        py="md"
+        align="start"
+        justify="space-between"
+        direction={{ base: "column", sm: "row" }}
+        gap="sm"
+      >
         <Paper>
           <Title size="h2" order={4}>
             Categories
