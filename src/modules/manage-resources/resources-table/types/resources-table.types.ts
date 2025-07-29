@@ -3,6 +3,7 @@ export interface TResourceTableEntry {
   name: string;
   description?: string;
   quantity: number;
+  categoryName: string | null;
 }
 
 export type TResourcesTableMode =

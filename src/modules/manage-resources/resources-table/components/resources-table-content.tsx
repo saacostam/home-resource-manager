@@ -1,4 +1,4 @@
-import { ActionIcon, Group, Table, Text, Tooltip } from "@mantine/core";
+import { ActionIcon, Badge, Group, Table, Text, Tooltip } from "@mantine/core";
 import { EmptyQuery } from "@/modules/core.components";
 import { PencilSquareIcon, TrashIcon } from "@/modules/icons";
 import type { TResourceTableEntry } from "../types";
@@ -21,8 +21,12 @@ export function ResourcesTableContent({
       <Table.Thead>
         <Table.Tr>
           <Table.Th style={{ minWidth: "20%" }}>Name</Table.Th>
+          <Table.Th style={{ minWidth: "15%" }}>Category</Table.Th>
           <Table.Th visibleFrom="xs">Description</Table.Th>
-          <Table.Th style={{ minWidth: "15%", textAlign: "center" }}>
+          <Table.Th
+            style={{ minWidth: "15%", textAlign: "center" }}
+            visibleFrom="xs"
+          >
             Quantity
           </Table.Th>
           <Table.Th style={{ minWidth: "20%", textAlign: "end" }}>
@@ -34,6 +38,15 @@ export function ResourcesTableContent({
         {tableEntries.map((entry) => (
           <Table.Tr key={entry.id}>
             <Table.Td>{entry.name}</Table.Td>
+            <Table.Td>
+              {entry.categoryName !== null ? (
+                <Badge size="sm">{entry.categoryName}</Badge>
+              ) : (
+                <Text c="gray" size="sm">
+                  -
+                </Text>
+              )}
+            </Table.Td>
             <Table.Td visibleFrom="xs">
               {!!entry.description ? (
                 entry.description
@@ -43,7 +56,7 @@ export function ResourcesTableContent({
                 </Text>
               )}
             </Table.Td>
-            <Table.Td style={{ textAlign: "center" }}>
+            <Table.Td style={{ textAlign: "center" }} visibleFrom="xs">
               {entry.quantity}
             </Table.Td>
             <Table.Td>

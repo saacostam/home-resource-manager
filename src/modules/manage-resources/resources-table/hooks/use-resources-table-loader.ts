@@ -69,5 +69,6 @@ export function _mapApiResourceToTableEntry(
     name: apiResource.name,
     description: apiResource.description ?? undefined,
     quantity: apiResource.quantity,
+    categoryName: apiResource.category?.name ?? null,
   };
 }
