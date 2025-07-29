@@ -72,19 +72,19 @@ export function AppShell() {
           />
           <NavLink
             component={Link}
-            to={genRoute({ type: TRouteType.CATEGORIES })}
-            label="Categories"
-            description="Customize grouping"
-            variant="light"
-            leftSection={<TagIcon width={20} height={20} />}
-          />
-          <NavLink
-            component={Link}
             to={genRoute({ type: TRouteType.RESOURCES })}
             label="Resources"
             description="Track your house's assets"
             variant="light"
             leftSection={<RectangleGroupIcon width={20} height={20} />}
+          />
+          <NavLink
+            component={Link}
+            to={genRoute({ type: TRouteType.CATEGORIES })}
+            label="Categories"
+            description="Customize grouping"
+            variant="light"
+            leftSection={<TagIcon width={20} height={20} />}
           />
         </Group>
         <Button mt="auto" onClick={logout}>
