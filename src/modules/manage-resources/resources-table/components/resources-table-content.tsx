@@ -20,17 +20,21 @@ export function ResourcesTableContent({
     <Table>
       <Table.Thead>
         <Table.Tr>
-          <Table.Th>Name</Table.Th>
-          <Table.Th>Description</Table.Th>
-          <Table.Th>Quantity</Table.Th>
-          <Table.Th></Table.Th>
+          <Table.Th style={{ minWidth: "20%" }}>Name</Table.Th>
+          <Table.Th visibleFrom="xs">Description</Table.Th>
+          <Table.Th style={{ minWidth: "15%", textAlign: "center" }}>
+            Quantity
+          </Table.Th>
+          <Table.Th style={{ minWidth: "20%", textAlign: "end" }}>
+            Actions
+          </Table.Th>
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>
         {tableEntries.map((entry) => (
           <Table.Tr key={entry.id}>
             <Table.Td>{entry.name}</Table.Td>
-            <Table.Td>
+            <Table.Td visibleFrom="xs">
               {!!entry.description ? (
                 entry.description
               ) : (
@@ -39,7 +43,9 @@ export function ResourcesTableContent({
                 </Text>
               )}
             </Table.Td>
-            <Table.Td>{entry.quantity}</Table.Td>
+            <Table.Td style={{ textAlign: "center" }}>
+              {entry.quantity}
+            </Table.Td>
             <Table.Td>
               <ManagementMenu
                 onDelete={() => {

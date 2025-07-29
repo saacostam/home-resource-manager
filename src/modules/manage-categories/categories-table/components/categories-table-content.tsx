@@ -21,9 +21,11 @@ export function CategoriesTableContent({
     <Table>
       <Table.Thead>
         <Table.Tr>
-          <Table.Th>Name</Table.Th>
-          <Table.Th>Description</Table.Th>
-          <Table.Th></Table.Th>
+          <Table.Th style={{ minWidth: "30%" }}>Name</Table.Th>
+          <Table.Th visibleFrom="xs">Description</Table.Th>
+          <Table.Th style={{ minWidth: "20%", textAlign: "end" }}>
+            Actions
+          </Table.Th>
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>
@@ -32,7 +34,7 @@ export function CategoriesTableContent({
             <Table.Td>
               <Badge>{entry.name}</Badge>
             </Table.Td>
-            <Table.Td>
+            <Table.Td visibleFrom="xs">
               {!!entry.description ? (
                 entry.description
               ) : (
