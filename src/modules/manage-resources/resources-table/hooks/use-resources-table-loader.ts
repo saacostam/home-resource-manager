@@ -15,6 +15,13 @@ export function useResourcesTableLoader() {
     setMode({ type: "create" });
   }, [setMode]);
 
+  const onDelete = useCallback(
+    (id: string) => {
+      setMode({ type: "delete", id });
+    },
+    [setMode],
+  );
+
   return useMemo(
     () =>
       allResources.isLoading
@@ -26,6 +33,7 @@ export function useResourcesTableLoader() {
               status: "success" as const,
               tableEntries: allResources.data.map(_mapApiResourceToTableEntry),
               onCreate,
+              onDelete,
             }
           : {
               status: "error" as const,
@@ -39,6 +47,7 @@ export function useResourcesTableLoader() {
       allResources.isSuccess,
       allResources.refetch,
       onCreate,
+      onDelete,
     ],
   );
 }

@@ -5,10 +5,12 @@ import type { TResourceTableEntry } from "../types";
 
 export interface ResourcesTableContentProps {
   tableEntries: TResourceTableEntry[];
+  onDelete: (id: string) => void;
 }
 
 export function ResourcesTableContent({
   tableEntries,
+  onDelete,
 }: ResourcesTableContentProps) {
   if (tableEntries.length === 0) return <EmptyQuery title="No Resources Yet" />;
 
@@ -39,7 +41,7 @@ export function ResourcesTableContent({
             <Table.Td>
               <ManagementMenu
                 onDelete={() => {
-                  console.log("on-delete");
+                  onDelete(entry.id);
                 }}
                 onEdit={() => {
                   console.log("on-edit");

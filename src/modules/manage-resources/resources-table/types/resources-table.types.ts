@@ -11,4 +11,8 @@ export type TResourcesTableMode =
     }
   | {
       type: "create";
+    }
+  | {
+      type: "delete";
+      id: string;
     };

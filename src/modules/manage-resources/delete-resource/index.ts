@@ -1,0 +1,1 @@
+export { DeleteResource } from "./components";

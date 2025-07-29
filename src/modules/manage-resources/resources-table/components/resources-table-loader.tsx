@@ -3,11 +3,11 @@ import { QueryError } from "@/modules/core.components";
 import { PlusIcon } from "@/modules/icons";
 import { useResourcesTableLoader } from "../hooks";
 import { ResourcesTableContent } from "./resources-table-content";
-import { ResourcesTableSkeleton } from "./resources-table-skeleton";
 import { ResourcesTableModalManager } from "./resources-table-modal-manager";
+import { ResourcesTableSkeleton } from "./resources-table-skeleton";
 
 export function ResourceTableLoader() {
-  const { status, retry, isFetching, onCreate, tableEntries } =
+  const { status, retry, isFetching, onCreate, onDelete, tableEntries } =
     useResourcesTableLoader();
 
   return (
@@ -45,7 +45,10 @@ export function ResourceTableLoader() {
             }}
           />
         ) : (
-          <ResourcesTableContent tableEntries={tableEntries} />
+          <ResourcesTableContent
+            tableEntries={tableEntries}
+            onDelete={onDelete}
+          />
         )}
       </Paper>
       {status === "success" && <ResourcesTableModalManager />}

@@ -1,20 +1,20 @@
 import { notifications } from "@mantine/notifications";
 import { useCallback, useMemo } from "react";
-import { useDeleteDeleteCategory } from "@/modules/core.fetching-hooks";
+import { useDeleteDeleteResource } from "@/modules/core.fetching-hooks";
 
-export interface UseDeleteCategoryProps {
+export interface UseDeleteResourceProps {
   id: string;
   onClose: () => void;
 }
 
-export function useDeleteCategory({ id, onClose }: UseDeleteCategoryProps) {
-  const deleteCategory = useDeleteDeleteCategory();
+export function useDeleteResource({ id, onClose }: UseDeleteResourceProps) {
+  const deleteResource = useDeleteDeleteResource();
 
   const onCancel = useCallback(() => {
     onClose();
   }, [onClose]);
   const onDelete = useCallback(() => {
-    deleteCategory.mutate(
+    deleteResource.mutate(
       {
         id,
       },
@@ -23,14 +23,14 @@ export function useDeleteCategory({ id, onClose }: UseDeleteCategoryProps) {
           notifications.show({
             color: "green",
             title: "Deleted",
-            message: "Category deleted successfully",
+            message: "Resource deleted successfully",
           });
         },
         onError: () => {
           notifications.show({
             color: "red",
             title: "Failed",
-            message: "Couldn't delete category. Please try again shortly.",
+            message: "Couldn't delete resource. Please try again shortly.",
           });
         },
         onSettled: () => {
@@ -38,14 +38,14 @@ export function useDeleteCategory({ id, onClose }: UseDeleteCategoryProps) {
         },
       },
     );
-  }, [deleteCategory, id, onClose]);
+  }, [deleteResource, id, onClose]);
 
   return useMemo(
     () => ({
-      isPending: deleteCategory.isPending,
+      isPending: deleteResource.isPending,
       onCancel,
       onDelete,
     }),
-    [deleteCategory.isPending, onCancel, onDelete],
+    [deleteResource.isPending, onCancel, onDelete],
   );
 }
