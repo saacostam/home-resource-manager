@@ -7,8 +7,15 @@ import { ResourcesTableModalManager } from "./resources-table-modal-manager";
 import { ResourcesTableSkeleton } from "./resources-table-skeleton";
 
 export function ResourceTableLoader() {
-  const { status, retry, isFetching, onCreate, onDelete, tableEntries } =
-    useResourcesTableLoader();
+  const {
+    status,
+    retry,
+    isFetching,
+    onCreate,
+    onDelete,
+    onEdit,
+    tableEntries,
+  } = useResourcesTableLoader();
 
   return (
     <>
@@ -38,7 +45,7 @@ export function ResourceTableLoader() {
           <ResourcesTableSkeleton />
         ) : status === "error" ? (
           <QueryError
-            title="Couldn't fetch resources"
+            title="Couldn't fetch resources."
             retry={{
               onClick: () => void retry(),
               isPending: isFetching,
@@ -48,6 +55,7 @@ export function ResourceTableLoader() {
           <ResourcesTableContent
             tableEntries={tableEntries}
             onDelete={onDelete}
+            onEdit={onEdit}
           />
         )}
       </Paper>

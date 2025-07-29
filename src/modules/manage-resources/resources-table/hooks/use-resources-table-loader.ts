@@ -22,6 +22,13 @@ export function useResourcesTableLoader() {
     [setMode],
   );
 
+  const onEdit = useCallback(
+    (id: string) => {
+      setMode({ type: "edit", id });
+    },
+    [setMode],
+  );
+
   return useMemo(
     () =>
       allResources.isLoading
@@ -34,6 +41,7 @@ export function useResourcesTableLoader() {
               tableEntries: allResources.data.map(_mapApiResourceToTableEntry),
               onCreate,
               onDelete,
+              onEdit,
             }
           : {
               status: "error" as const,
@@ -48,6 +56,7 @@ export function useResourcesTableLoader() {
       allResources.refetch,
       onCreate,
       onDelete,
+      onEdit,
     ],
   );
 }

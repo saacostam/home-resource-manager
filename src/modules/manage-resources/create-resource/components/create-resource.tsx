@@ -10,7 +10,7 @@ export function CreateResource({ onClose }: CreateResourceProps) {
   const { categories, status, retry } = useCreateResourceLoader();
 
   if (status === "error")
-    return <QueryError title="Couldn't fetch your categories" retry={retry} />;
+    return <QueryError title="Couldn't fetch your categories." retry={retry} />;
 
   if (status === "success")
     return <CreateResourceContent categories={categories} onClose={onClose} />;

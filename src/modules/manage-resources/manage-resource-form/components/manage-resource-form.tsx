@@ -76,6 +76,7 @@ export function ManageResourceForm({
           label: c.name,
         }))}
         {...form.register("categoryId")}
+        value={form.watch("categoryId")}
         onChange={(v) => {
           if (v) form.setValue("categoryId", v);
         }}

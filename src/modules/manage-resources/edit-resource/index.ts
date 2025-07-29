@@ -1,0 +1,1 @@
+export { EditResource } from "./components";

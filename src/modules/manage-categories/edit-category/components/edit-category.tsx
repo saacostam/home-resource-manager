@@ -13,7 +13,7 @@ export function EditCategory({ id, onClose }: EditCategoryProps) {
   if (status === "error")
     return (
       <QueryError
-        title="Couldn't fetch category"
+        title="Couldn't fetch category."
         retry={{
           onClick: () => void retry(),
           isPending: isFetching,

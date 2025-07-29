@@ -2,6 +2,7 @@ import { Modal } from "@mantine/core";
 import { useCallback } from "react";
 import { CreateResource } from "@/modules/manage-resources/create-resource";
 import { DeleteResource } from "@/modules/manage-resources/delete-resource";
+import { EditResource } from "@/modules/manage-resources/edit-resource";
 import { useResourcesTable } from "../provider";
 
 export function ResourcesTableModalManager() {
@@ -29,6 +30,16 @@ export function ResourcesTableModalManager() {
       >
         {mode.type === "delete" && (
           <DeleteResource id={mode.id} onClose={onClose} />
+        )}
+      </Modal>
+      <Modal
+        centered
+        opened={mode.type === "edit"}
+        onClose={onClose}
+        title="Edit Resource"
+      >
+        {mode.type === "edit" && (
+          <EditResource id={mode.id} onClose={onClose} />
         )}
       </Modal>
     </>
