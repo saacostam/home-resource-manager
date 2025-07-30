@@ -12,7 +12,7 @@ const client = new QueryClient();
 
 function App() {
   return (
-    <MantineProvider theme={{ primaryColor: "violet" }}>
+    <MantineProvider theme={{ primaryColor: "violet", black: "#00032F" }}>
       <QueryClientProvider client={client}>
         <AvailabilitySplashScreenLoader>
           <RouterProvider router={router} />
