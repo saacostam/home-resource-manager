@@ -41,7 +41,13 @@ export function HomeContent() {
           </Title>
           <Space h="xs" />
           <Flex direction="row" gap="sm" justify="center">
-            <Avatar radius="md" variant="filled" size="xl" color="violet">
+            <Avatar
+              radius="md"
+              variant="filled"
+              size="xl"
+              color="violet"
+              w="100%"
+            >
               <Flex direction="column" p="md" ta="center">
                 <Text size="lg" fw="bold">
                   56
@@ -50,7 +56,13 @@ export function HomeContent() {
               </Flex>
             </Avatar>
 
-            <Avatar radius="md" variant="filled" size="xl" color="yellow">
+            <Avatar
+              radius="md"
+              variant="filled"
+              size="xl"
+              color="yellow"
+              w="100%"
+            >
               <Flex direction="column" p="md" ta="center">
                 <Text size="lg" fw="bold">
                   3
@@ -59,7 +71,7 @@ export function HomeContent() {
               </Flex>
             </Avatar>
 
-            <Avatar radius="md" variant="filled" size="xl" color="red">
+            <Avatar radius="md" variant="filled" size="xl" color="red" w="100%">
               <Flex direction="column" p="md" ta="center">
                 <Text size="lg" fw="bold">
                   2
