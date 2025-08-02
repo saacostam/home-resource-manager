@@ -7,8 +7,6 @@ import { TTaskTableModeType } from "../types";
 export function TasksTableModalManager() {
   const { mode, setMode } = useTasksTable();
 
-  console.log(mode);
-
   const onClose = useCallback(() => {
     setMode({ type: TTaskTableModeType.BROWSE });
   }, [setMode]);
