@@ -1,1 +1,1 @@
-export * from "./components";
+export { CreateResource } from "./components";

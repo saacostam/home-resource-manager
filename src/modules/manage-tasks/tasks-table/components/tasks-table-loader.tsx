@@ -3,6 +3,7 @@ import { QueryError } from "@/modules/core.components";
 import { PlusIcon } from "@/modules/icons";
 import { useTasksTableLoader } from "../hooks";
 import { TasksTableContent } from "./tasks-table-content";
+import { TasksTableModalManager } from "./tasks-table-modal-manager";
 import { TasksTableSkeleton } from "./tasks-table-skeleton";
 
 export function TasksTableLoader() {
@@ -52,7 +53,7 @@ export function TasksTableLoader() {
           />
         )}
       </Paper>
-      {status === "success" && null}
+      {status === "success" && <TasksTableModalManager />}
     </>
   );
 }
