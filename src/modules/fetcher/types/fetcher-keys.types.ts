@@ -3,6 +3,7 @@ export enum QueryKey {
 
   GET_ALL_CATEGORIES = "Get All Categories",
   GET_ALL_RESOURCES = "Get All Resources",
+  GET_ALL_TASKS = "Get All Tasks",
 
   GET_CATEGORY_BY_ID = "Get Category By Id",
   GET_RESOURCE_BY_ID = "Get Resource By Id",

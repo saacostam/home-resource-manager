@@ -93,7 +93,7 @@ export function HomeContent() {
             <Button
               size="sm"
               component={Link}
-              to={genRoute({ type: TRouteType.CATEGORIES })}
+              to={genRoute({ type: TRouteType.TASKS })}
             >
               Add New Task
             </Button>

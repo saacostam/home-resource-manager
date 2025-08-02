@@ -4,6 +4,7 @@ export enum TRouteType {
   DASHBOARD = "base",
   CATEGORIES = "categories",
   RESOURCES = "resources",
+  TASKS = "tasks",
 }
 
 export type TGenRouteAction =
@@ -21,6 +22,9 @@ export type TGenRouteAction =
     }
   | {
       type: TRouteType.RESOURCES;
+    }
+  | {
+      type: TRouteType.TASKS;
     };
 
 export function genRoute(action: TGenRouteAction): string {
@@ -39,6 +43,9 @@ export function genRoute(action: TGenRouteAction): string {
     }
     case TRouteType.RESOURCES: {
       return "/manage-resources";
+    }
+    case TRouteType.TASKS: {
+      return "/manage-tasks";
     }
   }
 }

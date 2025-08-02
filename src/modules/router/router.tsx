@@ -6,6 +6,7 @@ import {
   LoginPage,
   ManageCategoriesPage,
   ManageResourcesPage,
+  ManageTasksPage,
   SignupPage,
 } from "@/modules/pages";
 import { AuthSessionProvider } from "../auth";
@@ -21,6 +22,7 @@ export const router = createBrowserRouter([
           { index: true, element: <HomePage /> },
           { path: "manage-categories", element: <ManageCategoriesPage /> },
           { path: "manage-resources", element: <ManageResourcesPage /> },
+          { path: "manage-tasks", element: <ManageTasksPage /> },
         ],
       },
       {
