@@ -52,6 +52,12 @@ export function usePrivateTasksTable() {
           });
           break;
         }
+        case TTaskTableModeType.EDIT: {
+          setParams({
+            id: mode.id,
+            type: TTaskTableModeType.EDIT,
+          });
+        }
       }
 
       void nav({
@@ -77,10 +83,20 @@ export function usePrivateTasksTable() {
       case TTaskTableModeType.DELETE: {
         if (id) {
           return {
+            id,
             type: TTaskTableModeType.DELETE,
-            id: id,
           };
         }
+        break;
+      }
+      case TTaskTableModeType.EDIT: {
+        if (id) {
+          return {
+            id,
+            type: TTaskTableModeType.EDIT,
+          };
+        }
+        break;
       }
     }
 

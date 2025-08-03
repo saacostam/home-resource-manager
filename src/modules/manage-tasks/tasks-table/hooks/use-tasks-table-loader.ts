@@ -20,18 +20,22 @@ export function useTasksTableLoader() {
   const onDelete = useCallback(
     (id: string) => {
       setMode({
-        type: TTaskTableModeType.DELETE,
         id,
+        type: TTaskTableModeType.DELETE,
       });
     },
     [setMode],
   );
 
-  const onEdit = useCallback(() => {
-    setMode({
-      type: TTaskTableModeType.EDIT,
-    });
-  }, [setMode]);
+  const onEdit = useCallback(
+    (id: string) => {
+      setMode({
+        id,
+        type: TTaskTableModeType.EDIT,
+      });
+    },
+    [setMode],
+  );
 
   return useMemo(
     () =>

@@ -4,6 +4,7 @@ import { CreateTask } from "@/modules/manage-tasks/create-task";
 import { DeleteTask } from "@/modules/manage-tasks/delete-task";
 import { useTasksTable } from "../provider";
 import { TTaskTableModeType } from "../types";
+import { EditTask } from "../../edit-task";
 
 export function TasksTableModalManager() {
   const { mode, setMode } = useTasksTable();
@@ -32,6 +33,16 @@ export function TasksTableModalManager() {
       >
         {mode.type === TTaskTableModeType.DELETE && (
           <DeleteTask id={mode.id} onClose={onClose} />
+        )}
+      </Modal>
+      <Modal
+        centered
+        opened={mode.type === TTaskTableModeType.EDIT}
+        onClose={onClose}
+        title="Edit Task"
+      >
+        {mode.type === TTaskTableModeType.EDIT && (
+          <EditTask id={mode.id} onClose={onClose} />
         )}
       </Modal>
     </>

@@ -20,9 +20,10 @@ export type TTaskTableMode =
       type: TTaskTableModeType.CREATE;
     }
   | {
-      type: TTaskTableModeType.DELETE;
       id: string;
+      type: TTaskTableModeType.DELETE;
     }
   | {
+      id: string;
       type: TTaskTableModeType.EDIT;
     };
