@@ -1,6 +1,7 @@
 import { ActionIcon, Badge, Group, Table, Text, Tooltip } from "@mantine/core";
 import { EmptyQuery } from "@/modules/core.components";
 import { PencilSquareIcon, TrashIcon } from "@/modules/icons";
+import { StringUtils } from "@/modules/string";
 import type { TTaskTableEntry } from "../types";
 
 export interface TasksTableContentProps {
@@ -41,7 +42,9 @@ export function TasksTableContent({
                 </Text>
               )}
             </Table.Td>
-            <Table.Td visibleFrom="xs">{entry.recurrenceType}</Table.Td>
+            <Table.Td visibleFrom="xs">
+              {StringUtils.prettifyKebabCase(entry.recurrenceType)}
+            </Table.Td>
             <Table.Td>
               <ManagementMenu
                 onDelete={() => {

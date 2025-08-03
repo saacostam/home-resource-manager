@@ -13,29 +13,28 @@ const cadenceDaily = z.object({
 
 const cadenceWeekly = z.object({
   type: z.literal("weekly"),
-  dayOfTheWeek: z.number().int().min(0).max(6),
+  dayOfTheWeek: z.coerce.number().int().min(0).max(6),
 });
 
 const cadenceMonthlyByDay = z.object({
   type: z.literal("monthly-by-day"),
-  dayOfTheMonth: z.number().int().min(1).max(31),
+  dayOfTheMonth: z.coerce.number().int().min(1).max(31),
 });
 
 const cadenceMonthlyByWeekday = z.object({
   type: z.literal("monthly-by-weekday"),
-  weekOfTheMonth: z.number().int().min(1).max(5),
-  dayOfTheWeek: z.number().int().min(0).max(6),
+  weekOfTheMonth: z.coerce.number().int().min(1).max(5),
+  dayOfTheWeek: z.coerce.number().int().min(0).max(6),
 });
 
 const cadenceYearlyByDay = z.object({
   type: z.literal("yearly-by-day"),
-  dayOfTheYear: z.number().int().min(1).max(366),
 });
 
 const cadenceTimeBased = z.object({
   type: z.literal("time-based-recurrence"),
   timeFrame: z.enum(["day", "week", "month"]),
-  amount: z.number().int().min(1),
+  amount: z.coerce.number().int().min(1),
 });
 
 const cadenceField = z.discriminatedUnion("type", [

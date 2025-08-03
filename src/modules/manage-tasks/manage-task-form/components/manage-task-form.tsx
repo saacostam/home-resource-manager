@@ -1,6 +1,7 @@
 import {
   Alert,
   Button,
+  Divider,
   MultiSelect,
   Select,
   Space,
@@ -13,6 +14,7 @@ import type {
   TGetAllResourcesResponse,
 } from "@/modules/core.fetching-hooks";
 import type { TManageTaskForm, useManageTaskForm } from "../hooks";
+import { ManageTaskFormCadence } from "./manage-task-cadence-form";
 
 export interface ManageTaskFormProps {
   action: string;
@@ -91,7 +93,8 @@ export function ManageTaskForm({
         error={errors.categoryId?.message}
         nothingFoundMessage="Nothing found..."
       />
-      <Space h="sm" />
+      <Divider my="sm" />
+      <ManageTaskFormCadence form={form} cadence={form.watch("cadence")} />
       <DatePickerInput
         label="Starting Date"
         placeholder="Pick Starting Date"
