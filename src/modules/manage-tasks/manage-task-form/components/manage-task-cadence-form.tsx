@@ -155,7 +155,7 @@ export function ManageTaskFormCadence({
               const nn = Number(v);
               form.setValue("cadence.amount", Number.isNaN(nn) ? 0 : nn);
             }}
-            min={0}
+            min={1}
             max={100}
             // error={form.formState.errors.cadence?.amount?.message}
           />

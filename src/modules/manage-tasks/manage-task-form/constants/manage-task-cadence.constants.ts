@@ -61,31 +61,31 @@ export const cadenceTypeChangeHandler: Record<
 
 export const WEEK_DAYS = [
   {
-    value: "1",
+    value: "0",
     label: "Mon",
   },
   {
-    value: "2",
+    value: "1",
     label: "Tue",
   },
   {
-    value: "3",
+    value: "2",
     label: "Wed",
   },
   {
-    value: "4",
+    value: "3",
     label: "Thu",
   },
   {
-    value: "5",
+    value: "4",
     label: "Fri",
   },
   {
-    value: "6",
+    value: "5",
     label: "Sat",
   },
   {
-    value: "7",
+    value: "6",
     label: "Sun",
   },
 ];
