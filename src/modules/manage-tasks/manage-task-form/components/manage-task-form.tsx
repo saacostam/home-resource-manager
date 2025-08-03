@@ -93,8 +93,8 @@ export function ManageTaskForm({
       />
       <Space h="sm" />
       <DatePickerInput
-        label="From Date"
-        placeholder="Pick Date"
+        label="Starting Date"
+        placeholder="Pick Starting Date"
         {...form.register("anchorDate")}
         value={form.watch("anchorDate")}
         onChange={(v) => {
