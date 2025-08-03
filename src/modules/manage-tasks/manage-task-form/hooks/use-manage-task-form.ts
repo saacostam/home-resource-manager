@@ -55,7 +55,7 @@ const taskSchema = z.object({
   resourcesIds: z.array(z.string()).nullable(),
   categoryId: z.string().nullable(),
   cadence: cadenceField,
-  anchorDate: z.date(),
+  anchorDate: z.string(),
 });
 
 export type TManageTaskForm = z.infer<typeof taskSchema>;

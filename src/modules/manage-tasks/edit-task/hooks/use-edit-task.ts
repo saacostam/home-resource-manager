@@ -7,7 +7,6 @@ import {
   type TGetTaskByIdResponse,
   usePutUpdateTaskById,
 } from "@/modules/core.fetching-hooks";
-import { DateUtils } from "@/modules/date";
 import { handleApiErrors } from "@/modules/forms";
 import {
   type TManageTaskForm,
@@ -44,7 +43,7 @@ export function useEditTask({
           ? task.category.id
           : "",
       cadence: task.cadence,
-      anchorDate: DateUtils.fromIso8601DateOnly(task.anchorDate),
+      anchorDate: task.anchorDate,
     },
   });
 
@@ -60,7 +59,7 @@ export function useEditTask({
           categoryId: data.categoryId,
           resourcesIds: data.resourcesIds,
           cadence: data.cadence,
-          anchorDate: DateUtils.toIso8601DateOnly(data.anchorDate),
+          anchorDate: data.anchorDate,
         },
         {
           onSuccess: () => {

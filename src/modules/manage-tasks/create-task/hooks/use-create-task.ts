@@ -20,7 +20,7 @@ export function useCreateTask({ onClose }: UseCreateTaskProps) {
       description: "",
       categoryId: null,
       resourcesIds: [],
-      anchorDate: new Date(),
+      anchorDate: DateUtils.today(),
       cadence: {
         type: "daily",
       },
@@ -38,7 +38,7 @@ export function useCreateTask({ onClose }: UseCreateTaskProps) {
           categoryId: data.categoryId,
           resourcesIds: data.resourcesIds,
           cadence: data.cadence,
-          anchorDate: DateUtils.toIso8601DateOnly(data.anchorDate),
+          anchorDate: data.anchorDate,
         },
         {
           onSuccess: () => {

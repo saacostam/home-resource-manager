@@ -98,8 +98,9 @@ export function ManageTaskForm({
         {...form.register("anchorDate")}
         value={form.watch("anchorDate")}
         onChange={(v) => {
-          form.setValue("anchorDate", new Date(v));
+          form.setValue("anchorDate", v);
         }}
+        error={errors.anchorDate?.message}
       />
       {rootErrorMessage && (
         <>
