@@ -2,11 +2,13 @@ export enum QueryKey {
   GET_API_HEALTH = "Get Api Health",
 
   GET_ALL_CATEGORIES = "Get All Categories",
-  GET_ALL_RESOURCES = "Get All Resources",
-  GET_ALL_TASKS = "Get All Tasks",
-
   GET_CATEGORY_BY_ID = "Get Category By Id",
+
+  GET_ALL_RESOURCES = "Get All Resources",
   GET_RESOURCE_BY_ID = "Get Resource By Id",
+
+  GET_ALL_TASKS = "Get All Tasks",
+  GET_TASK_BY_ID = "Get Task By Id",
 }
 
 export enum MutationKey {
@@ -18,6 +20,7 @@ export enum MutationKey {
   POST_CREATE_RESOURCE = "Post Create Resource",
   PUT_UPDATE_RESOURCE = "Put Update Resource",
 
+  DELETE_DELETE_TASK = "Delete Delete Task",
   POST_CREATE_TASK = "Post Create Task",
 
   POST_LOGIN = "Post Login",

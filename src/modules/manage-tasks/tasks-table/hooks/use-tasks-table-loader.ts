@@ -17,11 +17,15 @@ export function useTasksTableLoader() {
     });
   }, [setMode]);
 
-  const onDelete = useCallback(() => {
-    setMode({
-      type: TTaskTableModeType.DELETE,
-    });
-  }, [setMode]);
+  const onDelete = useCallback(
+    (id: string) => {
+      setMode({
+        type: TTaskTableModeType.DELETE,
+        id,
+      });
+    },
+    [setMode],
+  );
 
   const onEdit = useCallback(() => {
     setMode({

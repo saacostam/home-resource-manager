@@ -11,7 +11,7 @@ export enum TableModeSearchParams {
 export function usePrivateTasksTable() {
   const [searchParams] = useSearchParams();
   const nav = useNavigate();
-  const rawType = searchParams.get("type");
+  const rawType = searchParams.get(TableModeSearchParams.TYPE);
 
   const type = useMemo(() => {
     const match = Object.values(TTaskTableModeType).find(
@@ -19,6 +19,7 @@ export function usePrivateTasksTable() {
     );
     return match ?? TTaskTableModeType.BROWSE;
   }, [rawType]);
+  const id = searchParams.get(TableModeSearchParams.ID);
 
   const updateParamsToMode = useCallback(
     (mode: TTaskTableMode) => {
@@ -42,6 +43,14 @@ export function usePrivateTasksTable() {
             id: "",
             type: TTaskTableModeType.CREATE,
           });
+          break;
+        }
+        case TTaskTableModeType.DELETE: {
+          setParams({
+            id: mode.id,
+            type: TTaskTableModeType.DELETE,
+          });
+          break;
         }
       }
 
@@ -65,12 +74,20 @@ export function usePrivateTasksTable() {
           type: TTaskTableModeType.CREATE,
         };
       }
+      case TTaskTableModeType.DELETE: {
+        if (id) {
+          return {
+            type: TTaskTableModeType.DELETE,
+            id: id,
+          };
+        }
+      }
     }
 
     return {
       type: TTaskTableModeType.BROWSE,
     };
-  }, [type]);
+  }, [id, type]);
 
   return useMemo(
     () => ({ mode, setMode: updateParamsToMode }),

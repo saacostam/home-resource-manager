@@ -16,7 +16,6 @@ export function useDeleteDeleteResource() {
       fetch({
         endpoint: `/resource/${data.id}`,
         method: "DELETE",
-        body: data,
       }),
     onSettled: (_, __, { id }) => {
       void queryClient.invalidateQueries({

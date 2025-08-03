@@ -21,6 +21,7 @@ export type TTaskTableMode =
     }
   | {
       type: TTaskTableModeType.DELETE;
+      id: string;
     }
   | {
       type: TTaskTableModeType.EDIT;
