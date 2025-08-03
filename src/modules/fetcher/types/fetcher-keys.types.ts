@@ -18,6 +18,8 @@ export enum MutationKey {
   POST_CREATE_RESOURCE = "Post Create Resource",
   PUT_UPDATE_RESOURCE = "Put Update Resource",
 
+  POST_CREATE_TASK = "Post Create Task",
+
   POST_LOGIN = "Post Login",
   POST_SIGNUP = "Post Signup",
 }

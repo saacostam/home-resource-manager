@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/modules/auth";
+import type { TCadence } from "@/modules/core.types";
 import { QueryKey } from "@/modules/fetcher";
 
 export type TGetAllTasksResponse = {
@@ -9,6 +10,7 @@ export type TGetAllTasksResponse = {
     id: string;
     name: string;
   } | null;
+  cadence: TCadence;
 }[];
 
 export function useGetAllTasks() {

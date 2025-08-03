@@ -27,21 +27,11 @@ export function useEditResourceLoader({ id }: UseEditResourceLoaderProps) {
           : {
               status: "error" as const,
               retry: () => {
-                void Promise.all([resource.refetch, categories.refetch]);
+                void categories.refetch();
+                void resource.refetch();
               },
               isFetching: resource.isFetching || categories.isFetching,
             },
-    [
-      categories.data,
-      categories.isFetching,
-      categories.isLoading,
-      categories.isSuccess,
-      categories.refetch,
-      resource.data,
-      resource.isFetching,
-      resource.isLoading,
-      resource.isSuccess,
-      resource.refetch,
-    ],
+    [categories, resource],
   );
 }

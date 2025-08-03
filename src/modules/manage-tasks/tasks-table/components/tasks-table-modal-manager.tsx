@@ -18,7 +18,9 @@ export function TasksTableModalManager() {
       onClose={onClose}
       title="Create Task"
     >
-      {mode.type === TTaskTableModeType.CREATE && <CreateTask />}
+      {mode.type === TTaskTableModeType.CREATE && (
+        <CreateTask onClose={onClose} />
+      )}
     </Modal>
   );
 }

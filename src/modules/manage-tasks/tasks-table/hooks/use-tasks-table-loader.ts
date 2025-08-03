@@ -2,7 +2,7 @@ import { useCallback, useMemo } from "react";
 import {
   type TGetAllTasksResponse,
   useGetAllTasks,
-} from "@/modules/core.fetching-hooks/tasks";
+} from "@/modules/core.fetching-hooks";
 import { useTasksTable } from "../provider";
 import { type TTaskTableEntry, TTaskTableModeType } from "../types";
 
@@ -70,6 +70,6 @@ export function _mapApiTaskToTableEntry(
     id: apiTask.id,
     name: apiTask.name,
     categoryName: apiTask.category?.name ?? null,
-    recurrenceType: "PLACE_HOLDER_VALUE",
+    recurrenceType: apiTask.cadence.type,
   };
 }
