@@ -1,5 +1,7 @@
+export * from "./bell-alert.icon";
 export * from "./check-circle.icon";
 export * from "./chevron-right.icon";
+export * from "./clock.icon";
 export * from "./cube-transparent.icon";
 export * from "./exclamation-circle.icon";
 export * from "./home-modern.icon";

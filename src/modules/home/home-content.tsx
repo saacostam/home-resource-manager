@@ -11,7 +11,13 @@ import {
   Title,
 } from "@mantine/core";
 import { Link } from "react-router-dom";
-import { ListBulletIcon, RectangleGroupIcon, TagIcon } from "../icons";
+import {
+  BellAlertIcon,
+  ClockIcon,
+  ListBulletIcon,
+  RectangleGroupIcon,
+  TagIcon,
+} from "../icons";
 import { genRoute, TRouteType } from "../routing";
 
 const mockTasks = [
@@ -47,6 +53,11 @@ export function HomeContent() {
                 Total Resources
               </Text>
               <Text style={{ fontSize: "2em" }}>56</Text>
+              <RectangleGroupIcon
+                width={32}
+                height={32}
+                style={{ margin: "0em 0em 0em auto" }}
+              />
             </Card>
 
             <Card
@@ -59,6 +70,11 @@ export function HomeContent() {
                 Pending Tasks
               </Text>
               <Text style={{ fontSize: "2em" }}>3</Text>
+              <ClockIcon
+                width={32}
+                height={32}
+                style={{ margin: "0em 0em 0em auto" }}
+              />
             </Card>
 
             <Card bg="red" variant="filled" w="100%" style={{ color: "white" }}>
@@ -66,11 +82,16 @@ export function HomeContent() {
                 Overdue Tasks
               </Text>
               <Text style={{ fontSize: "2em" }}>2</Text>
+              <BellAlertIcon
+                width={32}
+                height={32}
+                style={{ margin: "0em 0em 0em auto" }}
+              />
             </Card>
           </Flex>
         </Paper>
         <Paper p="md" withBorder flex={2}>
-          <Flex direction="column" justify="flex-end" gap="sm" h="100%">
+          <Flex direction="column" justify="center" gap="sm" h="100%">
             <Button
               size="sm"
               component={Link}
