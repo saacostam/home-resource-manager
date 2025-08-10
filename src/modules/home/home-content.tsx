@@ -11,6 +11,7 @@ import {
   Title,
 } from "@mantine/core";
 import { Link } from "react-router-dom";
+import { ListBulletIcon, RectangleGroupIcon, TagIcon } from "../icons";
 import { genRoute, TRouteType } from "../routing";
 
 const mockTasks = [
@@ -74,6 +75,7 @@ export function HomeContent() {
               size="sm"
               component={Link}
               to={genRoute({ type: TRouteType.RESOURCES })}
+              leftSection={<RectangleGroupIcon width={20} height={20} />}
             >
               Add New Resource
             </Button>
@@ -81,6 +83,7 @@ export function HomeContent() {
               size="sm"
               component={Link}
               to={genRoute({ type: TRouteType.TASKS })}
+              leftSection={<ListBulletIcon width={20} height={20} />}
             >
               Add New Task
             </Button>
@@ -89,6 +92,7 @@ export function HomeContent() {
               component={Link}
               to={genRoute({ type: TRouteType.CATEGORIES })}
               variant="outline"
+              leftSection={<TagIcon width={20} height={20} />}
             >
               Manage Categories
             </Button>

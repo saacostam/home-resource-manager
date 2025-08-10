@@ -77,19 +77,19 @@ export function AppShell() {
           />
           <NavLink
             component={Link}
-            to={genRoute({ type: TRouteType.TASKS })}
-            label="Tasks"
-            description="Stay on top of what needs to get done"
-            variant="light"
-            leftSection={<ListBulletIcon width={20} height={20} />}
-          />
-          <NavLink
-            component={Link}
             to={genRoute({ type: TRouteType.RESOURCES })}
             label="Resources"
             description="Keep track of your home’s assets and items"
             variant="light"
             leftSection={<RectangleGroupIcon width={20} height={20} />}
+          />
+          <NavLink
+            component={Link}
+            to={genRoute({ type: TRouteType.TASKS })}
+            label="Tasks"
+            description="Stay on top of what needs to get done"
+            variant="light"
+            leftSection={<ListBulletIcon width={20} height={20} />}
           />
           <NavLink
             component={Link}
