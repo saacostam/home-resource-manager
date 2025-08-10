@@ -10,7 +10,12 @@ import { useDisclosure } from "@mantine/hooks";
 import { useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "@/modules/auth";
-import { HomeModernIcon, RectangleGroupIcon, TagIcon } from "@/modules/icons";
+import {
+  HomeModernIcon,
+  ListBulletIcon,
+  RectangleGroupIcon,
+  TagIcon,
+} from "@/modules/icons";
 import { genRoute, TRouteType } from "@/modules/routing";
 import { Logo } from "../../core.components";
 
@@ -66,15 +71,23 @@ export function AppShell() {
             component={Link}
             to={genRoute({ type: TRouteType.DASHBOARD })}
             label="Dashboard"
-            description="Overview of your house"
+            description="Overview of your home at a glance"
             variant="light"
             leftSection={<HomeModernIcon width={20} height={20} />}
           />
           <NavLink
             component={Link}
+            to={genRoute({ type: TRouteType.TASKS })}
+            label="Tasks"
+            description="Stay on top of what needs to get done"
+            variant="light"
+            leftSection={<ListBulletIcon width={20} height={20} />}
+          />
+          <NavLink
+            component={Link}
             to={genRoute({ type: TRouteType.RESOURCES })}
             label="Resources"
-            description="Track your house's assets"
+            description="Keep track of your home’s assets and items"
             variant="light"
             leftSection={<RectangleGroupIcon width={20} height={20} />}
           />
@@ -82,7 +95,7 @@ export function AppShell() {
             component={Link}
             to={genRoute({ type: TRouteType.CATEGORIES })}
             label="Categories"
-            description="Customize grouping"
+            description="Organize and customize how things are grouped"
             variant="light"
             leftSection={<TagIcon width={20} height={20} />}
           />

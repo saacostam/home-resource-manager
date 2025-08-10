@@ -1,4 +1,12 @@
-export function ListBulletIcon() {
+import type { CSSProperties } from "react";
+
+export interface ListBulletIconProps {
+  height?: number;
+  width?: number;
+  style?: CSSProperties;
+}
+
+export function ListBulletIcon({ height, width, style }: ListBulletIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +14,11 @@ export function ListBulletIcon() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
+      width={width}
+      height={height}
+      style={style}
     >
+      <title>List Bullet Icon</title>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
