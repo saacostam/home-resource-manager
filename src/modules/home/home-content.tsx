@@ -1,7 +1,7 @@
 import {
-  Avatar,
   Badge,
   Button,
+  Card,
   Checkbox,
   Divider,
   Flex,
@@ -36,49 +36,36 @@ export function HomeContent() {
       </Paper>
       <Flex direction={{ base: "column", md: "row" }} gap="md">
         <Paper p="md" withBorder flex={3}>
-          <Title size="h4" order={4}>
+          <Title size="h3" order={4}>
             Overview
           </Title>
           <Space h="xs" />
-          <Flex direction="row" gap="sm" justify="center">
-            <Avatar
-              radius="md"
-              variant="filled"
-              size="xl"
-              color="violet"
-              w="100%"
-            >
-              <Flex direction="column" p="md" ta="center">
-                <Text size="lg" fw="bold">
-                  56
-                </Text>
-                <Text size="sm">Total Resources</Text>
-              </Flex>
-            </Avatar>
+          <Flex direction="row" gap="md" justify="center">
+            <Card bg="violet" w="100%" style={{ color: "white" }}>
+              <Text size="md" fw="bold">
+                Total Resources
+              </Text>
+              <Text style={{ fontSize: "2em" }}>56</Text>
+            </Card>
 
-            <Avatar
-              radius="md"
+            <Card
+              bg="yellow"
               variant="filled"
-              size="xl"
-              color="yellow"
               w="100%"
+              style={{ color: "white" }}
             >
-              <Flex direction="column" p="md" ta="center">
-                <Text size="lg" fw="bold">
-                  3
-                </Text>
-                <Text size="sm">Pending Tasks</Text>
-              </Flex>
-            </Avatar>
+              <Text size="md" fw="bold">
+                Pending Tasks
+              </Text>
+              <Text style={{ fontSize: "2em" }}>3</Text>
+            </Card>
 
-            <Avatar radius="md" variant="filled" size="xl" color="red" w="100%">
-              <Flex direction="column" p="md" ta="center">
-                <Text size="lg" fw="bold">
-                  2
-                </Text>
-                <Text size="sm">Overdue Tasks</Text>
-              </Flex>
-            </Avatar>
+            <Card bg="red" variant="filled" w="100%" style={{ color: "white" }}>
+              <Text size="md" fw="bold">
+                Overdue Tasks
+              </Text>
+              <Text style={{ fontSize: "2em" }}>2</Text>
+            </Card>
           </Flex>
         </Paper>
         <Paper p="md" withBorder flex={2}>
@@ -111,7 +98,7 @@ export function HomeContent() {
       <Space h="md" />
       <Flex direction={{ base: "column", md: "row" }} gap="md">
         <Paper p="md" withBorder flex={3}>
-          <Title size="h4" order={4}>
+          <Title size="h3" order={4}>
             My Tasks
           </Title>
           <Text size="sm" c="gray">
@@ -134,7 +121,7 @@ export function HomeContent() {
           ))}
         </Paper>
         <Paper withBorder p="md" flex={2}>
-          <Title size="h4" order={4}>
+          <Title size="h3" order={4}>
             My Resources
           </Title>
           <Text size="sm" c="gray">
