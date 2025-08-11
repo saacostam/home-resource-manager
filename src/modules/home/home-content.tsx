@@ -2,7 +2,6 @@ import {
   Badge,
   Button,
   Card,
-  Checkbox,
   Divider,
   Flex,
   Paper,
@@ -18,6 +17,7 @@ import {
   RectangleGroupIcon,
   TagIcon,
 } from "../icons";
+import { ImmediateTasksLoader } from "../immediate-tasks";
 import { genRoute, TRouteType } from "../routing";
 
 const mockTasks = [
@@ -130,20 +130,7 @@ export function HomeContent() {
             Most immediate tasks.
           </Text>
           <Space h="xs" />
-          {mockTasks.slice(0, 3).map((task, index, tasks) => (
-            <div key={+index}>
-              <Paper p="sm">
-                <Flex gap="sm" align="center">
-                  <Checkbox defaultChecked={task.checked} />
-                  <Paper style={{ flex: 1 }}>
-                    <Text size="sm">{task.label}</Text>
-                  </Paper>
-                  <Badge>{task.category}</Badge>
-                </Flex>
-              </Paper>
-              {index < tasks.length - 1 && <Divider />}
-            </div>
-          ))}
+          <ImmediateTasksLoader />
         </Paper>
         <Paper withBorder p="md" flex={2}>
           <Title size="h3" order={4}>

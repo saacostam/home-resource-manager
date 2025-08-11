@@ -9,6 +9,8 @@ export enum QueryKey {
 
   GET_ALL_TASKS = "Get All Tasks",
   GET_TASK_BY_ID = "Get Task By Id",
+
+  GET_ALL_TASK_INSTANCES = "Get All Task Instances",
 }
 
 export enum MutationKey {

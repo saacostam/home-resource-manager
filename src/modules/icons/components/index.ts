@@ -1,4 +1,5 @@
 export * from "./bell-alert.icon";
+export * from "./calendar-days.icon";
 export * from "./check-circle.icon";
 export * from "./chevron-right.icon";
 export * from "./clock.icon";
