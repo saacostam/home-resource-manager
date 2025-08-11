@@ -26,6 +26,9 @@ export enum MutationKey {
   POST_CREATE_TASK = "Post Create Task",
   PUT_UPDATE_TASK = "Put Update Task",
 
+  DELETE_DELETE_TASK_COMPLETION = "Delete Delete Task Completion",
+  POST_CREATE_TASK_COMPLETION = "Post Create Task Completion",
+
   POST_LOGIN = "Post Login",
   POST_SIGNUP = "Post Signup",
 }
