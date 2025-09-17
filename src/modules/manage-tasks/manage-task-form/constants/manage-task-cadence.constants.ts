@@ -30,7 +30,7 @@ export const cadenceTypeChangeHandler: Record<
   "monthly-by-weekday": (form) => {
     form.setValue("cadence", {
       type: "monthly-by-weekday",
-      dayOfTheWeek: 1,
+      dayOfTheWeek: 0,
       weekOfTheMonth: 1,
     });
   },
