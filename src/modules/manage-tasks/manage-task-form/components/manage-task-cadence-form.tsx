@@ -27,9 +27,10 @@ export function ManageTaskFormCadence({
   // it triggers an effect that runs a handler that sets default to the form.
   const [hiddenType, setHiddenType] = useState(type);
   useEffect(() => {
+    if (hiddenType === cadence.type) return; // Only update if the types has changed.
     const handler = cadenceTypeChangeHandler[hiddenType];
     handler(form);
-  }, [form, hiddenType]);
+  }, [cadence.type, form, hiddenType]);
 
   return (
     <>
