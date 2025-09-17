@@ -164,7 +164,7 @@ export function _formatApiTaskInstanceResponseToTableEntries(
 
   return Array.from(grouping, ([key, value]) => {
     return {
-      utcDate: new Date(key),
+      utcDate: new Date(`${key}T00:00:00`),
       entries: value,
     };
   }).sort((a, b) => a.utcDate.getTime() - b.utcDate.getTime());
