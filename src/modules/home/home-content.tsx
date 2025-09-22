@@ -1,14 +1,9 @@
-import { Button, Card, Flex, Paper, Space, Text, Title } from "@mantine/core";
+import { Button, Flex, Paper, Space, Text, Title } from "@mantine/core";
 import { Link } from "react-router-dom";
-import {
-  BellAlertIcon,
-  ClockIcon,
-  ListBulletIcon,
-  RectangleGroupIcon,
-  TagIcon,
-} from "../icons";
+import { ListBulletIcon, RectangleGroupIcon, TagIcon } from "../icons";
 import { ImmediateTasksLoader } from "../immediate-tasks";
 import { genRoute, TRouteType } from "../routing";
+import { StatsLoader } from "../stats";
 
 export function HomeContent() {
   return (
@@ -27,48 +22,7 @@ export function HomeContent() {
             Overview
           </Title>
           <Space h="xs" />
-          <Flex direction="row" gap="md" justify="center">
-            <Card bg="violet" w="100%" style={{ color: "white" }}>
-              <Text size="md" fw="bold">
-                Total Resources
-              </Text>
-              <Text style={{ fontSize: "2em" }}>56</Text>
-              <RectangleGroupIcon
-                width={32}
-                height={32}
-                style={{ margin: "0em 0em 0em auto" }}
-              />
-            </Card>
-
-            <Card
-              bg="yellow"
-              variant="filled"
-              w="100%"
-              style={{ color: "white" }}
-            >
-              <Text size="md" fw="bold">
-                Pending Tasks
-              </Text>
-              <Text style={{ fontSize: "2em" }}>3</Text>
-              <ClockIcon
-                width={32}
-                height={32}
-                style={{ margin: "0em 0em 0em auto" }}
-              />
-            </Card>
-
-            <Card bg="red" variant="filled" w="100%" style={{ color: "white" }}>
-              <Text size="md" fw="bold">
-                Overdue Tasks
-              </Text>
-              <Text style={{ fontSize: "2em" }}>2</Text>
-              <BellAlertIcon
-                width={32}
-                height={32}
-                style={{ margin: "0em 0em 0em auto" }}
-              />
-            </Card>
-          </Flex>
+          <StatsLoader />
         </Paper>
         <Paper p="md" withBorder flex={2}>
           <Flex direction="column" justify="center" gap="sm" h="100%">

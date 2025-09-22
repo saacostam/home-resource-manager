@@ -1,4 +1,16 @@
-export function CheckCircleIcon() {
+import type { CSSProperties } from "react";
+
+export interface CheckCircleIconProps {
+  width?: number;
+  height?: number;
+  style?: CSSProperties;
+}
+
+export function CheckCircleIcon({
+  width,
+  height,
+  style,
+}: CheckCircleIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,6 +18,9 @@ export function CheckCircleIcon() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
+      width={width}
+      height={height}
+      style={style}
     >
       <path
         strokeLinecap="round"

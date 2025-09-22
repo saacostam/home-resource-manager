@@ -14,7 +14,7 @@ import type { TImmediateTaskEntry } from "../types";
 export function useImmediateTasksLoader() {
   const queryClient = useQueryClient();
 
-  const tasksInstances = useGetImmediateTaskInstances();
+  const immediateTaskInstances = useGetImmediateTaskInstances();
 
   const createTaskCompletion = usePostCreateTaskCompletion();
   const deleteTaskCompletion = useDeleteDeleteTaskCompletion();
@@ -107,28 +107,29 @@ export function useImmediateTasksLoader() {
 
   return useMemo(
     () =>
-      tasksInstances.isLoading
+      immediateTaskInstances.isLoading
         ? {
             status: "loading" as const,
           }
-        : tasksInstances.isSuccess
+        : immediateTaskInstances.isSuccess
           ? {
               status: "success" as const,
-              tableEntries: _formatApiTaskInstanceResponseToTableEntries(
-                tasksInstances.data,
-              ),
+              tableEntries:
+                _formatApiImmediateTaskInstanceResponseToTableEntries(
+                  immediateTaskInstances.data,
+                ),
               onCreateTaskCompletion,
               onDeleteTaskCompletion,
               isFetching:
-                tasksInstances.isFetching ||
+                immediateTaskInstances.isFetching ||
                 createTaskCompletion.isPending ||
                 deleteTaskCompletion.isPending,
             }
           : {
               status: "error" as const,
               retry: {
-                onClick: tasksInstances.refetch,
-                isPending: tasksInstances.isFetching,
+                onClick: immediateTaskInstances.refetch,
+                isPending: immediateTaskInstances.isFetching,
               },
             },
     [
@@ -136,16 +137,16 @@ export function useImmediateTasksLoader() {
       deleteTaskCompletion.isPending,
       onCreateTaskCompletion,
       onDeleteTaskCompletion,
-      tasksInstances.data,
-      tasksInstances.isFetching,
-      tasksInstances.isLoading,
-      tasksInstances.isSuccess,
-      tasksInstances.refetch,
+      immediateTaskInstances.data,
+      immediateTaskInstances.isFetching,
+      immediateTaskInstances.isLoading,
+      immediateTaskInstances.isSuccess,
+      immediateTaskInstances.refetch,
     ],
   );
 }
 
-export function _formatApiTaskInstanceResponseToTableEntries(
+export function _formatApiImmediateTaskInstanceResponseToTableEntries(
   apiTaskInstances: TGetImmediateTaskInstancesResponse,
 ): TImmediateTaskEntry[] {
   const grouping = new Map<string, TImmediateTaskEntry["entries"]>();

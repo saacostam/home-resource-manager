@@ -13,6 +13,11 @@ export interface TGetImmediateTaskInstancesResponse {
     };
     date: string;
   }[];
+  stats: {
+    totalResources: number;
+    pendingTasks: number;
+    overdueTasks: number;
+  };
 }
 
 export function useGetImmediateTaskInstances() {
