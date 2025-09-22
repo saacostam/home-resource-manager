@@ -3,7 +3,7 @@ import { useAuth } from "@/modules/auth";
 import type { TTaskInstanceStatus } from "@/modules/core.types";
 import { QueryKey } from "@/modules/fetcher";
 
-export type TGetAllTasksInstancesResponse = {
+export type TGetImmediateTaskInstancesResponse = {
   status: TTaskInstanceStatus;
   task: {
     id: string;
@@ -13,14 +13,14 @@ export type TGetAllTasksInstancesResponse = {
   date: string;
 }[];
 
-export function useGetAllTaskIntances() {
+export function useGetImmediateTaskInstances() {
   const { fetch } = useAuth();
 
-  return useQuery<TGetAllTasksInstancesResponse>({
-    queryKey: [QueryKey.GET_ALL_TASK_INSTANCES],
+  return useQuery<TGetImmediateTaskInstancesResponse>({
+    queryKey: [QueryKey.GET_IMMEDIATE_TASK_INSTANCES],
     queryFn: () =>
       fetch({
-        endpoint: "/i/task",
+        endpoint: "/i/task/immediate",
         method: "GET",
       }),
   });

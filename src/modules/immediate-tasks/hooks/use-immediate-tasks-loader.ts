@@ -2,9 +2,9 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useCallback, useMemo } from "react";
 import { v4 as uuidv4 } from "uuid";
 import {
-  type TGetAllTasksInstancesResponse,
+  type TGetImmediateTaskInstancesResponse,
   useDeleteDeleteTaskCompletion,
-  useGetAllTaskIntances,
+  useGetImmediateTaskInstances,
   usePostCreateTaskCompletion,
 } from "@/modules/core.fetching-hooks";
 import { QueryKey } from "@/modules/fetcher";
@@ -14,7 +14,7 @@ import type { TImmediateTaskEntry } from "../types";
 export function useImmediateTasksLoader() {
   const queryClient = useQueryClient();
 
-  const tasksInstances = useGetAllTaskIntances();
+  const tasksInstances = useGetImmediateTaskInstances();
 
   const createTaskCompletion = usePostCreateTaskCompletion();
   const deleteTaskCompletion = useDeleteDeleteTaskCompletion();
@@ -25,12 +25,12 @@ export function useImmediateTasksLoader() {
         // Optimistically update query state
         void queryClient.setQueriesData(
           {
-            queryKey: [QueryKey.GET_ALL_TASK_INSTANCES],
+            queryKey: [QueryKey.GET_IMMEDIATE_TASK_INSTANCES],
             type: "active",
           },
           (
-            data?: TGetAllTasksInstancesResponse,
-          ): TGetAllTasksInstancesResponse | undefined => {
+            data?: TGetImmediateTaskInstancesResponse,
+          ): TGetImmediateTaskInstancesResponse | undefined => {
             if (!data) return data;
 
             return data.map((entry) => {
@@ -66,12 +66,12 @@ export function useImmediateTasksLoader() {
         // Optimistically update query state
         void queryClient.setQueriesData(
           {
-            queryKey: [QueryKey.GET_ALL_TASK_INSTANCES],
+            queryKey: [QueryKey.GET_IMMEDIATE_TASK_INSTANCES],
             type: "active",
           },
           (
-            data?: TGetAllTasksInstancesResponse,
-          ): TGetAllTasksInstancesResponse | undefined => {
+            data?: TGetImmediateTaskInstancesResponse,
+          ): TGetImmediateTaskInstancesResponse | undefined => {
             if (!data) return data;
 
             return data.map((entry) => {
@@ -140,7 +140,7 @@ export function useImmediateTasksLoader() {
 }
 
 export function _formatApiTaskInstanceResponseToTableEntries(
-  apiTaskInstances: TGetAllTasksInstancesResponse,
+  apiTaskInstances: TGetImmediateTaskInstancesResponse,
 ): TImmediateTaskEntry[] {
   const grouping = new Map<string, TImmediateTaskEntry["entries"]>();
 

@@ -21,7 +21,7 @@ export function usePostCreateTaskCompletion() {
       }),
     onSettled: () => {
       void queryClient.invalidateQueries({
-        queryKey: [QueryKey.GET_ALL_TASK_INSTANCES],
+        queryKey: [QueryKey.GET_IMMEDIATE_TASK_INSTANCES],
       });
     },
   });
