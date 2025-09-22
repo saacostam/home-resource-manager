@@ -69,8 +69,7 @@ export function ManageTaskFormCadence({
             value={String(form.watch("cadence.dayOfTheMonth"))}
             onChange={(v) => {
               const n = Number(v);
-              if (n && !Number.isNaN(n))
-                form.setValue("cadence.dayOfTheMonth", n);
+              if (!Number.isNaN(n)) form.setValue("cadence.dayOfTheMonth", n);
             }}
             // error={form.formState.errors.cadence?.dayOfTheMonth?.message}
             nothingFoundMessage="Nothing found..."
@@ -92,8 +91,7 @@ export function ManageTaskFormCadence({
             value={String(form.watch("cadence.weekOfTheMonth"))}
             onChange={(v) => {
               const n = Number(v);
-              if (n && !Number.isNaN(n))
-                form.setValue("cadence.weekOfTheMonth", n);
+              if (!Number.isNaN(n)) form.setValue("cadence.weekOfTheMonth", n);
             }}
             // error={form.formState.errors.cadence?.weekOfTheMonth?.message}
             nothingFoundMessage="Nothing found..."
@@ -111,8 +109,7 @@ export function ManageTaskFormCadence({
             value={String(form.watch("cadence.dayOfTheWeek"))}
             onChange={(v) => {
               const n = Number(v);
-              if (n && !Number.isNaN(n))
-                form.setValue("cadence.dayOfTheWeek", n);
+              if (!Number.isNaN(n)) form.setValue("cadence.dayOfTheWeek", n);
             }}
             // error={form.formState.errors.cadence?.dayOfTheWeek?.message}
             nothingFoundMessage="Nothing found..."
@@ -177,8 +174,7 @@ export function ManageTaskFormCadence({
             value={String(form.watch("cadence.dayOfTheWeek"))}
             onChange={(v) => {
               const n = Number(v);
-              if (n && !Number.isNaN(n))
-                form.setValue("cadence.dayOfTheWeek", n);
+              if (!Number.isNaN(n)) form.setValue("cadence.dayOfTheWeek", n);
             }}
             // error={form.formState.errors.cadence?.dayOfTheWeek?.message}
             nothingFoundMessage="Nothing found..."
