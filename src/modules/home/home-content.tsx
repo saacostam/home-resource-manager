@@ -1,14 +1,4 @@
-import {
-  Badge,
-  Button,
-  Card,
-  Divider,
-  Flex,
-  Paper,
-  Space,
-  Text,
-  Title,
-} from "@mantine/core";
+import { Button, Card, Flex, Paper, Space, Text, Title } from "@mantine/core";
 import { Link } from "react-router-dom";
 import {
   BellAlertIcon,
@@ -19,16 +9,6 @@ import {
 } from "../icons";
 import { ImmediateTasksLoader } from "../immediate-tasks";
 import { genRoute, TRouteType } from "../routing";
-
-const mockTasks = [
-  { label: "Water the Plants", category: "Garden", checked: true },
-  { label: "Grocery shopping", category: "Personal", checked: false },
-  { label: "Grocery shopping", category: "Personal", checked: false },
-  { label: "Fix bike tire", category: "Maintenance", checked: false },
-  { label: "Stretch for 10 min", category: "Health", checked: false },
-  { label: "Stretch for 10 min", category: "Health", checked: false },
-  { label: "Fix bike tire", category: "Maintenance", checked: false },
-];
 
 export function HomeContent() {
   return (
@@ -98,7 +78,7 @@ export function HomeContent() {
               to={genRoute({ type: TRouteType.RESOURCES })}
               leftSection={<RectangleGroupIcon width={20} height={20} />}
             >
-              Add New Resource
+              Resources
             </Button>
             <Button
               size="sm"
@@ -106,7 +86,7 @@ export function HomeContent() {
               to={genRoute({ type: TRouteType.TASKS })}
               leftSection={<ListBulletIcon width={20} height={20} />}
             >
-              Add New Task
+              Tasks
             </Button>
             <Button
               size="sm"
@@ -115,14 +95,14 @@ export function HomeContent() {
               variant="outline"
               leftSection={<TagIcon width={20} height={20} />}
             >
-              Manage Categories
+              Categories
             </Button>
           </Flex>
         </Paper>
       </Flex>
       <Space h="md" />
       <Flex direction={{ base: "column", md: "row" }} gap="md">
-        <Paper p="md" withBorder flex={3}>
+        <Paper p="md" withBorder flex={1}>
           <Title size="h3" order={4}>
             My Tasks
           </Title>
@@ -131,28 +111,6 @@ export function HomeContent() {
           </Text>
           <Space h="xs" />
           <ImmediateTasksLoader />
-        </Paper>
-        <Paper withBorder p="md" flex={2}>
-          <Title size="h3" order={4}>
-            My Resources
-          </Title>
-          <Text size="sm" c="gray">
-            Recently added resources.
-          </Text>
-          <Space h="xs" />
-          {mockTasks.map((task, index, tasks) => (
-            <div key={+index}>
-              <Paper p="sm">
-                <Flex gap="sm" align="center">
-                  <Paper style={{ flex: 1 }}>
-                    <Text size="sm">{task.label}</Text>
-                  </Paper>
-                  <Badge>{task.category}</Badge>
-                </Flex>
-              </Paper>
-              {index < tasks.length - 1 && <Divider />}
-            </div>
-          ))}
         </Paper>
       </Flex>
     </>

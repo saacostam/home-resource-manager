@@ -23,7 +23,7 @@ export function ImmediateTasksContent({
   onDeleteTaskCompletion,
 }: ImmediateTasksContentProps) {
   return (
-    <ScrollArea h={400} offsetScrollbars scrollbarSize={6}>
+    <ScrollArea offsetScrollbars scrollbarSize={6}>
       <Flex direction="column" gap="lg">
         {tableEntries.map((section, si) => (
           <Paper withBorder key={+si}>
