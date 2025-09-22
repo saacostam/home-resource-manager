@@ -21,7 +21,7 @@ const SHARED_ICONS_PROPS = {
 
 export function StatsContent({ stats }: StatsContentProps) {
   return (
-    <Flex direction="row" gap="md" justify="center">
+    <Flex direction={{ base: "column", xs: "row" }} gap="md" justify="center">
       <Card bg="violet" w="100%" style={{ color: "white" }}>
         <Text size="md" fw="bold">
           Total Resources

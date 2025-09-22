@@ -39576,7 +39576,7 @@ function sB() {
 const rd = { width: 32, height: 32, style: { margin: "0em 0em 0em auto" } };
 function oB({ stats: e }) {
   return y.jsxs(Mn, {
-    direction: "row",
+    direction: { base: "column", xs: "row" },
     gap: "md",
     justify: "center",
     children: [
@@ -49203,10 +49203,12 @@ const IF = {
     { value: "4", label: "Fourth" },
     { value: "5", label: "Last" },
   ],
-  ZF = new Array(31).fill(null).map((e, t) => ({
-    value: String(t + 1),
-    label: IF.getOrdinalSuffix(t + 1),
-  })),
+  ZF = new Array(31)
+    .fill(null)
+    .map((e, t) => ({
+      value: String(t + 1),
+      label: IF.getOrdinalSuffix(t + 1),
+    })),
   QF = ["day", "week", "month"];
 function KF({ form: e, cadence: t }) {
   var i;
