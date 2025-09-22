@@ -49,7 +49,7 @@ export const cadenceTypeChangeHandler: Record<
   weekly: (form) => {
     form.setValue("cadence", {
       type: "weekly",
-      dayOfTheWeek: 1,
+      dayOfTheWeek: 0,
     });
   },
   "yearly-by-day": (form) => {
