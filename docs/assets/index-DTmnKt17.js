@@ -49183,12 +49183,10 @@ const IF = {
     { value: "4", label: "Fourth" },
     { value: "5", label: "Last" },
   ],
-  ZF = new Array(31)
-    .fill(null)
-    .map((e, t) => ({
-      value: String(t + 1),
-      label: IF.getOrdinalSuffix(t + 1),
-    })),
+  ZF = new Array(31).fill(null).map((e, t) => ({
+    value: String(t + 1),
+    label: IF.getOrdinalSuffix(t + 1),
+  })),
   QF = ["day", "week", "month"];
 function KF({ form: e, cadence: t }) {
   var i;
