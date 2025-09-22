@@ -61,7 +61,7 @@ export function usePrivateTasksTable() {
       }
 
       void nav({
-        pathname: url.pathname,
+        hash: url.hash,
         search: url.search,
       });
     },
