@@ -48,29 +48,21 @@ It’s a simple way to stay on top of recurring responsibilities and visualize w
 ### Installation
 
     # Clone the repository
-    ```
     git clone https://github.com/your-username/home-resource-manager-fe.git
     cd home-resource-manager-fe
-    ```
 
     # Install dependencies
-    ```
     yarn install
-    ```
 
 ### Development
 
     # Run locally
-    ```
     yarn dev
-    ```
 
 ### Build
 
     # Create a production build
-    ```
     yarn build
-    ```
 
 ---
 
