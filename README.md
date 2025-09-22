@@ -1,4 +1,4 @@
-# Home Resource Manager
+# 🏠 Home Resource Manager
 
 A personal project to experiment with **time-based recurrence** in a practical context: managing recurring household tasks.
 This README covers only the **frontend application**.
@@ -48,8 +48,8 @@ It’s a simple way to stay on top of recurring responsibilities and visualize w
 ### Installation
 
     # Clone the repository
-    git clone https://github.com/your-username/home-resource-manager-fe.git
-    cd home-resource-manager-fe
+    git clone https://github.com/saacostam/home-resource-manager.git
+    cd home-resource-manager
 
     # Install dependencies
     yarn install
