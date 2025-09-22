@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import { AppShell } from "@/modules/layout";
 import {
   ErrorPage,
@@ -11,7 +11,7 @@ import {
 } from "@/modules/pages";
 import { AuthSessionProvider } from "../auth";
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: "/",
     element: <AuthSessionProvider />,
