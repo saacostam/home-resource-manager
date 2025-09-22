@@ -33,21 +33,24 @@ export function useImmediateTasksLoader() {
           ): TGetImmediateTaskInstancesResponse | undefined => {
             if (!data) return data;
 
-            return data.map((entry) => {
-              if (
-                entry.status.type === "virtual" &&
-                entry.date === args.date &&
-                entry.task.id === args.taskId
-              )
-                return {
-                  ...entry,
-                  status: {
-                    type: "mutating" as const,
-                  },
-                };
+            return {
+              ...data,
+              taskInstances: data.taskInstances.map((entry) => {
+                if (
+                  entry.status.type === "virtual" &&
+                  entry.date === args.date &&
+                  entry.task.id === args.taskId
+                )
+                  return {
+                    ...entry,
+                    status: {
+                      type: "mutating" as const,
+                    },
+                  };
 
-              return entry;
-            });
+                return entry;
+              }),
+            };
           },
         );
 
@@ -74,20 +77,23 @@ export function useImmediateTasksLoader() {
           ): TGetImmediateTaskInstancesResponse | undefined => {
             if (!data) return data;
 
-            return data.map((entry) => {
-              if (
-                entry.status.type === "committed" &&
-                entry.status.id === args.taskCompletionId
-              )
-                return {
-                  ...entry,
-                  status: {
-                    type: "mutating" as const,
-                  },
-                };
+            return {
+              ...data,
+              taskInstances: data.taskInstances.map((entry) => {
+                if (
+                  entry.status.type === "committed" &&
+                  entry.status.id === args.taskCompletionId
+                )
+                  return {
+                    ...entry,
+                    status: {
+                      type: "mutating" as const,
+                    },
+                  };
 
-              return entry;
-            });
+                return entry;
+              }),
+            };
           },
         );
 
@@ -144,7 +150,7 @@ export function _formatApiTaskInstanceResponseToTableEntries(
 ): TImmediateTaskEntry[] {
   const grouping = new Map<string, TImmediateTaskEntry["entries"]>();
 
-  for (const taskInstance of apiTaskInstances) {
+  for (const taskInstance of apiTaskInstances.taskInstances) {
     const newEntry = {
       id: uuidv4(),
       name: taskInstance.task.name,
