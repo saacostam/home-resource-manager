@@ -5,5 +5,5 @@ export interface LogoProps {
 }
 
 export function Logo({ style }: LogoProps) {
-  return <img src="/logo.png" height={32} style={style} />;
+  return <img src="logo.png" height={32} style={style} />;
 }

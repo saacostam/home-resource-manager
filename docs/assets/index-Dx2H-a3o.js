@@ -38766,7 +38766,7 @@ function ax({
   });
 }
 function dp({ style: e }) {
-  return y.jsx("img", { src: "/logo.png", height: 32, style: e });
+  return y.jsx("img", { src: "logo.png", height: 32, style: e });
 }
 function rf() {
   return y.jsx(Mn, {
