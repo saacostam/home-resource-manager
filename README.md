@@ -83,3 +83,4 @@ This is a **personal learning project** built mainly to explore:
 Future improvements may include:
 
 - Managing TO-DO lists using rich-text-editor.
+- Configuring timezone.
