@@ -13,6 +13,7 @@ import { useAuth } from "@/modules/auth";
 import {
   HomeModernIcon,
   ListBulletIcon,
+  PencilIcon,
   RectangleGroupIcon,
   TagIcon,
 } from "@/modules/icons";
@@ -90,6 +91,14 @@ export function AppShell() {
             description="Stay on top of what needs to get done"
             variant="light"
             leftSection={<ListBulletIcon width={20} height={20} />}
+          />
+          <NavLink
+            component={Link}
+            to={genRoute({ type: TRouteType.BOARDS })}
+            label="Boards"
+            description="Jot down quick notes, ideas, and running lists"
+            variant="light"
+            leftSection={<PencilIcon width={20} height={20} />}
           />
           <NavLink
             component={Link}

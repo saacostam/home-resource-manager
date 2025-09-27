@@ -1,6 +1,11 @@
 import { Button, Flex, Paper, Space, Text, Title } from "@mantine/core";
 import { Link } from "react-router-dom";
-import { ListBulletIcon, RectangleGroupIcon, TagIcon } from "../icons";
+import {
+  ListBulletIcon,
+  PencilIcon,
+  RectangleGroupIcon,
+  TagIcon,
+} from "../icons";
 import { ImmediateTasksLoader } from "../immediate-tasks";
 import { genRoute, TRouteType } from "../routing";
 import { StatsLoader } from "../stats";
@@ -50,6 +55,15 @@ export function HomeContent() {
               leftSection={<TagIcon width={20} height={20} />}
             >
               Categories
+            </Button>
+            <Button
+              size="sm"
+              component={Link}
+              to={genRoute({ type: TRouteType.BOARDS })}
+              variant="outline"
+              leftSection={<PencilIcon width={20} height={20} />}
+            >
+              Boards
             </Button>
           </Flex>
         </Paper>

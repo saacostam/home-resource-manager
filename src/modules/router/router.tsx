@@ -6,6 +6,7 @@ import {
   LoginPage,
   ManageCategoriesPage,
   ManageResourcesPage,
+  ManageBoardsPage,
   ManageTasksPage,
   SignupPage,
 } from "@/modules/pages";
@@ -22,6 +23,10 @@ export const router = createHashRouter([
           { index: true, element: <HomePage /> },
           { path: "manage-categories", element: <ManageCategoriesPage /> },
           { path: "manage-resources", element: <ManageResourcesPage /> },
+          {
+            path: "manage-boards",
+            element: <ManageBoardsPage />,
+          },
           { path: "manage-tasks", element: <ManageTasksPage /> },
         ],
       },
