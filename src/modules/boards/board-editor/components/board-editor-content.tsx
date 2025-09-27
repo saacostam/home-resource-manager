@@ -5,6 +5,7 @@ import StarterKit from "@tiptap/starter-kit";
 import { RichTextEditor, getTaskListExtension } from "@mantine/tiptap";
 import type { TBoard } from "@/modules/boards/manage-board";
 import { Divider, Flex, Space, Text, Title } from "@mantine/core";
+import Placeholder from "@tiptap/extension-placeholder";
 
 export interface BoardEditorContentProps {
   board: TBoard;
@@ -30,6 +31,9 @@ export function BoardEditorContent({
         HTMLAttributes: {
           class: "test-item",
         },
+      }),
+      Placeholder.configure({
+        placeholder: "Type something to start your board…",
       }),
     ],
     content: board.content,
