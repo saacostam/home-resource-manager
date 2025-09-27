@@ -129,7 +129,7 @@ export function ManageTaskFormCadence({
               label: c,
             }))}
             {...form.register("cadence.timeFrame")}
-            value={String(form.watch("cadence.timeFrame"))}
+            value={form.watch("cadence.timeFrame")}
             onChange={(v) => {
               // WARN: Asserting the type here because the options provided have
               // the correct value type. In case of updates, please validate.

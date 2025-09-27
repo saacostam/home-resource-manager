@@ -10,6 +10,7 @@ export * from "./information-circle.icon";
 export * from "./list-bullet.icon";
 export * from "./no-symbol.icon";
 export * from "./pencil-square.icon";
+export * from "./pencil.icon";
 export * from "./plus.icon";
 export * from "./rectangle-group.icon";
 export * from "./rocket-launch.icon";

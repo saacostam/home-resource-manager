@@ -26,7 +26,7 @@ export function ImmediateTasksContent({
     <ScrollArea offsetScrollbars scrollbarSize={6}>
       <Flex direction="column" gap="lg">
         {tableEntries.map((section, si) => (
-          <Paper withBorder key={+si}>
+          <Paper withBorder key={si}>
             <Flex p="sm" direction="row" align="center" gap="xs">
               <ThemeIcon variant="light">
                 <CalendarDaysIcon width={20} height={20} />
