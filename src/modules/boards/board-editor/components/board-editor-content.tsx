@@ -10,7 +10,6 @@ import Placeholder from "@tiptap/extension-placeholder";
 export interface BoardEditorContentProps {
   board: TBoard;
   updateBoardContent: (content: string) => void;
-  updateBoardName: (name: string) => void;
   isPending: boolean;
   onClickDelete: () => void;
   onClickEditName: () => void;

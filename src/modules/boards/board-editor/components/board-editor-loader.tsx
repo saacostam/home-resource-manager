@@ -13,7 +13,6 @@ export function BoardEditorLoader({ id }: BoardEditorLoaderProps) {
     data,
     retry,
     updateBoardContent,
-    updateBoardName,
     onClickDelete,
     onClickEditName,
     isPending,
@@ -28,7 +27,6 @@ export function BoardEditorLoader({ id }: BoardEditorLoaderProps) {
         isPending={isPending}
         board={data}
         updateBoardContent={updateBoardContent}
-        updateBoardName={updateBoardName}
         onClickDelete={onClickDelete}
         onClickEditName={onClickEditName}
       />

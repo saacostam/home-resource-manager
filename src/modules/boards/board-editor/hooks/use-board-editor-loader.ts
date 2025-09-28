@@ -27,14 +27,6 @@ export function useBoardEditorLoader({ id }: UseBoardEditorLoaderArgs) {
     updateBoardById.mutate({ id, content });
   }, UPDATE_DEBOUNCE_DELAY);
 
-  const updateBoardName: BoardEditorContentProps["updateBoardName"] =
-    useCallback(
-      (name) => {
-        updateBoardById.mutate({ id, name });
-      },
-      [id, updateBoardById],
-    );
-
   const onClickDelete = useCallback(() => {
     setMode({ type: "delete" });
   }, [setMode]);
@@ -52,7 +44,6 @@ export function useBoardEditorLoader({ id }: UseBoardEditorLoaderArgs) {
               status: "success" as const,
               data: _mapApiToDomain({ res: getBoardById.data }),
               updateBoardContent,
-              updateBoardName,
               onClickDelete,
               onClickEditName,
               isPending: updateBoardById.isPending || getBoardById.isPending,
@@ -71,7 +62,6 @@ export function useBoardEditorLoader({ id }: UseBoardEditorLoaderArgs) {
       getBoardById.isSuccess,
       getBoardById.refetch,
       updateBoardContent,
-      updateBoardName,
       updateBoardById.isPending,
       onClickDelete,
       onClickEditName,
