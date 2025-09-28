@@ -1,14 +1,15 @@
 import { Button, Flex, Paper, Space, Text, Title } from "@mantine/core";
 import { Link } from "react-router-dom";
+import { LeanBoardSelectorLoader } from "@/modules/boards/lean-board-selector";
 import {
   ListBulletIcon,
   PencilIcon,
   RectangleGroupIcon,
   TagIcon,
-} from "../icons";
-import { ImmediateTasksLoader } from "../immediate-tasks";
-import { genRoute, TRouteType } from "../routing";
-import { StatsLoader } from "../stats";
+} from "@/modules/icons";
+import { ImmediateTasksLoader } from "@/modules/immediate-tasks";
+import { genRoute, TRouteType } from "@/modules/routing";
+import { StatsLoader } from "@/modules/stats";
 
 export function HomeContent() {
   return (
@@ -70,7 +71,7 @@ export function HomeContent() {
       </Flex>
       <Space h="md" />
       <Flex direction={{ base: "column", md: "row" }} gap="md">
-        <Paper p="md" withBorder flex={1}>
+        <Paper p="md" withBorder flex={3}>
           <Title size="h3" order={4}>
             My Tasks
           </Title>
@@ -79,6 +80,13 @@ export function HomeContent() {
           </Text>
           <Space h="xs" />
           <ImmediateTasksLoader />
+        </Paper>
+        <Paper p="md" withBorder flex={2}>
+          <Title size="h3" order={4}>
+            Boards
+          </Title>
+          <Space h="xs" />
+          <LeanBoardSelectorLoader />
         </Paper>
       </Flex>
     </>
