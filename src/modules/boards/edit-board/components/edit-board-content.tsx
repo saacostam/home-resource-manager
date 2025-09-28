@@ -1,11 +1,5 @@
-import {
-  ManageBoardForm,
-  useManageBoardForm,
-  type TBoard,
-  type TManageBoardForm,
-} from "@/modules/boards/manage-board";
-import { usePutUpdateBoardById } from "@/modules/core.fetching-hooks";
-import { useCallback } from "react";
+import { ManageBoardForm, type TBoard } from "@/modules/boards/manage-board";
+import { useEditBoard } from "../hooks";
 
 export interface EditBoardContentProps {
   board: TBoard;
@@ -13,33 +7,13 @@ export interface EditBoardContentProps {
 }
 
 export function EditBoardContent({ board, onClose }: EditBoardContentProps) {
-  const form = useManageBoardForm({
-    defaultValues: {
-      name: board.name,
-    },
-  });
-
-  const updateBoard = usePutUpdateBoardById();
-
-  const onSubmit = useCallback(
-    (data: TManageBoardForm) => {
-      updateBoard.mutate(
-        { id: board.id, name: data.name },
-        {
-          onSuccess: () => {
-            onClose();
-          },
-        },
-      );
-    },
-    [board.id, updateBoard, onClose],
-  );
+  const { form, isPending, onSubmit } = useEditBoard({ board, onClose });
 
   return (
     <ManageBoardForm
       action="Update"
       form={form}
-      isPending={updateBoard.isPending}
+      isPending={isPending}
       onSubmit={onSubmit}
     />
   );
