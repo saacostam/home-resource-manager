@@ -7,6 +7,9 @@ export enum QueryKey {
   GET_ALL_RESOURCES = "Get All Resources",
   GET_RESOURCE_BY_ID = "Get Resource By Id",
 
+  GET_ALL_BOARDS = "Get All Boards",
+  GET_BOARD_BY_ID = "Get Board By Id",
+
   GET_ALL_TASKS = "Get All Tasks",
   GET_TASK_BY_ID = "Get Task By Id",
 
@@ -21,6 +24,10 @@ export enum MutationKey {
   DELETE_DELETE_RESOURCE = "Delete Delete Resource",
   POST_CREATE_RESOURCE = "Post Create Resource",
   PUT_UPDATE_RESOURCE = "Put Update Resource",
+
+  DELETE_BOARD = "Delete Board",
+  POST_CREATE_BOARD = "Post Create Board",
+  PUT_BOARD = "Put Board",
 
   DELETE_DELETE_TASK = "Delete Delete Task",
   POST_CREATE_TASK = "Post Create Task",
