@@ -74,7 +74,9 @@ export function ImmediateTasksContent({
                       <Paper style={{ flex: 1 }}>
                         <Text size="sm">{entry.name}</Text>
                       </Paper>
-                      <Badge>{entry.categoryName}</Badge>
+                      {entry.categoryName && (
+                        <Badge>{entry.categoryName}</Badge>
+                      )}
                     </Flex>
                   </Paper>
                   {ei < entries.length - 1 && <Divider />}
