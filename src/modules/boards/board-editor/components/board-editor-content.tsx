@@ -4,7 +4,7 @@ import { useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { RichTextEditor, getTaskListExtension } from "@mantine/tiptap";
 import type { TBoard } from "@/modules/boards/manage-board";
-import { Divider, Flex, Space, Text, Title } from "@mantine/core";
+import { Divider, Flex, Space, Text } from "@mantine/core";
 import Placeholder from "@tiptap/extension-placeholder";
 
 export interface BoardEditorContentProps {
@@ -13,6 +13,7 @@ export interface BoardEditorContentProps {
   updateBoardName: (name: string) => void;
   isPending: boolean;
   onClickDelete: () => void;
+  onClickEditName: () => void;
 }
 
 export function BoardEditorContent({
@@ -20,6 +21,7 @@ export function BoardEditorContent({
   updateBoardContent,
   isPending,
   onClickDelete,
+  onClickEditName,
 }: BoardEditorContentProps) {
   const editor = useEditor({
     shouldRerenderOnTransaction: true,
@@ -48,10 +50,6 @@ export function BoardEditorContent({
   return (
     <>
       <Divider mb="md" />
-      <Title order={3} size="h3" ta="center">
-        {board.name}
-      </Title>
-      <Space h="sm" />
       <RichTextEditor editor={editor} variant="subtle">
         <RichTextEditor.Toolbar>
           <RichTextEditor.ControlsGroup>
@@ -78,14 +76,24 @@ export function BoardEditorContent({
       </RichTextEditor>
       <Space h="xs" />
       <Flex gap="sm" justify="space-between">
-        <button
-          onClick={onClickDelete}
-          style={{ all: "unset", cursor: "pointer" }}
-        >
-          <Text size="sm" c="violet" td="underline">
-            Delete
-          </Text>
-        </button>
+        <Flex gap="sm">
+          <button
+            onClick={onClickDelete}
+            style={{ all: "unset", cursor: "pointer" }}
+          >
+            <Text size="sm" c="violet" td="underline">
+              Delete
+            </Text>
+          </button>
+          <button
+            onClick={onClickEditName}
+            style={{ all: "unset", cursor: "pointer" }}
+          >
+            <Text size="sm" c="violet" td="underline">
+              Edit Name
+            </Text>
+          </button>
+        </Flex>
         <Text size="xs" c={isPending ? "violet" : "gray"}>
           {isPending
             ? "Saving..."

@@ -39,6 +39,10 @@ export function useBoardEditorLoader({ id }: UseBoardEditorLoaderArgs) {
     setMode({ type: "delete" });
   }, [setMode]);
 
+  const onClickEditName = useCallback(() => {
+    setMode({ type: "edit" });
+  }, [setMode]);
+
   return useMemo(
     () =>
       getBoardById.isLoading
@@ -50,6 +54,7 @@ export function useBoardEditorLoader({ id }: UseBoardEditorLoaderArgs) {
               updateBoardContent,
               updateBoardName,
               onClickDelete,
+              onClickEditName,
               isPending: updateBoardById.isPending || getBoardById.isPending,
             }
           : {
@@ -69,6 +74,7 @@ export function useBoardEditorLoader({ id }: UseBoardEditorLoaderArgs) {
       updateBoardName,
       updateBoardById.isPending,
       onClickDelete,
+      onClickEditName,
     ],
   );
 }

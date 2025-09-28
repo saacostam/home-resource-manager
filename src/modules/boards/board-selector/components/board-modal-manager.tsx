@@ -2,6 +2,7 @@ import { useCallback } from "react";
 import { Modal } from "@mantine/core";
 import { CreateBoard } from "@/modules/boards/create-board";
 import { DeleteBoard } from "@/modules/boards/delete-board";
+import { EditBoard } from "@/modules/boards/edit-board";
 import { useBoardSelector } from "../providers";
 
 export function BoardModalManager() {
@@ -28,6 +29,14 @@ export function BoardModalManager() {
         title="Delete Board"
       >
         {id && <DeleteBoard onClose={onClose} id={id} />}
+      </Modal>
+      <Modal
+        centered
+        opened={mode.type === "edit"}
+        onClose={onClose}
+        title="Edit Board"
+      >
+        {id && <EditBoard onClose={onClose} id={id} />}
       </Modal>
     </>
   );

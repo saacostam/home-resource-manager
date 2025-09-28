@@ -15,6 +15,7 @@ export function BoardEditorLoader({ id }: BoardEditorLoaderProps) {
     updateBoardContent,
     updateBoardName,
     onClickDelete,
+    onClickEditName,
     isPending,
   } = useBoardEditorLoader({ id });
 
@@ -29,6 +30,7 @@ export function BoardEditorLoader({ id }: BoardEditorLoaderProps) {
         updateBoardContent={updateBoardContent}
         updateBoardName={updateBoardName}
         onClickDelete={onClickDelete}
+        onClickEditName={onClickEditName}
       />
     );
 

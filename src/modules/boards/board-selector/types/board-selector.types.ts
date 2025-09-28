@@ -7,4 +7,7 @@ export type TBoardSelectorMode =
     }
   | {
       type: "delete";
+    }
+  | {
+      type: "edit";
     };
