@@ -1,6 +1,6 @@
 import { ModalLoader, QueryError } from "@/modules/core.components";
-import { useGetBoardById } from "@/modules/core.fetching-hooks";
 import { EditBoardContent } from "./edit-board-content";
+import { useEditBoardLoader } from "../hooks";
 
 export interface EditBoardProps {
   id: string;
@@ -8,20 +8,13 @@ export interface EditBoardProps {
 }
 
 export function EditBoard({ id, onClose }: EditBoardProps) {
-  const getBoardById = useGetBoardById({ req: { id } });
+  const { status, data, retry } = useEditBoardLoader({ id });
 
-  if (getBoardById.isError)
-    return (
-      <QueryError
-        title="Couldn't fetch board."
-        retry={{
-          onClick: () => void getBoardById.refetch(),
-          isPending: getBoardById.isPending,
-        }}
-      />
-    );
-  if (getBoardById.isSuccess)
-    return <EditBoardContent board={getBoardById.data} onClose={onClose} />;
+  if (status === "error")
+    return <QueryError title="Couldn't fetch board." retry={retry} />;
+
+  if (status === "success")
+    return <EditBoardContent board={data} onClose={onClose} />;
 
   return <ModalLoader />;
 }
