@@ -79,7 +79,3 @@ This is a **personal learning project** built mainly to explore:
 - Managing **dates, times, and timezones**
 - Implementing **recurrence rules** for tasks
 - Handling **time-based logic**
-
-Future improvements may include:
-
-- Configuring timezone.
