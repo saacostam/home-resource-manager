@@ -1,3 +1,4 @@
+import { isAxiosError } from "axios";
 import { useCallback, useMemo } from "react";
 import {
   useManageBoardForm,
@@ -5,6 +6,8 @@ import {
   type TManageBoardForm,
 } from "@/modules/boards/manage-board";
 import { usePutUpdateBoardById } from "@/modules/core.fetching-hooks";
+import { handleApiErrors } from "@/modules/forms";
+import { notifications } from "@mantine/notifications";
 
 export interface UseEditBoardArgs {
   board: TBoard;
@@ -27,11 +30,27 @@ export function useEditBoard({ board, onClose }: UseEditBoardArgs) {
         {
           onSuccess: () => {
             onClose();
+            notifications.show({
+              color: "green",
+              title: "Updated",
+              message: "Board name updated successfully",
+            });
+          },
+          onError: (error) => {
+            if (!isAxiosError(error)) {
+              form.setError("root", { message: "Something went wrong!" });
+              return;
+            }
+
+            handleApiErrors({
+              axiosError: error,
+              setError: form.setError,
+            });
           },
         },
       );
     },
-    [board.id, updateBoard, onClose],
+    [board.id, form, onClose, updateBoard],
   );
 
   return useMemo(

@@ -1,6 +1,7 @@
 import { useDeleteBoardById } from "@/modules/core.fetching-hooks";
 import { useCallback, useMemo } from "react";
 import { useBoardSelector } from "@/modules/boards/board-selector";
+import { notifications } from "@mantine/notifications";
 
 export interface UseDeleteBoardArgs {
   id: string;
@@ -17,8 +18,22 @@ export function useDeleteBoard({ id, onClose }: UseDeleteBoardArgs) {
       { id },
       {
         onSuccess: () => {
-          onClose();
           setId(null);
+          notifications.show({
+            color: "green",
+            title: "Deleted",
+            message: "Board deleted successfully",
+          });
+        },
+        onError: () => {
+          notifications.show({
+            color: "red",
+            title: "Failed",
+            message: "Couldn't delete board. Please try again shortly.",
+          });
+        },
+        onSettled: () => {
+          onClose();
         },
       },
     );
