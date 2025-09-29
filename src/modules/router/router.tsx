@@ -9,6 +9,7 @@ import {
   ManageBoardsPage,
   ManageTasksPage,
   SignupPage,
+  SettingsPage,
 } from "@/modules/pages";
 import { AuthSessionProvider } from "../auth";
 import { RepositoriesProvider } from "../repositories/app";
@@ -28,6 +29,7 @@ export const router = createHashRouter([
         element: <AppShell />,
         children: [
           { index: true, element: <HomePage /> },
+          { path: "settings", element: <SettingsPage /> },
           { path: "manage-categories", element: <ManageCategoriesPage /> },
           { path: "manage-resources", element: <ManageResourcesPage /> },
           {

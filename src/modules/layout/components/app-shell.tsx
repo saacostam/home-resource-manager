@@ -3,14 +3,17 @@ import {
   Burger,
   Button,
   Container,
+  Flex,
   Group,
   NavLink,
+  Paper,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useEffect } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "@/modules/auth";
 import {
+  Cog6ToothIcon,
   HomeModernIcon,
   ListBulletIcon,
   PencilIcon,
@@ -19,6 +22,7 @@ import {
 } from "@/modules/icons";
 import { genRoute, TRouteType } from "@/modules/routing";
 import { Logo } from "../../core.components";
+import { UserPanelLoader } from "@/modules/user";
 
 export function AppShell() {
   const [mobileOpened, { toggle: toggleMobile, close: closeMobile }] =
@@ -64,6 +68,9 @@ export function AppShell() {
           >
             <Logo />
           </Link>
+          <Paper ml="auto">
+            <UserPanelLoader />
+          </Paper>
         </Group>
       </AppShellMantine.Header>
       <AppShellMantine.Navbar p="md">
@@ -109,9 +116,17 @@ export function AppShell() {
             leftSection={<TagIcon width={20} height={20} />}
           />
         </Group>
-        <Button mt="auto" onClick={logout}>
-          Log Out
-        </Button>
+        <Flex direction="column" gap="md" mt="auto">
+          <NavLink
+            component={Link}
+            to={genRoute({ type: TRouteType.SETTINGS })}
+            label="Settings"
+            description="Manage your account and preferences"
+            variant="light"
+            leftSection={<Cog6ToothIcon width={20} height={20} />}
+          />
+          <Button onClick={logout}>Log Out</Button>
+        </Flex>
       </AppShellMantine.Navbar>
       <AppShellMantine.Main>
         <Container>

@@ -5,4 +5,5 @@ export * from "./manage-categories";
 export * from "./manage-resources";
 export * from "./manage-boards";
 export * from "./manage-tasks";
+export * from "./settings";
 export * from "./signup";

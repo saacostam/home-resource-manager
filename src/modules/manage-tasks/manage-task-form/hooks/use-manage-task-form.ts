@@ -59,11 +59,11 @@ const taskSchema = z.object({
 
 export type TManageTaskForm = z.infer<typeof taskSchema>;
 
-export interface useManageTaskFormProps {
+export interface UseManageTaskFormProps {
   defaultValues: TManageTaskForm;
 }
 
-export function useManageTaskForm({ defaultValues }: useManageTaskFormProps) {
+export function useManageTaskForm({ defaultValues }: UseManageTaskFormProps) {
   return useForm({
     defaultValues,
     resolver: zodResolver(taskSchema),

@@ -16,6 +16,8 @@ export enum QueryKey {
   GET_IMMEDIATE_TASK_INSTANCES = "Get Immediate Task Instances",
 
   GET_ALL_TIMEZONES = "Get All Timezones",
+
+  GET_MY_USER = "Get My User",
 }
 
 export enum MutationKey {
@@ -40,4 +42,6 @@ export enum MutationKey {
 
   POST_LOGIN = "Post Login",
   POST_SIGNUP = "Post Signup",
+
+  PUT_SETTINGS = "Put Settings",
 }
