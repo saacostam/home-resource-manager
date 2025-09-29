@@ -1,5 +1,5 @@
-import { Signup } from "@/modules/signup";
+import { SignupLoader } from "@/modules/signup";
 
 export function SignupPage() {
-  return <Signup />;
+  return <SignupLoader />;
 }

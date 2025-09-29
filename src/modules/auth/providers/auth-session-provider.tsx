@@ -1,4 +1,5 @@
-import { Navigate, Outlet, useLocation } from "react-router-dom";
+import type { PropsWithChildren } from "react";
+import { Navigate, useLocation } from "react-router-dom";
 import { genRoute, TRouteType } from "@/modules/routing";
 import { usePrivateAuth } from "./use-private-auth";
 import { useAuth } from "./use-auth";
@@ -13,7 +14,7 @@ const ROUTES_WITHOUT_AUTH = [
   }),
 ];
 
-function AuthSessionGuard() {
+function AuthSessionGuard({ children }: PropsWithChildren) {
   const { pathname } = useLocation();
   const { status } = useAuth();
 
@@ -27,14 +28,14 @@ function AuthSessionGuard() {
   ) : shouldRedirectToBaseUrl ? (
     <Navigate to={genRoute({ type: TRouteType.DASHBOARD })} replace />
   ) : (
-    <Outlet />
+    children
   );
 }
 
-export function AuthSessionProvider() {
+export function AuthSessionProvider({ children }: PropsWithChildren) {
   return (
     <authContext.Provider value={usePrivateAuth()}>
-      <AuthSessionGuard />
+      <AuthSessionGuard>{children}</AuthSessionGuard>
     </authContext.Provider>
   );
 }

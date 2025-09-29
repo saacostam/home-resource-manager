@@ -1,4 +1,4 @@
-import { createHashRouter } from "react-router-dom";
+import { createHashRouter, Outlet } from "react-router-dom";
 import { AppShell } from "@/modules/layout";
 import {
   ErrorPage,
@@ -11,11 +11,18 @@ import {
   SignupPage,
 } from "@/modules/pages";
 import { AuthSessionProvider } from "../auth";
+import { RepositoriesProvider } from "../repositories/app";
 
 export const router = createHashRouter([
   {
     path: "/",
-    element: <AuthSessionProvider />,
+    element: (
+      <AuthSessionProvider>
+        <RepositoriesProvider>
+          <Outlet />
+        </RepositoriesProvider>
+      </AuthSessionProvider>
+    ),
     children: [
       {
         element: <AppShell />,

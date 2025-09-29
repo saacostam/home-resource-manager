@@ -14,6 +14,8 @@ export enum QueryKey {
   GET_TASK_BY_ID = "Get Task By Id",
 
   GET_IMMEDIATE_TASK_INSTANCES = "Get Immediate Task Instances",
+
+  GET_ALL_TIMEZONES = "Get All Timezones",
 }
 
 export enum MutationKey {

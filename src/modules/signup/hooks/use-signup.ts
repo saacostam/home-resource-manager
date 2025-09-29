@@ -13,9 +13,14 @@ const signupSchema = z.object({
   lastName: z.string().min(1, { message: "Last Name is required" }).max(48),
   username: z.string().min(1, { message: "Username is required" }).max(48),
   password: z.string().min(1, { message: "Password is required" }).max(48),
+  timezone: z.string(),
 });
 
-export function useSignup() {
+export interface UseSignupArgs {
+  defaultTimezone: string;
+}
+
+export function useSignup({ defaultTimezone }: UseSignupArgs) {
   const navigate = useNavigate();
   const signup = usePostSignup();
 
@@ -25,6 +30,7 @@ export function useSignup() {
       lastName: "",
       username: "",
       password: "",
+      timezone: defaultTimezone,
     },
     resolver: zodResolver(signupSchema),
   });
