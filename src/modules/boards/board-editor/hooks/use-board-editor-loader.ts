@@ -1,5 +1,6 @@
 import { useCallback, useMemo } from "react";
 import { useDebouncedCallback } from "@mantine/hooks";
+import { notifications } from "@mantine/notifications";
 import { useBoardSelector } from "@/modules/boards/board-selector";
 import type { TBoard } from "@/modules/boards/manage-board";
 import {
@@ -24,7 +25,19 @@ export function useBoardEditorLoader({ id }: UseBoardEditorLoaderArgs) {
   const updateBoardContent = useDebouncedCallback<
     BoardEditorContentProps["updateBoardContent"]
   >((content) => {
-    updateBoardById.mutate({ id, content });
+    updateBoardById.mutate(
+      { id, content },
+      {
+        onError: () => {
+          notifications.show({
+            color: "red",
+            title: "Failed",
+            message:
+              "Unable to save board content. Some changes may not have been saved. Please try again shortly.",
+          });
+        },
+      },
+    );
   }, UPDATE_DEBOUNCE_DELAY);
 
   const onClickDelete = useCallback(() => {

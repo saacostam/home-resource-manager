@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useDebouncedCallback } from "@mantine/hooks";
+import { notifications } from "@mantine/notifications";
 import type { TBoard } from "@/modules/boards/manage-board";
 import {
   useGetBoardById,
@@ -21,7 +22,19 @@ export function useLeanBoardEditorLoader({ id }: UseLeanBoardEditorLoaderArgs) {
   const updateBoardContent = useDebouncedCallback<
     LeanBoardEditorContentProps["updateBoardContent"]
   >((content) => {
-    updateBoardById.mutate({ id, content });
+    updateBoardById.mutate(
+      { id, content },
+      {
+        onError: () => {
+          notifications.show({
+            color: "red",
+            title: "Failed",
+            message:
+              "Unable to save board content. Some changes may not have been saved. Please try again shortly.",
+          });
+        },
+      },
+    );
   }, UPDATE_DEBOUNCE_DELAY);
 
   return useMemo(
