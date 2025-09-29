@@ -33,7 +33,6 @@ export function useLeanBoardEditorLoader({ id }: UseLeanBoardEditorLoaderArgs) {
               status: "success" as const,
               data: _mapApiToDomain({ res: getBoardById.data }),
               updateBoardContent,
-              isPending: updateBoardById.isPending || getBoardById.isPending,
             }
           : {
               status: "error" as const,
@@ -49,7 +48,6 @@ export function useLeanBoardEditorLoader({ id }: UseLeanBoardEditorLoaderArgs) {
       getBoardById.isSuccess,
       getBoardById.refetch,
       updateBoardContent,
-      updateBoardById.isPending,
     ],
   );
 }

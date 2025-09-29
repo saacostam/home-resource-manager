@@ -46,7 +46,6 @@ export function useBoardEditorLoader({ id }: UseBoardEditorLoaderArgs) {
               updateBoardContent,
               onClickDelete,
               onClickEditName,
-              isPending: updateBoardById.isPending || getBoardById.isPending,
             }
           : {
               status: "error" as const,
@@ -62,7 +61,6 @@ export function useBoardEditorLoader({ id }: UseBoardEditorLoaderArgs) {
       getBoardById.isSuccess,
       getBoardById.refetch,
       updateBoardContent,
-      updateBoardById.isPending,
       onClickDelete,
       onClickEditName,
     ],

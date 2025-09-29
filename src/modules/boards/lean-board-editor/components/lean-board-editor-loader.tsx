@@ -8,8 +8,9 @@ export interface LeanBoardEditorLoaderProps {
 }
 
 export function LeanBoardEditorLoader({ id }: LeanBoardEditorLoaderProps) {
-  const { status, data, retry, updateBoardContent, isPending } =
-    useLeanBoardEditorLoader({ id });
+  const { status, data, retry, updateBoardContent } = useLeanBoardEditorLoader({
+    id,
+  });
 
   if (status === "error")
     <QueryError title="Couldn't fetch board." retry={retry} />;
@@ -18,7 +19,6 @@ export function LeanBoardEditorLoader({ id }: LeanBoardEditorLoaderProps) {
       <LeanBoardEditorContent
         board={data}
         updateBoardContent={updateBoardContent}
-        isPending={isPending}
       />
     );
 

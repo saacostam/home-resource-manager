@@ -8,7 +8,6 @@ import { Divider, Flex, Space, Text } from "@mantine/core";
 export interface BoardEditorContentProps {
   board: TBoard;
   updateBoardContent: (content: string) => void;
-  isPending: boolean;
   onClickDelete: () => void;
   onClickEditName: () => void;
 }
@@ -16,7 +15,6 @@ export interface BoardEditorContentProps {
 export function BoardEditorContent({
   board,
   updateBoardContent,
-  isPending,
   onClickDelete,
   onClickEditName,
 }: BoardEditorContentProps) {
@@ -26,9 +24,6 @@ export function BoardEditorContent({
       updateBoardContent(editor.getHTML());
     },
   });
-
-  const htmlContent = editor.getHTML();
-  const hasUnsavedChanges = !!htmlContent && htmlContent !== board.content;
 
   return (
     <>
@@ -54,13 +49,6 @@ export function BoardEditorContent({
             </Text>
           </button>
         </Flex>
-        <Text size="xs" c={isPending ? "violet" : "gray"}>
-          {isPending
-            ? "Saving..."
-            : hasUnsavedChanges
-              ? "Unsaved Changes"
-              : "Saved"}
-        </Text>
       </Flex>
     </>
   );

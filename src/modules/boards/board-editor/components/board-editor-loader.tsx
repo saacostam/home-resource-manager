@@ -15,7 +15,6 @@ export function BoardEditorLoader({ id }: BoardEditorLoaderProps) {
     updateBoardContent,
     onClickDelete,
     onClickEditName,
-    isPending,
   } = useBoardEditorLoader({ id });
 
   if (status === "error")
@@ -24,7 +23,6 @@ export function BoardEditorLoader({ id }: BoardEditorLoaderProps) {
   if (status === "success")
     return (
       <BoardEditorContent
-        isPending={isPending}
         board={data}
         updateBoardContent={updateBoardContent}
         onClickDelete={onClickDelete}
