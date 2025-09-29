@@ -156,7 +156,7 @@ export function _formatApiImmediateTaskInstanceResponseToTableEntries(
       id: uuidv4(),
       name: taskInstance.task.name,
       description: taskInstance.task.description,
-      categoryName: null,
+      categoryName: taskInstance.task.category?.name ?? null,
       status: taskInstance.status,
       taskId: taskInstance.task.id,
     };

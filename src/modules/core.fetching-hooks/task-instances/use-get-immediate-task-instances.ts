@@ -10,6 +10,9 @@ export interface TGetImmediateTaskInstancesResponse {
       id: string;
       name: string;
       description: string | null;
+      category: {
+        name: string;
+      } | null;
     };
     date: string;
   }[];
