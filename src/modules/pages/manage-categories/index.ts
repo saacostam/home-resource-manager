@@ -1,1 +1,1 @@
-export * from "./manage-categories-page";
+export * from "./manage-categories.page";

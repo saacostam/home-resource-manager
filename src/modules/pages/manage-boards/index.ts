@@ -1,1 +1,1 @@
-export * from "./manage-boards-page";
+export * from "./manage-boards.page";

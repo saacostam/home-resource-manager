@@ -1,5 +1,5 @@
 import { HomeContent } from "@/modules/home";
 
-export function HomePage() {
+export default function HomePage() {
   return <HomeContent />;
 }

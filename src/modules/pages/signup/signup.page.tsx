@@ -1,5 +1,5 @@
 import { SignupLoader } from "@/modules/signup";
 
-export function SignupPage() {
+export default function SignupPage() {
   return <SignupLoader />;
 }

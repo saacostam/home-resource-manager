@@ -11,7 +11,7 @@ import {
 } from "@mantine/core";
 import { Link } from "react-router-dom";
 
-export function ErrorPage() {
+export default function ErrorPage() {
   return (
     <Container size="sm" py="xl" ta="center">
       <Paper p="lg" withBorder>

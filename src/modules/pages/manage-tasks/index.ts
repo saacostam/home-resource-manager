@@ -1,1 +1,1 @@
-export * from "./manage-tasks-page";
+export * from "./manage-tasks.page";

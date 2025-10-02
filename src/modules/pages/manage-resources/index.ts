@@ -1,1 +1,1 @@
-export * from "./manage-resources-page";
+export * from "./manage-resources.page";

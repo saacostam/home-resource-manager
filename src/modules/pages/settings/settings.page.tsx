@@ -3,7 +3,7 @@ import { SettingsLoader } from "@/modules/settings";
 import { Anchor, Breadcrumbs, Text } from "@mantine/core";
 import { Link } from "react-router-dom";
 
-export function SettingsPage() {
+export default function SettingsPage() {
   return (
     <>
       <Breadcrumbs>
