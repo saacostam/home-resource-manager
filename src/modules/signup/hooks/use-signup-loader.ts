@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useQueryAllTimezones } from "@/modules/timezones";
 
 export function useSignupLoader() {
-  const queryAllTimezones = useQueryAllTimezones({ retry: 2 });
+  const queryAllTimezones = useQueryAllTimezones();
 
   return useMemo(
     () =>
