@@ -2,10 +2,27 @@ import type { TCountryTimezone } from "@/modules/timezones";
 import type { useAuth } from "@/modules/auth";
 import type { TUser } from "@/modules/user";
 import type {
+  IAuthRepository,
+  IMutationLoginIn,
+  IMutationLoginOut,
   IMutationUpdateSettingsIn,
   ITimezoneRepository,
   IUserRepository,
 } from "../app";
+
+export class AuthRepository implements IAuthRepository {
+  constructor(private auth: ReturnType<typeof useAuth>["fetch"]) {}
+
+  async login(args: IMutationLoginIn): Promise<IMutationLoginOut> {
+    return this.auth<{
+      token: string;
+    }>({
+      endpoint: "/auth/login",
+      method: "POST",
+      body: args,
+    });
+  }
+}
 
 export class TimezoneRepository implements ITimezoneRepository {
   constructor(private auth: ReturnType<typeof useAuth>["fetch"]) {}
