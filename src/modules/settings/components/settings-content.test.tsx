@@ -1,10 +1,10 @@
-import { describe, it, beforeEach, vi, expect } from "vitest";
-import { renderWithProviders, type MockRepositories } from "@/test/utils";
-import { SettingsContent } from "./settings-content";
-import type { TCountryTimezone } from "@/modules/timezones";
-import type { TSettings } from "../types";
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { renderWithProviders, type MockRepositories } from "@/test/utils";
+import { describe, it, beforeEach, vi, expect } from "vitest";
+import type { TCountryTimezone } from "@/modules/timezones";
+import { SettingsContent } from "./settings-content";
+import type { TSettings } from "../types";
 
 const countryTimezones: TCountryTimezone[] = [
   {
