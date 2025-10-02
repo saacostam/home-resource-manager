@@ -29,3 +29,20 @@ if (!window.matchMedia) {
     dispatchEvent: () => false,
   });
 }
+
+// setupTests.ts
+global.ResizeObserver = class {
+  observe() {
+    /* empty */
+  }
+  unobserve() {
+    /* empty */
+  }
+  disconnect() {
+    /* empty */
+  }
+};
+
+window.HTMLElement.prototype.scrollIntoView = () => {
+  /* empty */
+};
