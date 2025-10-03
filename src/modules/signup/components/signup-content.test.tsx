@@ -55,10 +55,27 @@ describe("SignupContent", () => {
 
     const selectInput = screen.getByRole("textbox", { name: "Timezone" });
     expect(selectInput).toBeInTheDocument();
+    expect(selectInput).not.toBeDisabled();
     expect(selectInput).toHaveValue("USA - GMT");
 
     const submitButton = screen.getByRole("button", { name: /sign up/i });
     expect(submitButton).toBeInTheDocument();
+  });
+
+  it("disabled select timezone input if timezone list is unavailable", () => {
+    renderWithProviders(
+      <SignupContent
+        defaultTimezone="GMT"
+        timezones={{
+          type: "unavailable",
+        }}
+      />,
+      { repositories: { auth: mockAuthRepo } },
+    );
+
+    const selectInput = screen.getByRole("textbox", { name: "Timezone" });
+    expect(selectInput).toBeInTheDocument();
+    expect(selectInput).toBeDisabled();
   });
 
   it("fills in the form, and submits", async () => {
