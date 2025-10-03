@@ -1,5 +1,6 @@
 export interface IAuthRepository {
   login(args: IMutationLoginIn): Promise<IMutationLoginOut>;
+  signup(args: IMutationSignUp): Promise<void>;
 }
 
 export interface IMutationLoginIn {
@@ -9,4 +10,11 @@ export interface IMutationLoginIn {
 
 export interface IMutationLoginOut {
   token: string;
+}
+
+export interface IMutationSignUp {
+  firstName: string;
+  lastName: string;
+  username: string;
+  password: string;
 }

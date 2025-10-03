@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 import { handleApiErrors } from "@/modules/forms";
 import { genRoute, TRouteType } from "@/modules/routing";
-import { usePostSignup } from "../fetching";
+import { useMutationSignup } from "../fetching";
 
 const signupSchema = z.object({
   firstName: z.string().min(1, { message: "First Name is required" }).max(48),
@@ -22,7 +22,7 @@ export interface UseSignupArgs {
 
 export function useSignup({ defaultTimezone }: UseSignupArgs) {
   const navigate = useNavigate();
-  const signup = usePostSignup();
+  const signup = useMutationSignup();
 
   const form = useForm({
     defaultValues: {
