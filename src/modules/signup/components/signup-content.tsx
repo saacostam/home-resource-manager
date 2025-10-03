@@ -8,14 +8,13 @@ import {
   TextInput,
 } from "@mantine/core";
 import {
-  TimezonesUtils,
   useFormatTimezoneOptions,
   type TCountryTimezone,
 } from "@/modules/timezones";
-import { useMemo } from "react";
 import { useSignup } from "../hooks";
 
 export interface SignupContentProps {
+  defaultTimezone: string;
   timezones:
     | {
         type: "available";
@@ -26,9 +25,10 @@ export interface SignupContentProps {
       };
 }
 
-export function SignupContent({ timezones }: SignupContentProps) {
-  const defaultTimezone = useMemo(() => TimezonesUtils.guessDefault(), []);
-
+export function SignupContent({
+  defaultTimezone,
+  timezones,
+}: SignupContentProps) {
   const { form, isLoading, onSubmit } = useSignup({ defaultTimezone });
   const { handleSubmit } = form;
 

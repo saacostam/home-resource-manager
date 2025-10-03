@@ -7,7 +7,7 @@ import { SignupSkeleton } from "./signup-skeleton";
 import { genRoute, TRouteType } from "@/modules/routing";
 
 export function SignupLoader() {
-  const { status, data } = useSignupLoader();
+  const { status, data, defaultTimezone } = useSignupLoader();
 
   return (
     <AuthLayout>
@@ -19,10 +19,16 @@ export function SignupLoader() {
       </Text>
       <Space my="xl" />
       {status === "error" && (
-        <SignupContent timezones={{ type: "unavailable" }} />
+        <SignupContent
+          timezones={{ type: "unavailable" }}
+          defaultTimezone={defaultTimezone}
+        />
       )}
       {status === "success" && (
-        <SignupContent timezones={{ type: "available", data }} />
+        <SignupContent
+          timezones={{ type: "available", data }}
+          defaultTimezone={defaultTimezone}
+        />
       )}
       {status === "loading" && <SignupSkeleton />}
       <Space h="xl" />

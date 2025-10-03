@@ -5,7 +5,7 @@ import type {
   IAuthRepository,
   IMutationLoginIn,
   IMutationLoginOut,
-  IMutationSignUp,
+  IMutationSignUpIn,
   IMutationUpdateSettingsIn,
   ITimezoneRepository,
   IUserRepository,
@@ -24,7 +24,7 @@ export class AuthRepository implements IAuthRepository {
     });
   }
 
-  async signup(args: IMutationSignUp): Promise<void> {
+  async signup(args: IMutationSignUpIn): Promise<void> {
     return this.auth({
       endpoint: "/auth/signup",
       method: "POST",

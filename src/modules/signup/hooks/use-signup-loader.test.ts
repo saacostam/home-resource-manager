@@ -1,8 +1,20 @@
 import { renderHookWithProviders, type MockRepositories } from "@/test";
 import { waitFor } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi, beforeEach } from "vitest";
 import type { TCountryTimezone } from "@/modules/timezones";
 import { useSignupLoader } from "./use-signup-loader";
+
+// --- mock the TimezonesUtils ---
+vi.mock("@/modules/timezones", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("@/modules/timezones")>();
+  return {
+    ...actual,
+    TimezonesUtils: {
+      ...actual.TimezonesUtils,
+      guessDefault: vi.fn(() => "America/Bogota"),
+    },
+  };
+});
 
 const mockTimezoneRepository = (
   timezones: TCountryTimezone[],
@@ -20,6 +32,10 @@ const mockTimezones: TCountryTimezone[] = [
 ];
 
 describe("useSignupLoader", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
   it("should return loading initially", () => {
     const { result } = renderHookWithProviders(() => useSignupLoader(), {
       repositories: {
@@ -27,7 +43,6 @@ describe("useSignupLoader", () => {
       },
     });
 
-    // The first state is always loading
     expect(result.current.status).toBe("loading");
   });
 
@@ -43,6 +58,7 @@ describe("useSignupLoader", () => {
     });
 
     expect(result.current.data).toEqual(mockTimezones);
+    expect(result.current.defaultTimezone).toBe("America/Bogota");
   });
 
   it("should return error if repository rejects", async () => {
@@ -60,5 +76,7 @@ describe("useSignupLoader", () => {
     await waitFor(() => {
       expect(result.current.status).toBe("error");
     });
+
+    expect(result.current.defaultTimezone).toBe("America/Bogota");
   });
 });
