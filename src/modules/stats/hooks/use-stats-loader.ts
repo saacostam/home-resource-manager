@@ -1,12 +1,10 @@
-import {
-  useGetImmediateTaskInstances,
-  type TGetImmediateTaskInstancesResponse,
-} from "@/modules/core.fetching-hooks";
 import { useMemo } from "react";
+import { useQueryImmediateTaskInstances } from "@/modules/core.fetching-hooks";
+import type { QueryImmediateTaskInstancesOut } from "@/modules/repositories/app";
 import type { TStats } from "../types";
 
 export function useStatsLoader() {
-  const immediateTaskInstances = useGetImmediateTaskInstances();
+  const immediateTaskInstances = useQueryImmediateTaskInstances();
 
   return useMemo(
     () =>
@@ -37,7 +35,7 @@ export function useStatsLoader() {
 }
 
 export function _formatApiResponseToStats(
-  apiTaskStats: TGetImmediateTaskInstancesResponse["stats"],
+  apiTaskStats: QueryImmediateTaskInstancesOut["stats"],
 ): TStats {
   return {
     ...apiTaskStats,

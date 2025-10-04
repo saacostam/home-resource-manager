@@ -2,22 +2,22 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useCallback, useMemo } from "react";
 import { v4 as uuidv4 } from "uuid";
 import {
-  type TGetImmediateTaskInstancesResponse,
-  useDeleteDeleteTaskCompletion,
-  useGetImmediateTaskInstances,
-  usePostCreateTaskCompletion,
+  useMutationDeleteTaskCompletion,
+  useQueryImmediateTaskInstances,
+  useMutationCreateTaskCompletion,
 } from "@/modules/core.fetching-hooks";
 import { QueryKey } from "@/modules/fetcher";
 import type { ImmediateTasksContentProps } from "../components/immediate-tasks-content";
 import type { TImmediateTaskEntry } from "../types";
+import { QueryImmediateTaskInstancesOut } from "@/modules/repositories/app";
 
 export function useImmediateTasksLoader() {
   const queryClient = useQueryClient();
 
-  const immediateTaskInstances = useGetImmediateTaskInstances();
+  const immediateTaskInstances = useQueryImmediateTaskInstances();
 
-  const createTaskCompletion = usePostCreateTaskCompletion();
-  const deleteTaskCompletion = useDeleteDeleteTaskCompletion();
+  const createTaskCompletion = useMutationCreateTaskCompletion();
+  const deleteTaskCompletion = useMutationDeleteTaskCompletion();
 
   const onCreateTaskCompletion: ImmediateTasksContentProps["onCreateTaskCompletion"] =
     useCallback(
@@ -29,12 +29,12 @@ export function useImmediateTasksLoader() {
             type: "active",
           },
           (
-            data?: TGetImmediateTaskInstancesResponse,
-          ): TGetImmediateTaskInstancesResponse | undefined => {
+            data?: QueryImmediateTaskInstancesOut,
+          ): QueryImmediateTaskInstancesOut | undefined => {
             if (!data) return data;
 
-            return {
-              ...data,
+            return new QueryImmediateTaskInstancesOut({
+              stats: data.stats,
               taskInstances: data.taskInstances.map((entry) => {
                 if (
                   entry.status.type === "virtual" &&
@@ -50,7 +50,7 @@ export function useImmediateTasksLoader() {
 
                 return entry;
               }),
-            };
+            });
           },
         );
 
@@ -73,16 +73,16 @@ export function useImmediateTasksLoader() {
             type: "active",
           },
           (
-            data?: TGetImmediateTaskInstancesResponse,
-          ): TGetImmediateTaskInstancesResponse | undefined => {
+            data?: QueryImmediateTaskInstancesOut,
+          ): QueryImmediateTaskInstancesOut | undefined => {
             if (!data) return data;
 
-            return {
-              ...data,
+            return new QueryImmediateTaskInstancesOut({
+              stats: data.stats,
               taskInstances: data.taskInstances.map((entry) => {
                 if (
                   entry.status.type === "committed" &&
-                  entry.status.id === args.taskCompletionId
+                  entry.status.id === args.id
                 )
                   return {
                     ...entry,
@@ -93,13 +93,13 @@ export function useImmediateTasksLoader() {
 
                 return entry;
               }),
-            };
+            });
           },
         );
 
         // Call mutation
         deleteTaskCompletion.mutate({
-          id: args.taskCompletionId,
+          id: args.id,
         });
       },
       [deleteTaskCompletion, queryClient],
@@ -147,7 +147,7 @@ export function useImmediateTasksLoader() {
 }
 
 export function _formatApiImmediateTaskInstanceResponseToTableEntries(
-  apiTaskInstances: TGetImmediateTaskInstancesResponse,
+  apiTaskInstances: QueryImmediateTaskInstancesOut,
 ): TImmediateTaskEntry[] {
   const grouping = new Map<string, TImmediateTaskEntry["entries"]>();
 

@@ -9,11 +9,15 @@ import {
   ThemeIcon,
 } from "@mantine/core";
 import { CalendarDaysIcon } from "@/modules/icons";
+import type {
+  MutationCreateTaskCompletionIn,
+  MutationDeleteTaskCompletionIn,
+} from "@/modules/repositories/app";
 import type { TImmediateTaskEntry } from "../types";
 
 export interface ImmediateTasksContentProps {
-  onCreateTaskCompletion: (args: { date: string; taskId: string }) => void;
-  onDeleteTaskCompletion: (args: { taskCompletionId: string }) => void;
+  onCreateTaskCompletion: (args: MutationCreateTaskCompletionIn) => void;
+  onDeleteTaskCompletion: (args: MutationDeleteTaskCompletionIn) => void;
   tableEntries: TImmediateTaskEntry[];
 }
 
@@ -56,7 +60,7 @@ export function ImmediateTasksContent({
                         if (entry.status.type !== "committed") return;
 
                         onDeleteTaskCompletion({
-                          taskCompletionId: entry.status.id,
+                          id: entry.status.id,
                         });
                       }
                     : doNothing;

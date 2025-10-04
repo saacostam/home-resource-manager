@@ -4,6 +4,7 @@ import { RepositoryContext } from "./repositories.context";
 import type { IRepositories } from "../types";
 import {
   AuthRepository,
+  TaskInstancesRepository,
   TimezoneRepository,
   UserRepository,
 } from "../../infra";
@@ -14,6 +15,7 @@ export function RepositoriesProvider({ children }: PropsWithChildren) {
   const repositories: IRepositories = useMemo(
     () => ({
       auth: new AuthRepository(fetch),
+      taskInstances: new TaskInstancesRepository(fetch),
       timezone: new TimezoneRepository(fetch),
       user: new UserRepository(fetch),
     }),
