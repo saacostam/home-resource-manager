@@ -2,24 +2,19 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { MutationKey, QueryKey } from "@/modules/fetcher";
 import {
   useRepositories,
-  type IMutationUpdateBoardByIdIn,
+  type IMutationCreateBoardIn,
 } from "@/modules/repositories/app";
 
-export function usePutUpdateBoardById() {
+export function useMutationCreateBoard() {
   const queryClient = useQueryClient();
   const { board } = useRepositories();
 
   return useMutation({
-    mutationKey: [MutationKey.PUT_BOARD],
-    mutationFn: (args: IMutationUpdateBoardByIdIn) =>
-      board.updateBoardById(args),
-    onSettled: (_, __, { id }) => {
+    mutationKey: [MutationKey.POST_CREATE_BOARD],
+    mutationFn: (args: IMutationCreateBoardIn) => board.createBoard(args),
+    onSettled: () => {
       void queryClient.invalidateQueries({
         queryKey: [QueryKey.GET_ALL_BOARDS],
-      });
-
-      void queryClient.invalidateQueries({
-        queryKey: [QueryKey.GET_BOARD_BY_ID, id],
       });
     },
   });

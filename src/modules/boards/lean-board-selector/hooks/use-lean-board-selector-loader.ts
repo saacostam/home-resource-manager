@@ -1,10 +1,10 @@
 import { useMemo } from "react";
-import { useGetAllBoards } from "@/modules/core.fetching-hooks";
+import { useQueryAllBoards } from "@/modules/core.fetching-hooks";
 import type { TLeanBoard } from "@/modules/boards/manage-board";
 import type { IQueryAllBoardsOut } from "@/modules/repositories/app";
 
 export function useLeanBoardSelectorLoader() {
-  const getAllBoards = useGetAllBoards();
+  const getAllBoards = useQueryAllBoards();
 
   return useMemo(
     () =>

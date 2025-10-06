@@ -2,17 +2,17 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { MutationKey, QueryKey } from "@/modules/fetcher";
 import {
   useRepositories,
-  type IMutationDeleteBoardByIdIn,
+  type IMutationUpdateBoardByIdIn,
 } from "@/modules/repositories/app";
 
-export function useDeleteBoardById() {
+export function useMutationUpdateBoardById() {
   const queryClient = useQueryClient();
   const { board } = useRepositories();
 
   return useMutation({
-    mutationKey: [MutationKey.DELETE_BOARD],
-    mutationFn: (args: IMutationDeleteBoardByIdIn) =>
-      board.deleteBoardById(args),
+    mutationKey: [MutationKey.PUT_BOARD],
+    mutationFn: (args: IMutationUpdateBoardByIdIn) =>
+      board.updateBoardById(args),
     onSettled: (_, __, { id }) => {
       void queryClient.invalidateQueries({
         queryKey: [QueryKey.GET_ALL_BOARDS],

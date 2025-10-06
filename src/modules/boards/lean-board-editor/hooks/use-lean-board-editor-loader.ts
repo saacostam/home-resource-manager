@@ -3,8 +3,8 @@ import { useDebouncedCallback } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
 import type { TBoard } from "@/modules/boards/manage-board";
 import {
-  useGetBoardById,
-  usePutUpdateBoardById,
+  useQueryBoardById,
+  useMutationUpdateBoardById,
 } from "@/modules/core.fetching-hooks";
 import type { LeanBoardEditorContentProps } from "../components/lean-board-editor-content";
 import type { IQueryBoardByIdOut } from "@/modules/repositories/app";
@@ -16,8 +16,8 @@ export interface UseLeanBoardEditorLoaderArgs {
 const UPDATE_DEBOUNCE_DELAY = 500;
 
 export function useLeanBoardEditorLoader({ id }: UseLeanBoardEditorLoaderArgs) {
-  const getBoardById = useGetBoardById({ args: { id } });
-  const updateBoardById = usePutUpdateBoardById();
+  const getBoardById = useQueryBoardById({ args: { id } });
+  const updateBoardById = useMutationUpdateBoardById();
 
   const updateBoardContent = useDebouncedCallback<
     LeanBoardEditorContentProps["updateBoardContent"]

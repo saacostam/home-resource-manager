@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useGetBoardById } from "@/modules/core.fetching-hooks";
+import { useQueryBoardById } from "@/modules/core.fetching-hooks";
 import type { IQueryBoardByIdOut } from "@/modules/repositories/app";
 import type { TBoard } from "../../manage-board";
 
@@ -8,7 +8,7 @@ export interface UseEditBoardLoaderArgs {
 }
 
 export function useEditBoardLoader({ id }: UseEditBoardLoaderArgs) {
-  const getBoardById = useGetBoardById({ args: { id } });
+  const getBoardById = useQueryBoardById({ args: { id } });
 
   return useMemo(
     () =>

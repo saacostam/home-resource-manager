@@ -5,11 +5,11 @@ import {
   type IQueryBoardByIdIn,
 } from "@/modules/repositories/app";
 
-export interface UseGetBoardByIdArgs {
+export interface UseQueryBoardByIdArgs {
   args: IQueryBoardByIdIn;
 }
 
-export function useGetBoardById({ args }: UseGetBoardByIdArgs) {
+export function useQueryBoardById({ args }: UseQueryBoardByIdArgs) {
   const { board } = useRepositories();
 
   return useQuery({

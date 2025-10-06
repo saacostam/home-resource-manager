@@ -4,8 +4,8 @@ import { notifications } from "@mantine/notifications";
 import { useBoardSelector } from "@/modules/boards/board-selector";
 import type { TBoard } from "@/modules/boards/manage-board";
 import {
-  useGetBoardById,
-  usePutUpdateBoardById,
+  useQueryBoardById,
+  useMutationUpdateBoardById,
 } from "@/modules/core.fetching-hooks";
 import type { IQueryBoardByIdOut } from "@/modules/repositories/app";
 import type { BoardEditorContentProps } from "../components/board-editor-content";
@@ -19,8 +19,8 @@ const UPDATE_DEBOUNCE_DELAY = 500;
 export function useBoardEditorLoader({ id }: UseBoardEditorLoaderArgs) {
   const { setMode } = useBoardSelector();
 
-  const getBoardById = useGetBoardById({ args: { id } });
-  const updateBoardById = usePutUpdateBoardById();
+  const getBoardById = useQueryBoardById({ args: { id } });
+  const updateBoardById = useMutationUpdateBoardById();
 
   const updateBoardContent = useDebouncedCallback<
     BoardEditorContentProps["updateBoardContent"]

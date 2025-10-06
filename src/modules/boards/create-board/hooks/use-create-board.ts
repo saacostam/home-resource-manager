@@ -5,7 +5,7 @@ import {
   useManageBoardForm,
   type TManageBoardForm,
 } from "@/modules/boards/manage-board";
-import { usePostCreateBoard } from "@/modules/core.fetching-hooks";
+import { useMutationCreateBoard } from "@/modules/core.fetching-hooks";
 import { notifications } from "@mantine/notifications";
 import { handleApiErrors } from "@/modules/forms";
 
@@ -22,7 +22,7 @@ export function useCreateBoard({ onClose }: UseCreateBoardArgs) {
     },
   });
 
-  const createBoard = usePostCreateBoard();
+  const createBoard = useMutationCreateBoard();
 
   const onSubmit = useCallback(
     (data: TManageBoardForm) => {
