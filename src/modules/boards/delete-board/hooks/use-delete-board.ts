@@ -1,16 +1,15 @@
-import { useMutationDeleteBoardById } from "@/modules/core.fetching-hooks";
 import { useCallback, useMemo } from "react";
-import { useBoardSelector } from "@/modules/boards/board-selector";
 import { notifications } from "@mantine/notifications";
+import { useMutationDeleteBoardById } from "@/modules/core.fetching-hooks";
+import type { useBoardSelector } from "@/modules/boards/board-selector";
 
 export interface UseDeleteBoardArgs {
   id: string;
   onClose: () => void;
+  setId: ReturnType<typeof useBoardSelector>["setId"];
 }
 
-export function useDeleteBoard({ id, onClose }: UseDeleteBoardArgs) {
-  const { setId } = useBoardSelector();
-
+export function useDeleteBoard({ id, onClose, setId }: UseDeleteBoardArgs) {
   const deleteBoard = useMutationDeleteBoardById();
 
   const onDelete = useCallback(() => {

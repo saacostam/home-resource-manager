@@ -6,7 +6,7 @@ import { EditBoard } from "@/modules/boards/edit-board";
 import { useBoardSelector } from "../providers";
 
 export function BoardModalManager() {
-  const { mode, setMode, id } = useBoardSelector();
+  const { mode, setMode, id, setId } = useBoardSelector();
 
   const onClose = useCallback(() => {
     setMode({ type: "browse" });
@@ -28,7 +28,7 @@ export function BoardModalManager() {
         onClose={onClose}
         title="Delete Board"
       >
-        {id && <DeleteBoard onClose={onClose} id={id} />}
+        {id && <DeleteBoard onClose={onClose} id={id} setId={setId} />}
       </Modal>
       <Modal
         centered
