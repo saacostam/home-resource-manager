@@ -3,11 +3,11 @@ import { notifications } from "@mantine/notifications";
 import { fireEvent, screen, waitFor } from "@testing-library/dom";
 import { act } from "@testing-library/react";
 import type {
-  IMutationUpdateBoardByIdIn,
-  IQueryBoardByIdOut,
+  IMutationCreateBoardIn,
+  IMutationCreateBoardOut,
 } from "@/modules/repositories/app";
 import { renderWithProviders } from "@/test";
-import { EditBoard } from "./components";
+import { CreateBoard } from "./components";
 
 vi.mock("@mantine/notifications", () => ({
   notifications: {
@@ -15,29 +15,27 @@ vi.mock("@mantine/notifications", () => ({
   },
 }));
 
-const mockQueryBoardByIdOut: IQueryBoardByIdOut = {
+const mutationCreateBoardOut: IMutationCreateBoardOut = {
   id: "test-id",
-  name: "test-name",
-  content: "test-content",
 };
 
-describe("EditBoard", () => {
+describe("CreateBoard", () => {
   const onClose = vi.fn();
+  const setId = vi.fn();
 
   beforeEach(() => {
     onClose.mockReset();
+    setId.mockReset();
     vi.resetAllMocks();
   });
 
-  it("should call update on submit", async () => {
-    const updateBoardById = vi.fn();
+  it("should create board on submit", async () => {
+    const createBoard = vi.fn();
 
-    renderWithProviders(<EditBoard id="test-id" onClose={onClose} />, {
+    renderWithProviders(<CreateBoard onClose={onClose} setId={setId} />, {
       repositories: {
         board: {
-          // eslint-disable-next-line @typescript-eslint/require-await
-          queryBoardById: async () => mockQueryBoardByIdOut,
-          updateBoardById,
+          createBoard,
         },
       },
     });
@@ -46,10 +44,12 @@ describe("EditBoard", () => {
     act(() => {
       fireEvent.input(field, {
         target: {
-          value: "new-name",
+          value: "name",
         },
       });
     });
+
+    createBoard.mockResolvedValueOnce(mutationCreateBoardOut);
 
     const submitCta = await screen.findByRole("button");
     act(() => {
@@ -57,29 +57,29 @@ describe("EditBoard", () => {
     });
 
     await waitFor(() => {
-      const expectedIn: IMutationUpdateBoardByIdIn = {
-        id: "test-id",
-        name: "new-name",
+      const expectedIn: IMutationCreateBoardIn = {
+        name: "name",
       };
 
-      expect(updateBoardById).toHaveBeenCalledOnce();
-      expect(updateBoardById).toHaveBeenCalledWith(expectedIn);
+      expect(createBoard).toHaveBeenCalledOnce();
+      expect(createBoard).toHaveBeenCalledWith(expectedIn);
     });
 
     expect(onClose).toHaveBeenCalledOnce();
+
+    expect(setId).toHaveBeenCalledOnce();
+    expect(setId).toHaveBeenCalledWith(mutationCreateBoardOut.id);
 
     expect(notifications.show).toHaveBeenCalledOnce();
   });
 
   it("should validate form values", async () => {
-    const updateBoardById = vi.fn();
+    const createBoard = vi.fn();
 
-    renderWithProviders(<EditBoard id="test-id" onClose={onClose} />, {
+    renderWithProviders(<CreateBoard onClose={onClose} setId={setId} />, {
       repositories: {
         board: {
-          // eslint-disable-next-line @typescript-eslint/require-await
-          queryBoardById: async () => mockQueryBoardByIdOut,
-          updateBoardById,
+          createBoard,
         },
       },
     });
@@ -105,20 +105,19 @@ describe("EditBoard", () => {
       ).toBeDefined();
     });
 
-    expect(updateBoardById).not.toHaveBeenCalled();
-    expect(onClose).not.toHaveBeenCalled();
+    expect(createBoard).not.toHaveBeenCalledOnce();
+    expect(onClose).not.toHaveBeenCalledOnce();
+    expect(setId).not.toHaveBeenCalledOnce();
     expect(notifications.show).not.toHaveBeenCalledOnce();
   });
 
-  it("should handle repository update errors", async () => {
-    const updateBoardById = vi.fn();
+  it("should handle repository create errors", async () => {
+    const createBoard = vi.fn();
 
-    renderWithProviders(<EditBoard id="test-id" onClose={onClose} />, {
+    renderWithProviders(<CreateBoard onClose={onClose} setId={setId} />, {
       repositories: {
         board: {
-          // eslint-disable-next-line @typescript-eslint/require-await
-          queryBoardById: async () => mockQueryBoardByIdOut,
-          updateBoardById,
+          createBoard,
         },
       },
     });
@@ -133,7 +132,7 @@ describe("EditBoard", () => {
     });
 
     // Throw
-    updateBoardById.mockRejectedValueOnce(new Error());
+    createBoard.mockRejectedValueOnce(new Error());
 
     const submitCta = await screen.findByRole("button");
     act(() => {
@@ -145,8 +144,9 @@ describe("EditBoard", () => {
       expect(screen.findByText("Something went wrong!")).toBeDefined();
     });
 
-    expect(updateBoardById).toHaveBeenCalled();
+    expect(createBoard).toHaveBeenCalled();
     expect(onClose).not.toHaveBeenCalled();
+    expect(setId).not.toHaveBeenCalledOnce();
     expect(notifications.show).not.toHaveBeenCalledOnce();
   });
 });
