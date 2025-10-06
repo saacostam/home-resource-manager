@@ -43,7 +43,7 @@ describe("LeanBoardEditorLoader", () => {
           id: "test-id",
         };
 
-        expect(updateBoardById).toHaveBeenCalled();
+        expect(updateBoardById).toHaveBeenCalledOnce();
         expect(updateBoardById).toHaveBeenCalledWith(expectedIn);
       },
       { timeout: 1_000 },
