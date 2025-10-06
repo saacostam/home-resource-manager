@@ -58,6 +58,34 @@ describe("DeleteBoard", () => {
     expect(notifications.show).toHaveBeenCalledOnce();
   });
 
+  it("shouls close on cancel", async () => {
+    const deleteBoardById = vi.fn();
+
+    renderWithProviders(
+      <DeleteBoard id="test-id" onClose={onClose} setId={setId} />,
+      {
+        repositories: {
+          board: {
+            deleteBoardById,
+          },
+        },
+      },
+    );
+
+    const confirmCta = await screen.findByRole("button", { name: "Cancel" });
+    act(() => {
+      fireEvent.click(confirmCta);
+    });
+
+    await waitFor(() => {
+      expect(onClose).toHaveBeenCalledOnce();
+    });
+
+    expect(deleteBoardById).not.toHaveBeenCalledOnce();
+    expect(setId).not.toHaveBeenCalledOnce();
+    expect(notifications.show).not.toHaveBeenCalledOnce();
+  });
+
   it("shouls handle errors", async () => {
     const deleteBoardById = vi.fn();
 
