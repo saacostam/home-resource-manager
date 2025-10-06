@@ -3,13 +3,13 @@ import { screen, waitFor } from "@testing-library/react";
 import { renderWithProviders, type MockRepositories } from "@/test/utils";
 import type { TUser } from "@/modules/user";
 import type { TCountryTimezone } from "@/modules/timezones";
-import { SettingsLoader } from "./settings-loader";
+import { SettingsLoader } from "./components/settings-loader";
 
-vi.mock("./settings-content", () => ({
+vi.mock("./components/settings-content", () => ({
   SettingsContent: () => <div data-testid="mock-settings-content" />,
 }));
 
-vi.mock("./settings-skeleton", () => ({
+vi.mock("./components/settings-skeleton", () => ({
   SettingsSkeleton: () => <div data-testid="mock-settings-skeleton" />,
 }));
 
