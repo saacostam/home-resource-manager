@@ -1,28 +1,18 @@
-import { useAuth } from "@/modules/auth";
-import { MutationKey, QueryKey } from "@/modules/fetcher";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-
-export interface TPutUpdateBoardByIdRequest {
-  id: string;
-  name?: string;
-  content?: string;
-}
+import { MutationKey, QueryKey } from "@/modules/fetcher";
+import {
+  useRepositories,
+  type IMutationUpdateBoardByIdIn,
+} from "@/modules/repositories/app";
 
 export function usePutUpdateBoardById() {
   const queryClient = useQueryClient();
-  const { fetch } = useAuth();
+  const { board } = useRepositories();
 
-  return useMutation<unknown, Error, TPutUpdateBoardByIdRequest>({
+  return useMutation({
     mutationKey: [MutationKey.PUT_BOARD],
-    mutationFn: ({ id, content, name }) =>
-      fetch({
-        endpoint: `/board/${id}`,
-        method: "PUT",
-        body: {
-          name,
-          content,
-        },
-      }),
+    mutationFn: (args: IMutationUpdateBoardByIdIn) =>
+      board.updateBoardById(args),
     onSettled: (_, __, { id }) => {
       void queryClient.invalidateQueries({
         queryKey: [QueryKey.GET_ALL_BOARDS],

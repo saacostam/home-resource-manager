@@ -5,9 +5,9 @@ import type { TBoard } from "@/modules/boards/manage-board";
 import {
   useGetBoardById,
   usePutUpdateBoardById,
-  type TGetBoardByIdResponse,
 } from "@/modules/core.fetching-hooks";
 import type { LeanBoardEditorContentProps } from "../components/lean-board-editor-content";
+import type { IQueryBoardByIdOut } from "@/modules/repositories/app";
 
 export interface UseLeanBoardEditorLoaderArgs {
   id: string;
@@ -16,7 +16,7 @@ export interface UseLeanBoardEditorLoaderArgs {
 const UPDATE_DEBOUNCE_DELAY = 500;
 
 export function useLeanBoardEditorLoader({ id }: UseLeanBoardEditorLoaderArgs) {
-  const getBoardById = useGetBoardById({ req: { id } });
+  const getBoardById = useGetBoardById({ args: { id } });
   const updateBoardById = usePutUpdateBoardById();
 
   const updateBoardContent = useDebouncedCallback<
@@ -65,7 +65,7 @@ export function useLeanBoardEditorLoader({ id }: UseLeanBoardEditorLoaderArgs) {
   );
 }
 
-export function _mapApiToDomain(args: { res: TGetBoardByIdResponse }): TBoard {
+export function _mapApiToDomain(args: { res: IQueryBoardByIdOut }): TBoard {
   return {
     id: args.res.id,
     name: args.res.name,

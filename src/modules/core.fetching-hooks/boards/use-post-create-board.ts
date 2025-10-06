@@ -1,27 +1,17 @@
-import { useAuth } from "@/modules/auth";
-import { MutationKey, QueryKey } from "@/modules/fetcher";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-
-export interface TPostCreateBoardRequest {
-  name: string;
-}
-
-export interface TPostCreateBoardResponse {
-  id: string;
-}
+import { MutationKey, QueryKey } from "@/modules/fetcher";
+import {
+  useRepositories,
+  type IMutationCreateBoardIn,
+} from "@/modules/repositories/app";
 
 export function usePostCreateBoard() {
   const queryClient = useQueryClient();
-  const { fetch } = useAuth();
+  const { board } = useRepositories();
 
-  return useMutation<TPostCreateBoardResponse, Error, TPostCreateBoardRequest>({
+  return useMutation({
     mutationKey: [MutationKey.POST_CREATE_BOARD],
-    mutationFn: (data) =>
-      fetch({
-        endpoint: "/board",
-        method: "POST",
-        body: data,
-      }),
+    mutationFn: (args: IMutationCreateBoardIn) => board.createBoard(args),
     onSettled: () => {
       void queryClient.invalidateQueries({
         queryKey: [QueryKey.GET_ALL_BOARDS],

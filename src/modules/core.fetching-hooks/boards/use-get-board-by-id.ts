@@ -1,28 +1,19 @@
-import { useAuth } from "@/modules/auth";
-import { QueryKey } from "@/modules/fetcher";
 import { useQuery } from "@tanstack/react-query";
+import { QueryKey } from "@/modules/fetcher";
+import {
+  useRepositories,
+  type IQueryBoardByIdIn,
+} from "@/modules/repositories/app";
 
 export interface UseGetBoardByIdArgs {
-  req: {
-    id: string;
-  };
+  args: IQueryBoardByIdIn;
 }
 
-export interface TGetBoardByIdResponse {
-  id: string;
-  name: string;
-  content: string;
-}
+export function useGetBoardById({ args }: UseGetBoardByIdArgs) {
+  const { board } = useRepositories();
 
-export function useGetBoardById({ req }: UseGetBoardByIdArgs) {
-  const auth = useAuth();
-
-  return useQuery<TGetBoardByIdResponse>({
-    queryKey: [QueryKey.GET_BOARD_BY_ID, req.id],
-    queryFn: () =>
-      auth.fetch({
-        endpoint: `/board/${req.id}`,
-        method: "GET",
-      }),
+  return useQuery({
+    queryKey: [QueryKey.GET_BOARD_BY_ID, args.id],
+    queryFn: () => board.queryBoardById(args),
   });
 }

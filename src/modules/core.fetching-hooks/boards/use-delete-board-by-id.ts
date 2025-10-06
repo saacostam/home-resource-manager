@@ -1,22 +1,18 @@
-import { useAuth } from "@/modules/auth";
-import { MutationKey, QueryKey } from "@/modules/fetcher";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-
-export interface TDeleteBoardByIdRequest {
-  id: string;
-}
+import { MutationKey, QueryKey } from "@/modules/fetcher";
+import {
+  useRepositories,
+  type IMutationDeleteBoardByIdIn,
+} from "@/modules/repositories/app";
 
 export function useDeleteBoardById() {
   const queryClient = useQueryClient();
-  const { fetch } = useAuth();
+  const { board } = useRepositories();
 
-  return useMutation<unknown, Error, TDeleteBoardByIdRequest>({
+  return useMutation({
     mutationKey: [MutationKey.DELETE_BOARD],
-    mutationFn: (data) =>
-      fetch({
-        endpoint: `/board/${data.id}`,
-        method: "DELETE",
-      }),
+    mutationFn: (args: IMutationDeleteBoardByIdIn) =>
+      board.deleteBoardById(args),
     onSettled: (_, __, { id }) => {
       void queryClient.invalidateQueries({
         queryKey: [QueryKey.GET_ALL_BOARDS],

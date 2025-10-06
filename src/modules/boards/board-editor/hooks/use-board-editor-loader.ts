@@ -6,8 +6,8 @@ import type { TBoard } from "@/modules/boards/manage-board";
 import {
   useGetBoardById,
   usePutUpdateBoardById,
-  type TGetBoardByIdResponse,
 } from "@/modules/core.fetching-hooks";
+import type { IQueryBoardByIdOut } from "@/modules/repositories/app";
 import type { BoardEditorContentProps } from "../components/board-editor-content";
 
 export interface UseBoardEditorLoaderArgs {
@@ -19,7 +19,7 @@ const UPDATE_DEBOUNCE_DELAY = 500;
 export function useBoardEditorLoader({ id }: UseBoardEditorLoaderArgs) {
   const { setMode } = useBoardSelector();
 
-  const getBoardById = useGetBoardById({ req: { id } });
+  const getBoardById = useGetBoardById({ args: { id } });
   const updateBoardById = usePutUpdateBoardById();
 
   const updateBoardContent = useDebouncedCallback<
@@ -80,7 +80,7 @@ export function useBoardEditorLoader({ id }: UseBoardEditorLoaderArgs) {
   );
 }
 
-export function _mapApiToDomain(args: { res: TGetBoardByIdResponse }): TBoard {
+export function _mapApiToDomain(args: { res: IQueryBoardByIdOut }): TBoard {
   return {
     id: args.res.id,
     name: args.res.name,

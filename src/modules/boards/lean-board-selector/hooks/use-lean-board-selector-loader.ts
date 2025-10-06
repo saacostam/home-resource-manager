@@ -1,9 +1,7 @@
 import { useMemo } from "react";
-import {
-  useGetAllBoards,
-  type TGetAllBoardsResponse,
-} from "@/modules/core.fetching-hooks";
+import { useGetAllBoards } from "@/modules/core.fetching-hooks";
 import type { TLeanBoard } from "@/modules/boards/manage-board";
+import type { IQueryAllBoardsOut } from "@/modules/repositories/app";
 
 export function useLeanBoardSelectorLoader() {
   const getAllBoards = useGetAllBoards();
@@ -37,7 +35,7 @@ export function useLeanBoardSelectorLoader() {
 }
 
 export function _mapApiToDomain(args: {
-  res: TGetAllBoardsResponse;
+  res: IQueryAllBoardsOut;
 }): TLeanBoard[] {
   return args.res.boards.map((apiEntry) => ({
     id: apiEntry.id,
