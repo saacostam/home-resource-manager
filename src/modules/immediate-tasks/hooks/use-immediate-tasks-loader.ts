@@ -9,7 +9,7 @@ import {
 import { QueryKey } from "@/modules/fetcher";
 import type { ImmediateTasksContentProps } from "../components/immediate-tasks-content";
 import type { TImmediateTaskEntry } from "../types";
-import { QueryImmediateTaskInstancesOut } from "@/modules/repositories/app";
+import type { IQueryImmediateTaskInstancesOut } from "@/modules/repositories/app";
 
 export function useImmediateTasksLoader() {
   const queryClient = useQueryClient();
@@ -29,11 +29,11 @@ export function useImmediateTasksLoader() {
             type: "active",
           },
           (
-            data?: QueryImmediateTaskInstancesOut,
-          ): QueryImmediateTaskInstancesOut | undefined => {
+            data?: IQueryImmediateTaskInstancesOut,
+          ): IQueryImmediateTaskInstancesOut | undefined => {
             if (!data) return data;
 
-            return new QueryImmediateTaskInstancesOut({
+            return {
               stats: data.stats,
               taskInstances: data.taskInstances.map((entry) => {
                 if (
@@ -50,7 +50,7 @@ export function useImmediateTasksLoader() {
 
                 return entry;
               }),
-            });
+            };
           },
         );
 
@@ -73,11 +73,11 @@ export function useImmediateTasksLoader() {
             type: "active",
           },
           (
-            data?: QueryImmediateTaskInstancesOut,
-          ): QueryImmediateTaskInstancesOut | undefined => {
+            data?: IQueryImmediateTaskInstancesOut,
+          ): IQueryImmediateTaskInstancesOut | undefined => {
             if (!data) return data;
 
-            return new QueryImmediateTaskInstancesOut({
+            return {
               stats: data.stats,
               taskInstances: data.taskInstances.map((entry) => {
                 if (
@@ -93,7 +93,7 @@ export function useImmediateTasksLoader() {
 
                 return entry;
               }),
-            });
+            };
           },
         );
 
@@ -147,7 +147,7 @@ export function useImmediateTasksLoader() {
 }
 
 export function _formatApiImmediateTaskInstanceResponseToTableEntries(
-  apiTaskInstances: QueryImmediateTaskInstancesOut,
+  apiTaskInstances: IQueryImmediateTaskInstancesOut,
 ): TImmediateTaskEntry[] {
   const grouping = new Map<string, TImmediateTaskEntry["entries"]>();
 

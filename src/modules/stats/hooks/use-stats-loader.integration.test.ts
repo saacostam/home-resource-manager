@@ -1,18 +1,17 @@
 import { describe, expect, it, vi } from "vitest";
 import { waitFor } from "@testing-library/dom";
 import { renderHookWithProviders, type MockRepositories } from "@/test";
-import { QueryImmediateTaskInstancesOut } from "@/modules/repositories/app";
+import type { IQueryImmediateTaskInstancesOut } from "@/modules/repositories/app";
 import { useStatsLoader } from "./use-stats-loader";
 
-const mockQueryImmediateTaskInstancesOut: QueryImmediateTaskInstancesOut =
-  new QueryImmediateTaskInstancesOut({
-    taskInstances: [],
-    stats: {
-      totalResources: 2,
-      pendingTasks: 3,
-      overdueTasks: 5,
-    },
-  });
+const mockQueryImmediateTaskInstancesOut: IQueryImmediateTaskInstancesOut = {
+  taskInstances: [],
+  stats: {
+    totalResources: 2,
+    pendingTasks: 3,
+    overdueTasks: 5,
+  },
+};
 
 const mockTaskInstancesRepository: MockRepositories["taskInstances"] = {
   // eslint-disable-next-line @typescript-eslint/require-await

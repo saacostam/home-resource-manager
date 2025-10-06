@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { MutationKey, QueryKey } from "@/modules/fetcher";
 import {
-  MutationDeleteTaskCompletionIn,
+  type IMutationDeleteTaskCompletionIn,
   useRepositories,
 } from "@/modules/repositories/app";
 
@@ -11,7 +11,7 @@ export function useMutationDeleteTaskCompletion() {
 
   return useMutation({
     mutationKey: [MutationKey.DELETE_DELETE_TASK_COMPLETION],
-    mutationFn: (data: MutationDeleteTaskCompletionIn) =>
+    mutationFn: (data: IMutationDeleteTaskCompletionIn) =>
       taskInstances.deleteTaskCompletion(data),
     onSettled: () => {
       void queryClient.invalidateQueries({

@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { MutationKey, QueryKey } from "@/modules/fetcher";
 import {
-  MutationCreateTaskCompletionIn,
+  type IMutationCreateTaskCompletionIn,
   useRepositories,
 } from "@/modules/repositories/app";
 
@@ -11,7 +11,7 @@ export function useMutationCreateTaskCompletion() {
 
   return useMutation({
     mutationKey: [MutationKey.POST_CREATE_TASK_COMPLETION],
-    mutationFn: (data: MutationCreateTaskCompletionIn) =>
+    mutationFn: (data: IMutationCreateTaskCompletionIn) =>
       taskInstances.createTaskCompletion(data),
     onSettled: () => {
       void queryClient.invalidateQueries({

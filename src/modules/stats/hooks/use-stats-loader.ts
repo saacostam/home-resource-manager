@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useQueryImmediateTaskInstances } from "@/modules/core.fetching-hooks";
-import type { QueryImmediateTaskInstancesOut } from "@/modules/repositories/app";
+import type { IQueryImmediateTaskInstancesOut } from "@/modules/repositories/app";
 import type { TStats } from "../types";
 
 export function useStatsLoader() {
@@ -35,7 +35,7 @@ export function useStatsLoader() {
 }
 
 export function _formatApiResponseToStats(
-  apiTaskStats: QueryImmediateTaskInstancesOut["stats"],
+  apiTaskStats: IQueryImmediateTaskInstancesOut["stats"],
 ): TStats {
   return {
     ...apiTaskStats,

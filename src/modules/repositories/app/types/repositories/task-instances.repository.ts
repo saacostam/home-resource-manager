@@ -1,35 +1,27 @@
 import type { TTaskInstanceStatus } from "@/modules/core.types";
 
 export interface ITaskInstancesRepository {
-  createTaskCompletion(args: MutationCreateTaskCompletionIn): Promise<void>;
-  deleteTaskCompletion(args: MutationDeleteTaskCompletionIn): Promise<void>;
-  getImmediateTaskInstances(): Promise<QueryImmediateTaskInstancesOut>;
+  createTaskCompletion(args: IMutationCreateTaskCompletionIn): Promise<void>;
+  deleteTaskCompletion(args: IMutationDeleteTaskCompletionIn): Promise<void>;
+  getImmediateTaskInstances(): Promise<IQueryImmediateTaskInstancesOut>;
 }
 
 // Create Task Completion
 
-export class MutationCreateTaskCompletionIn {
-  public date: string;
-  public taskId: string;
-
-  constructor(args: { date: string; taskId: string }) {
-    this.date = args.date;
-    this.taskId = args.taskId;
-  }
+export interface IMutationCreateTaskCompletionIn {
+  date: string;
+  taskId: string;
 }
 
 // Delete Task Completion
 
-export class MutationDeleteTaskCompletionIn {
-  public id: string;
-  constructor(args: { id: string }) {
-    this.id = args.id;
-  }
+export interface IMutationDeleteTaskCompletionIn {
+  id: string;
 }
 
 // Get Immediate Task Instances
 
-export interface QueryImmediateTaskInstancesOutTaskInstance {
+export interface IQueryImmediateTaskInstancesOutTaskInstance {
   status: TTaskInstanceStatus;
   task: {
     id: string;
@@ -42,21 +34,13 @@ export interface QueryImmediateTaskInstancesOutTaskInstance {
   date: string;
 }
 
-export interface QueryImmediateTaskInstancesOutStats {
+export interface IQueryImmediateTaskInstancesOutStats {
   totalResources: number;
   pendingTasks: number;
   overdueTasks: number;
 }
 
-export class QueryImmediateTaskInstancesOut {
-  public taskInstances: QueryImmediateTaskInstancesOutTaskInstance[];
-  public stats: QueryImmediateTaskInstancesOutStats;
-
-  constructor(args: {
-    taskInstances: QueryImmediateTaskInstancesOutTaskInstance[];
-    stats: QueryImmediateTaskInstancesOutStats;
-  }) {
-    this.taskInstances = args.taskInstances;
-    this.stats = args.stats;
-  }
+export interface IQueryImmediateTaskInstancesOut {
+  taskInstances: IQueryImmediateTaskInstancesOutTaskInstance[];
+  stats: IQueryImmediateTaskInstancesOutStats;
 }

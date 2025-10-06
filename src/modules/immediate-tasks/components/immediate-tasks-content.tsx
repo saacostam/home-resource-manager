@@ -10,14 +10,14 @@ import {
 } from "@mantine/core";
 import { CalendarDaysIcon } from "@/modules/icons";
 import type {
-  MutationCreateTaskCompletionIn,
-  MutationDeleteTaskCompletionIn,
+  IMutationCreateTaskCompletionIn,
+  IMutationDeleteTaskCompletionIn,
 } from "@/modules/repositories/app";
 import type { TImmediateTaskEntry } from "../types";
 
 export interface ImmediateTasksContentProps {
-  onCreateTaskCompletion: (args: MutationCreateTaskCompletionIn) => void;
-  onDeleteTaskCompletion: (args: MutationDeleteTaskCompletionIn) => void;
+  onCreateTaskCompletion: (args: IMutationCreateTaskCompletionIn) => void;
+  onDeleteTaskCompletion: (args: IMutationDeleteTaskCompletionIn) => void;
   tableEntries: TImmediateTaskEntry[];
 }
 

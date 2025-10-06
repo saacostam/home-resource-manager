@@ -5,6 +5,8 @@ export interface IUserRepository {
   updateSettings(args: IMutationUpdateSettingsIn): Promise<void>;
 }
 
+// Update Settings
+
 export interface IMutationUpdateSettingsIn {
   timezone: string;
 }

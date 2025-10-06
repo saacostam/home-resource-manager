@@ -1,17 +1,17 @@
 import type { useAuth } from "@/modules/auth";
 import type { TTaskInstanceStatus } from "@/modules/core.types";
-import {
-  QueryImmediateTaskInstancesOut,
-  type ITaskInstancesRepository,
-  type MutationCreateTaskCompletionIn,
-  type MutationDeleteTaskCompletionIn,
+import type {
+  IQueryImmediateTaskInstancesOut,
+  ITaskInstancesRepository,
+  IMutationCreateTaskCompletionIn,
+  IMutationDeleteTaskCompletionIn,
 } from "../../app";
 
 export class TaskInstancesRepository implements ITaskInstancesRepository {
   constructor(private auth: ReturnType<typeof useAuth>["fetch"]) {}
 
   async createTaskCompletion(
-    args: MutationCreateTaskCompletionIn,
+    args: IMutationCreateTaskCompletionIn,
   ): Promise<void> {
     return this.auth({
       endpoint: "/i/task",
@@ -21,7 +21,7 @@ export class TaskInstancesRepository implements ITaskInstancesRepository {
   }
 
   async deleteTaskCompletion(
-    args: MutationDeleteTaskCompletionIn,
+    args: IMutationDeleteTaskCompletionIn,
   ): Promise<void> {
     return this.auth({
       endpoint: `/i/task/${args.id}`,
@@ -29,7 +29,7 @@ export class TaskInstancesRepository implements ITaskInstancesRepository {
     });
   }
 
-  async getImmediateTaskInstances(): Promise<QueryImmediateTaskInstancesOut> {
+  async getImmediateTaskInstances(): Promise<IQueryImmediateTaskInstancesOut> {
     const res = await this.auth<{
       taskInstances: {
         status: TTaskInstanceStatus;
@@ -53,9 +53,9 @@ export class TaskInstancesRepository implements ITaskInstancesRepository {
       method: "GET",
     });
 
-    return new QueryImmediateTaskInstancesOut({
+    return {
       taskInstances: res.taskInstances,
       stats: res.stats,
-    });
+    };
   }
 }
