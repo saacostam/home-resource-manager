@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from "vitest";
-import { screen, render, fireEvent } from "@testing-library/react";
+import { screen, fireEvent } from "@testing-library/react";
 import type { TLeanBoard } from "@/modules/boards/manage-board";
+import { renderWithProviders } from "@/test";
 import { LeanBoardSelectorContent } from "./lean-board-selector-content";
 
 // Mock dependencies
@@ -33,7 +34,7 @@ const mockBoards: TLeanBoard[] = [
 
 describe("LeanBoardSelectorContent", () => {
   it("renders the select and empty query initially", () => {
-    render(<LeanBoardSelectorContent boards={mockBoards} />);
+    renderWithProviders(<LeanBoardSelectorContent boards={mockBoards} />);
 
     // Select should be rendered with placeholder
     expect(screen.getByPlaceholderText("Board")).toBeInTheDocument();
@@ -46,7 +47,7 @@ describe("LeanBoardSelectorContent", () => {
   });
 
   it("renders LeanBoardEditorLoader when a board is selected", async () => {
-    render(<LeanBoardSelectorContent boards={mockBoards} />);
+    renderWithProviders(<LeanBoardSelectorContent boards={mockBoards} />);
 
     const select = screen.getByPlaceholderText("Board");
 
@@ -66,7 +67,7 @@ describe("LeanBoardSelectorContent", () => {
   });
 
   it("renders 'Nothing found...' message if list is empty", async () => {
-    render(<LeanBoardSelectorContent boards={[]} />);
+    renderWithProviders(<LeanBoardSelectorContent boards={[]} />);
 
     const select = screen.getByPlaceholderText("Board");
     fireEvent.click(select);
@@ -75,7 +76,7 @@ describe("LeanBoardSelectorContent", () => {
   });
 
   it("clears the selection and shows EmptyQuery again", async () => {
-    render(<LeanBoardSelectorContent boards={mockBoards} />);
+    renderWithProviders(<LeanBoardSelectorContent boards={mockBoards} />);
 
     const select = screen.getByPlaceholderText("Board");
     fireEvent.click(select);
@@ -87,8 +88,7 @@ describe("LeanBoardSelectorContent", () => {
     expect(screen.getByTestId("mock-editor")).toBeInTheDocument();
 
     // Clear selection
-    const clearButton = screen.getByRole("button", { name: /clear/i });
-    fireEvent.click(clearButton);
+    fireEvent.click(option);
 
     // Should show EmptyQuery again
     expect(screen.getByTestId("mock-empty-query")).toBeInTheDocument();

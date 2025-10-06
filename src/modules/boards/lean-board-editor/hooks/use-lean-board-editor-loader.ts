@@ -6,8 +6,8 @@ import {
   useQueryBoardById,
   useMutationUpdateBoardById,
 } from "@/modules/core.fetching-hooks";
-import type { LeanBoardEditorContentProps } from "../components/lean-board-editor-content";
 import type { IQueryBoardByIdOut } from "@/modules/repositories/app";
+import type { LeanBoardEditorContentProps } from "../components/lean-board-editor-content";
 
 export interface UseLeanBoardEditorLoaderArgs {
   id: string;

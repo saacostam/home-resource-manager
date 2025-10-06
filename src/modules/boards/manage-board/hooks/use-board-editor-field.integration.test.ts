@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from "vitest";
 import { notifications } from "@mantine/notifications";
-import { renderHookWithProviders } from "@/test";
-import { useBoardEditorField } from "./use-board-editor-field";
 import { waitFor } from "@testing-library/dom";
 import { act } from "@testing-library/react";
+import { renderHookWithProviders } from "@/test";
+import { useBoardEditorField } from "./use-board-editor-field";
 
 vi.mock("@mantine/notifications", () => ({
   notifications: {
