@@ -1,8 +1,6 @@
-import {
-  useGetBoardById,
-  type TGetBoardByIdResponse,
-} from "@/modules/core.fetching-hooks";
 import { useMemo } from "react";
+import { useQueryBoardById } from "@/modules/core.fetching-hooks";
+import type { IQueryBoardByIdOut } from "@/modules/repositories/app";
 import type { TBoard } from "../../manage-board";
 
 export interface UseEditBoardLoaderArgs {
@@ -10,7 +8,7 @@ export interface UseEditBoardLoaderArgs {
 }
 
 export function useEditBoardLoader({ id }: UseEditBoardLoaderArgs) {
-  const getBoardById = useGetBoardById({ req: { id } });
+  const getBoardById = useQueryBoardById({ args: { id } });
 
   return useMemo(
     () =>
@@ -38,7 +36,7 @@ export function useEditBoardLoader({ id }: UseEditBoardLoaderArgs) {
   );
 }
 
-export function _mapApiToDomain(req: TGetBoardByIdResponse): TBoard {
+export function _mapApiToDomain(req: IQueryBoardByIdOut): TBoard {
   return {
     id: req.id,
     content: req.content,

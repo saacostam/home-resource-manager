@@ -3,11 +3,11 @@ import { useDebouncedCallback } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
 import type { TBoard } from "@/modules/boards/manage-board";
 import {
-  useGetBoardById,
-  usePutUpdateBoardById,
-  type TGetBoardByIdResponse,
+  useQueryBoardById,
+  useMutationUpdateBoardById,
 } from "@/modules/core.fetching-hooks";
 import type { LeanBoardEditorContentProps } from "../components/lean-board-editor-content";
+import type { IQueryBoardByIdOut } from "@/modules/repositories/app";
 
 export interface UseLeanBoardEditorLoaderArgs {
   id: string;
@@ -16,8 +16,8 @@ export interface UseLeanBoardEditorLoaderArgs {
 const UPDATE_DEBOUNCE_DELAY = 500;
 
 export function useLeanBoardEditorLoader({ id }: UseLeanBoardEditorLoaderArgs) {
-  const getBoardById = useGetBoardById({ req: { id } });
-  const updateBoardById = usePutUpdateBoardById();
+  const getBoardById = useQueryBoardById({ args: { id } });
+  const updateBoardById = useMutationUpdateBoardById();
 
   const updateBoardContent = useDebouncedCallback<
     LeanBoardEditorContentProps["updateBoardContent"]
@@ -65,7 +65,7 @@ export function useLeanBoardEditorLoader({ id }: UseLeanBoardEditorLoaderArgs) {
   );
 }
 
-export function _mapApiToDomain(args: { res: TGetBoardByIdResponse }): TBoard {
+export function _mapApiToDomain(args: { res: IQueryBoardByIdOut }): TBoard {
   return {
     id: args.res.id,
     name: args.res.name,

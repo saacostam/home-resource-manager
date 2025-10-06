@@ -5,7 +5,7 @@ import {
   type TBoard,
   type TManageBoardForm,
 } from "@/modules/boards/manage-board";
-import { usePutUpdateBoardById } from "@/modules/core.fetching-hooks";
+import { useMutationUpdateBoardById } from "@/modules/core.fetching-hooks";
 import { handleApiErrors } from "@/modules/forms";
 import { notifications } from "@mantine/notifications";
 
@@ -21,7 +21,7 @@ export function useEditBoard({ board, onClose }: UseEditBoardArgs) {
     },
   });
 
-  const updateBoard = usePutUpdateBoardById();
+  const updateBoard = useMutationUpdateBoardById();
 
   const onSubmit = useCallback(
     (data: TManageBoardForm) => {

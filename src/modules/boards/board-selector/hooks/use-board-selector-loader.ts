@@ -1,13 +1,11 @@
 import { useCallback, useMemo } from "react";
-import {
-  useGetAllBoards,
-  type TGetAllBoardsResponse,
-} from "@/modules/core.fetching-hooks";
+import { useQueryAllBoards } from "@/modules/core.fetching-hooks";
 import type { TLeanBoard } from "@/modules/boards/manage-board";
+import type { IQueryAllBoardsOut } from "@/modules/repositories/app";
 import { useBoardSelector } from "../providers";
 
 export function useBoardSelectorLoader() {
-  const getAllBoards = useGetAllBoards();
+  const getAllBoards = useQueryAllBoards();
 
   const { setMode } = useBoardSelector();
 
@@ -46,7 +44,7 @@ export function useBoardSelectorLoader() {
 }
 
 export function _mapApiToDomain(args: {
-  res: TGetAllBoardsResponse;
+  res: IQueryAllBoardsOut;
 }): TLeanBoard[] {
   return args.res.boards.map((apiEntry) => ({
     id: apiEntry.id,
