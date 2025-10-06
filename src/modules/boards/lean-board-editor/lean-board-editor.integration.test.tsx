@@ -7,6 +7,13 @@ import type {
 } from "@/modules/repositories/app";
 import { renderWithProviders } from "@/test";
 import { LeanBoardEditorLoader } from "./components";
+import { notifications } from "@mantine/notifications";
+
+vi.mock("@mantine/notifications", () => ({
+  notifications: {
+    show: vi.fn(),
+  },
+}));
 
 const boardById: IQueryBoardByIdOut = {
   id: "test-id",
@@ -48,5 +55,36 @@ describe("LeanBoardEditorLoader", () => {
       },
       { timeout: 1_000 },
     );
+  });
+
+  it("should handle repository update errors", async () => {
+    const updateBoardById = vi.fn();
+    updateBoardById.mockRejectedValueOnce(new Error());
+
+    renderWithProviders(<LeanBoardEditorLoader id="test-id" />, {
+      repositories: {
+        board: {
+          // eslint-disable-next-line @typescript-eslint/require-await
+          queryBoardById: async () => boardById,
+          updateBoardById,
+        },
+      },
+    });
+
+    const field = await screen.findByRole("textbox");
+    act(() => {
+      fireEvent.input(field, {
+        target: { innerHTML: "<p>Test typing</p>" },
+      });
+    });
+
+    await waitFor(
+      () => {
+        expect(updateBoardById).toHaveBeenCalledOnce();
+      },
+      { timeout: 1_000 },
+    );
+
+    expect(notifications.show).toHaveBeenCalled();
   });
 });
