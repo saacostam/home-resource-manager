@@ -20,7 +20,7 @@ export function BoardModalManager() {
         onClose={onClose}
         title="Create Board"
       >
-        <CreateBoard onClose={onClose} />
+        <CreateBoard onClose={onClose} setId={setId} />
       </Modal>
       <Modal
         centered

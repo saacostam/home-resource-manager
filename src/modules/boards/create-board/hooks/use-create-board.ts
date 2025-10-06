@@ -11,11 +11,10 @@ import { handleApiErrors } from "@/modules/forms";
 
 export interface UseCreateBoardArgs {
   onClose: () => void;
+  setId: ReturnType<typeof useBoardSelector>["setId"];
 }
 
-export function useCreateBoard({ onClose }: UseCreateBoardArgs) {
-  const { setId } = useBoardSelector();
-
+export function useCreateBoard({ onClose, setId }: UseCreateBoardArgs) {
   const form = useManageBoardForm({
     defaultValues: {
       name: "",
