@@ -1,10 +1,10 @@
-import type { useBoardSelector } from "@/modules/boards/board-selector";
+import type { TBoardModalManagerService } from "@/modules/boards/board-modal-manager";
 import { ManageBoardForm } from "@/modules/boards/manage-board";
 import { useCreateBoard } from "../hooks";
 
 export interface CreateBoardProps {
   onClose: () => void;
-  setId: ReturnType<typeof useBoardSelector>["setId"];
+  setId: TBoardModalManagerService["setId"];
 }
 
 export function CreateBoard({ onClose, setId }: CreateBoardProps) {

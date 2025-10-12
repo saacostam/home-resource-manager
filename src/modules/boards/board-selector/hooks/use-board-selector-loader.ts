@@ -1,13 +1,13 @@
 import { useCallback, useMemo } from "react";
 import { useQueryAllBoards } from "@/modules/core.fetching-hooks";
+import { useBoardModalManagerService } from "@/modules/boards/board-modal-manager";
 import type { TLeanBoard } from "@/modules/boards/manage-board";
 import type { IQueryAllBoardsOut } from "@/modules/repositories/app";
-import { useBoardSelector } from "../providers";
 
 export function useBoardSelectorLoader() {
   const getAllBoards = useQueryAllBoards();
 
-  const { setMode } = useBoardSelector();
+  const { setMode } = useBoardModalManagerService();
 
   const onCreateBoard = useCallback(() => {
     setMode({ type: "create" });

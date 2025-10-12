@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from "react";
 import { useDebouncedCallback } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
-import { useBoardSelector } from "@/modules/boards/board-selector";
+import { useBoardModalManagerService } from "@/modules/boards/board-modal-manager";
 import type { TBoard } from "@/modules/boards/manage-board";
 import {
   useQueryBoardById,
@@ -17,7 +17,7 @@ export interface UseBoardEditorLoaderArgs {
 const UPDATE_DEBOUNCE_DELAY = 500;
 
 export function useBoardEditorLoader({ id }: UseBoardEditorLoaderArgs) {
-  const { setMode } = useBoardSelector();
+  const { setMode } = useBoardModalManagerService();
 
   const getBoardById = useQueryBoardById({ args: { id } });
   const updateBoardById = useMutationUpdateBoardById();

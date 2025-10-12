@@ -3,10 +3,10 @@ import { Modal } from "@mantine/core";
 import { CreateBoard } from "@/modules/boards/create-board";
 import { DeleteBoard } from "@/modules/boards/delete-board";
 import { EditBoard } from "@/modules/boards/edit-board";
-import { useBoardSelector } from "../providers";
+import { useBoardModalManagerService } from "../providers";
 
 export function BoardModalManager() {
-  const { mode, setMode, id, setId } = useBoardSelector();
+  const { mode, setMode, id, setId } = useBoardModalManagerService();
 
   const onClose = useCallback(() => {
     setMode({ type: "browse" });

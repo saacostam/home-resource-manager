@@ -1,6 +1,6 @@
 import { isAxiosError } from "axios";
 import { useCallback, useMemo } from "react";
-import { useBoardSelector } from "@/modules/boards/board-selector";
+import type { TBoardModalManagerService } from "@/modules/boards/board-modal-manager";
 import {
   useManageBoardForm,
   type TManageBoardForm,
@@ -11,7 +11,7 @@ import { handleApiErrors } from "@/modules/forms";
 
 export interface UseCreateBoardArgs {
   onClose: () => void;
-  setId: ReturnType<typeof useBoardSelector>["setId"];
+  setId: TBoardModalManagerService["setId"];
 }
 
 export function useCreateBoard({ onClose, setId }: UseCreateBoardArgs) {

@@ -1,12 +1,12 @@
 import { useCallback, useMemo } from "react";
 import { notifications } from "@mantine/notifications";
 import { useMutationDeleteBoardById } from "@/modules/core.fetching-hooks";
-import type { useBoardSelector } from "@/modules/boards/board-selector";
+import type { TBoardModalManagerService } from "@/modules/boards/board-modal-manager";
 
 export interface UseDeleteBoardArgs {
   id: string;
   onClose: () => void;
-  setId: ReturnType<typeof useBoardSelector>["setId"];
+  setId: TBoardModalManagerService["setId"];
 }
 
 export function useDeleteBoard({ id, onClose, setId }: UseDeleteBoardArgs) {

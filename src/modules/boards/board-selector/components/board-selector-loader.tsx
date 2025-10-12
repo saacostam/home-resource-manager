@@ -5,7 +5,6 @@ import { PencilSquareIcon } from "@/modules/icons";
 import { useBoardSelectorLoader } from "../hooks";
 import { BoardSelectorSkeleton } from "./board-selector-skeleton";
 import { BoardSelectorContent } from "./board-selector-content";
-import { BoardModalManager } from "./board-modal-manager";
 
 export function BoardSelectorLoader() {
   const { status, data, retry, onCreateBoard } = useBoardSelectorLoader();
@@ -47,11 +46,6 @@ export function BoardSelectorLoader() {
           <BoardSelectorContent boards={data} />
         )}
       </Paper>
-      {status === "success" && (
-        <>
-          <BoardModalManager />
-        </>
-      )}
     </>
   );
 }
