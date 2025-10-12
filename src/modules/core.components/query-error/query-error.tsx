@@ -16,7 +16,12 @@ export function QueryError({
   retry,
 }: QueryErrorProps) {
   return (
-    <Alert color="pink" title={title} icon={<ExclamationCircleIcon />}>
+    <Alert
+      color="pink"
+      title={title}
+      icon={<ExclamationCircleIcon />}
+      data-testid="query-error"
+    >
       <Text size="sm" mb="md">
         {description}
       </Text>

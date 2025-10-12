@@ -32,6 +32,7 @@ export function BoardSelectorLoader() {
               <PencilSquareIcon style={{ width: "1.1rem", height: "1.1rem" }} />
             }
             onClick={onCreateBoard}
+            data-testid="create-board-button"
           >
             Create Board
           </Button>

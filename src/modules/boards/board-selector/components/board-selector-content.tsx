@@ -12,7 +12,7 @@ export function BoardSelectorContent({ boards }: BoardSelectorContentProps) {
   const { id: boardId, setId: setBoardId } = useBoardModalManagerService();
 
   return (
-    <>
+    <div data-testid="board-selector-content">
       <Select
         size="sm"
         placeholder="Board"
@@ -39,6 +39,6 @@ export function BoardSelectorContent({ boards }: BoardSelectorContentProps) {
           description="Please select a Board"
         />
       )}
-    </>
+    </div>
   );
 }
