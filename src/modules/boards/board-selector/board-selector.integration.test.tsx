@@ -184,7 +184,7 @@ describe("BoardSelectorLoader", () => {
     expect(screen.queryByTestId(Selectors.BOARD_EDITOR_LOADER)).toBe(null);
   });
 
-  it("should render board-editor if no selection was made", async () => {
+  it("should render board-editor if a selection was made", async () => {
     renderWithProvidersAndModalManagerContext(
       <BoardSelectorLoader />,
       {
