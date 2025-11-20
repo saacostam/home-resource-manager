@@ -56,6 +56,13 @@ const MOCK_MUTATING_INSTANCE = {
   },
 };
 
+const mockImmediateTasksInstances = (
+  taskInstances: IQueryImmediateTaskInstancesOut["taskInstances"],
+): IQueryImmediateTaskInstancesOut => ({
+  stats: { totalResources: 2, pendingTasks: 1, overdueTasks: 1 },
+  taskInstances,
+});
+
 describe("Immediate Tasks [Integration]", () => {
   it("should render skeleton id data hasn't resolved", () => {
     renderWithProviders(<ImmediateTasksLoader />, {
@@ -99,18 +106,8 @@ describe("Immediate Tasks [Integration]", () => {
       repositories: {
         taskInstances: {
           // eslint-disable-next-line @typescript-eslint/require-await
-          getImmediateTaskInstances: async () => {
-            const payload: IQueryImmediateTaskInstancesOut = {
-              stats: {
-                totalResources: 2,
-                pendingTasks: 1,
-                overdueTasks: 1,
-              },
-              taskInstances: [MOCK_COMMITED_INSTANCE],
-            };
-
-            return payload;
-          },
+          getImmediateTaskInstances: async () =>
+            mockImmediateTasksInstances([MOCK_COMMITED_INSTANCE]),
           deleteTaskCompletion,
         },
       },
@@ -146,18 +143,8 @@ describe("Immediate Tasks [Integration]", () => {
       repositories: {
         taskInstances: {
           // eslint-disable-next-line @typescript-eslint/require-await
-          getImmediateTaskInstances: async () => {
-            const payload: IQueryImmediateTaskInstancesOut = {
-              stats: {
-                totalResources: 2,
-                pendingTasks: 1,
-                overdueTasks: 1,
-              },
-              taskInstances: [MOCK_VIRTUAL_INSTANCE],
-            };
-
-            return payload;
-          },
+          getImmediateTaskInstances: async () =>
+            mockImmediateTasksInstances([MOCK_VIRTUAL_INSTANCE]),
           createTaskCompletion,
         },
       },
@@ -194,18 +181,8 @@ describe("Immediate Tasks [Integration]", () => {
       repositories: {
         taskInstances: {
           // eslint-disable-next-line @typescript-eslint/require-await
-          getImmediateTaskInstances: async () => {
-            const payload: IQueryImmediateTaskInstancesOut = {
-              stats: {
-                totalResources: 2,
-                pendingTasks: 1,
-                overdueTasks: 1,
-              },
-              taskInstances: [MOCK_MUTATING_INSTANCE],
-            };
-
-            return payload;
-          },
+          getImmediateTaskInstances: async () =>
+            mockImmediateTasksInstances([MOCK_MUTATING_INSTANCE]),
           createTaskCompletion,
           deleteTaskCompletion,
         },
