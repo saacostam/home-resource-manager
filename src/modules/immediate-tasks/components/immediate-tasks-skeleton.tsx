@@ -2,7 +2,7 @@ import { Flex, Skeleton } from "@mantine/core";
 
 export function ImmediateTasksSkeleton() {
   return (
-    <Flex direction="column" gap="lg">
+    <Flex direction="column" gap="lg" data-testid="immediate-tasks-skeleton">
       <Skeleton h={60} />
       <Skeleton h={80} />
       <Skeleton h={60} />
