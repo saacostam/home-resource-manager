@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MemoryRouter } from "react-router-dom";
 import { MantineProvider } from "@mantine/core";
+import { AuthSessionProvider } from "@/modules/auth";
 
 // ✅ A fresh QueryClient per test avoids cache bleed between tests
 const createTestQueryClient = () =>
@@ -28,7 +29,7 @@ export function TestProviders({
     <MantineProvider>
       <MemoryRouter initialEntries={initialEntries}>
         <QueryClientProvider client={queryClient}>
-          {children}
+          <AuthSessionProvider>{children}</AuthSessionProvider>
         </QueryClientProvider>
       </MemoryRouter>
     </MantineProvider>
