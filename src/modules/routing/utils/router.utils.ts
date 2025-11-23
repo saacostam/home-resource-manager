@@ -1,4 +1,5 @@
 export enum TRouteType {
+  LANDING = "landing",
   LOGIN = "login",
   SIGNUP = "sign-up",
   DASHBOARD = "base",
@@ -10,6 +11,9 @@ export enum TRouteType {
 }
 
 export type TGenRouteAction =
+  | {
+      type: TRouteType.LANDING;
+    }
   | {
       type: TRouteType.DASHBOARD;
     }
@@ -38,7 +42,7 @@ export type TGenRouteAction =
 export function genRoute(action: TGenRouteAction): string {
   switch (action.type) {
     case TRouteType.DASHBOARD: {
-      return "/";
+      return "/dashboard";
     }
     case TRouteType.SIGNUP: {
       return "/signup";
@@ -60,6 +64,9 @@ export function genRoute(action: TGenRouteAction): string {
     }
     case TRouteType.SETTINGS: {
       return "/settings";
+    }
+    case TRouteType.LANDING: {
+      return "/";
     }
   }
 }

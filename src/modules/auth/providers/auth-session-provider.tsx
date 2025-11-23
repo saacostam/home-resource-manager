@@ -12,6 +12,9 @@ const ROUTES_WITHOUT_AUTH = [
   genRoute({
     type: TRouteType.SIGNUP,
   }),
+  genRoute({
+    type: TRouteType.LANDING,
+  }),
 ];
 
 function AuthSessionGuard({ children }: PropsWithChildren) {

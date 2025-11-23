@@ -4,6 +4,7 @@ import { AppShell } from "@/modules/layout";
 import { AuthSessionProvider } from "../auth";
 import { RouterSuspenseBoundaryContent } from "./components";
 import { RepositoriesProvider } from "../repositories/app";
+import { LandingPage } from "../pages";
 
 // Lazy-loaded pages
 const HomePage = lazy(() => import("@/modules/pages/home/home.page"));
@@ -42,7 +43,7 @@ export const router = createHashRouter([
       {
         element: <AppShell />,
         children: [
-          { index: true, element: <HomePage /> },
+          { path: "dashboard", element: <HomePage /> },
           { path: "settings", element: <SettingsPage /> },
           { path: "manage-categories", element: <ManageCategoriesPage /> },
           { path: "manage-resources", element: <ManageResourcesPage /> },
@@ -52,6 +53,7 @@ export const router = createHashRouter([
       },
       { path: "login", element: <LoginPage /> },
       { path: "signup", element: <SignupPage /> },
+      { path: "/", element: <LandingPage /> },
       { path: "*", element: <ErrorPage /> },
     ],
   },

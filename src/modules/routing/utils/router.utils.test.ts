@@ -3,7 +3,7 @@ import { genRoute, TRouteType } from "./router.utils";
 
 describe("genRoute", () => {
   const routes: Record<TRouteType, string> = {
-    [TRouteType.DASHBOARD]: "/",
+    [TRouteType.DASHBOARD]: "/dashboard",
     [TRouteType.SIGNUP]: "/signup",
     [TRouteType.LOGIN]: "/login",
     [TRouteType.CATEGORIES]: "/manage-categories",
@@ -11,6 +11,7 @@ describe("genRoute", () => {
     [TRouteType.BOARDS]: "/manage-boards",
     [TRouteType.TASKS]: "/manage-tasks",
     [TRouteType.SETTINGS]: "/settings",
+    [TRouteType.LANDING]: "/",
   };
 
   it.each(Object.entries(routes))(
