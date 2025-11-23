@@ -1,4 +1,4 @@
-# 🏠 Home Resource Manager
+<img src="./public/logo.png" height="56px">
 
 A personal project to experiment with **time-based recurrence** in a practical context: managing recurring household tasks.
 This README covers only the **frontend application**.
@@ -68,7 +68,7 @@ It’s a simple way to stay on top of recurring responsibilities and visualize w
 
 ## Screenshots
 
-[TBD]
+<img src="./public/hero.png" width="720px"/>
 
 ---
 
