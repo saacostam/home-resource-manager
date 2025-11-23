@@ -69,6 +69,10 @@ It’s a simple way to stay on top of recurring responsibilities and visualize w
 ## Screenshots
 
 <img src="./public/hero.png" width="720px"/>
+<img src="./public/resource.png" width="720px"/>
+<img src="./public/task.png" width="720px"/>
+<img src="./public/signup.png" width="720px"/>
+<img src="./public/board.png" width="720px"/>
 
 ---
 
