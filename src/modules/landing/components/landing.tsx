@@ -108,7 +108,7 @@ export function Landing() {
             gradient={{ to: "white", from: "yellow" }}
             ta="center"
           >
-            Built to bring order to everyday home life.
+            A simple, calm way to manage your home.
           </Text>
           <Grid>
             <GridCol span={{ base: 12, sm: 6, md: 3 }}>
@@ -168,6 +168,9 @@ export function Landing() {
           >
             <List.Item>A consistent and thoughtful user experience</List.Item>
             <List.Item>A clean, vertically-sliced architecture</List.Item>
+            <List.Item>
+              A maintainable foundation designed for feature expansion
+            </List.Item>
             <List.Item>State management powered by React Query</List.Item>
             <List.Item>A component-driven, reusable UI</List.Item>
             <List.Item>Authentication and routing</List.Item>
