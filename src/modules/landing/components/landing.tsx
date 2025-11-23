@@ -86,7 +86,7 @@ export function Landing() {
           </Flex>
         </Container>
       </Box>
-      <Container my="5rem">
+      <Container my="xl">
         <Title c="violet">🌱 About the Project</Title>
         <Text
           size="xl"
@@ -104,29 +104,20 @@ export function Landing() {
           it turned into a great portfolio project to showcase product design,
           UX thinking, and real engineering depth.
         </Text>
+        <Carousel withIndicators height="564px" withControls mt="lg">
+          {ScreenShotsUrl.map((url) => (
+            <Carousel.Slide pos="relative">
+              <Image src={url} radius="md" />
+              <Overlay
+                gradient="linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.10) 33%, rgba(0, 0, 0, 0.10) 66%, rgba(0, 0, 0, 1) 100%)"
+                opacity={0.05}
+                radius="md"
+              />
+            </Carousel.Slide>
+          ))}
+        </Carousel>
       </Container>
-      <Box
-        style={{ borderTop: "2px solid var(--mantine-color-violet-filled)" }}
-      >
-        <Container py="5rem">
-          <Title c="violet" ta="center" mb="xl">
-            📷 App Screens
-          </Title>
-          <Carousel withIndicators height="564px" withControls>
-            {ScreenShotsUrl.map((url) => (
-              <Carousel.Slide pos="relative">
-                <Image src={url} radius="md" />
-                <Overlay
-                  gradient="linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.10) 33%, rgba(0, 0, 0, 0.10) 66%, rgba(0, 0, 0, 1) 100%)"
-                  opacity={0.05}
-                  radius="md"
-                />
-              </Carousel.Slide>
-            ))}
-          </Carousel>
-        </Container>
-      </Box>
-      <Box bg="violet" c="white" py="5rem">
+      <Box bg="violet" c="white" py="xl">
         <Container>
           <Title ta="center" mb="md">
             🏡 What You Can Do:
@@ -185,7 +176,7 @@ export function Landing() {
           </Grid>
         </Container>
       </Box>
-      <Container my="3rem">
+      <Container my="xl">
         <Box mx="auto" w="fit-content">
           <Title mb="sm">🐛 Built as a Portfolio Showcase</Title>
           <Text mb="sm">This project demonstrates:</Text>
