@@ -11,11 +11,21 @@ import {
   GridCol,
   Image,
   List,
+  Overlay,
   Text,
   ThemeIcon,
   Title,
 } from "@mantine/core";
+import { Carousel } from "@mantine/carousel";
 import { Link } from "react-router-dom";
+
+const ScreenShotsUrl: string[] = [
+  "hero.png",
+  "resource.png",
+  "task.png",
+  "signup.png",
+  "board.png",
+];
 
 export function Landing() {
   return (
@@ -67,7 +77,7 @@ export function Landing() {
                 variant="white"
                 w="fit-content"
               >
-                Get Started
+                Explore the Demo
               </Button>
             </Flex>
             <Box flex={{ base: 1, xs: 3, sm: 4 }}>
@@ -95,6 +105,27 @@ export function Landing() {
           UX thinking, and real engineering depth.
         </Text>
       </Container>
+      <Box
+        style={{ borderTop: "2px solid var(--mantine-color-violet-filled)" }}
+      >
+        <Container py="5rem">
+          <Title c="violet" ta="center" mb="xl">
+            📷 App Screens
+          </Title>
+          <Carousel withIndicators height="564px" withControls>
+            {ScreenShotsUrl.map((url) => (
+              <Carousel.Slide pos="relative">
+                <Image src={url} radius="md" />
+                <Overlay
+                  gradient="linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.10) 33%, rgba(0, 0, 0, 0.10) 66%, rgba(0, 0, 0, 1) 100%)"
+                  opacity={0.05}
+                  radius="md"
+                />
+              </Carousel.Slide>
+            ))}
+          </Carousel>
+        </Container>
+      </Box>
       <Box bg="violet" c="white" py="5rem">
         <Container>
           <Title ta="center" mb="md">
