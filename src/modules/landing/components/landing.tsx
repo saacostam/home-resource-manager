@@ -1,5 +1,11 @@
 import { Logo } from "@/modules/core.components";
-import { CheckCircleIcon } from "@/modules/icons";
+import {
+  CheckCircleIcon,
+  ListBulletIcon,
+  PencilIcon,
+  RectangleGroupIcon,
+  TagIcon,
+} from "@/modules/icons";
 import { genRoute, TRouteType } from "@/modules/routing";
 import {
   Box,
@@ -18,9 +24,10 @@ import {
 } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";
 import { Link } from "react-router-dom";
+import type { ReactNode } from "react";
 
 const ScreenShotsUrl: string[] = [
-  "hero.png",
+  "home.png",
   "resource.png",
   "task.png",
   "signup.png",
@@ -87,13 +94,16 @@ export function Landing() {
         </Container>
       </Box>
       <Container my="xl">
-        <Title c="violet">🌱 About the Project</Title>
+        <Title c="violet" ta="center" mb="lg">
+          🌱 About the Project
+        </Title>
         <Text
           size="xl"
           fw="bold"
           my="xs"
           variant="gradient"
           gradient={{ to: "violet", from: "black" }}
+          ta="center"
         >
           Built to bring order to everyday home life.
         </Text>
@@ -104,10 +114,10 @@ export function Landing() {
           it turned into a great portfolio project to showcase product design,
           UX thinking, and real engineering depth.
         </Text>
-        <Carousel withIndicators height="564px" withControls mt="lg">
+        <Carousel withIndicators height="384px" withControls mt="lg">
           {ScreenShotsUrl.map((url) => (
             <Carousel.Slide pos="relative">
-              <Image src={url} radius="md" />
+              <Image src={url} radius="md" height="384px" fit="contain" />
               <Overlay
                 gradient="linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.10) 33%, rgba(0, 0, 0, 0.10) 66%, rgba(0, 0, 0, 1) 100%)"
                 opacity={0.05}
@@ -122,86 +132,118 @@ export function Landing() {
           <Title ta="center" mb="md">
             🏡 What You Can Do:
           </Title>
-          <Text
-            size="xl"
-            fw="bold"
-            mb="xl"
-            variant="gradient"
-            gradient={{ to: "white", from: "yellow" }}
-            ta="center"
-          >
+          <Text size="xl" fw="bold" mb="xl" ta="center">
             A simple, calm way to manage your home.
           </Text>
           <Grid>
             <GridCol span={{ base: 12, sm: 6, md: 3 }}>
-              <Card>
-                <Title size="h4" mb="sm">
-                  Tasks
-                </Title>
-                <Text>
-                  Keep track of chores, repairs, and routines — clearly
-                  categorized and easy to update.
-                </Text>
-              </Card>
+              <CardFeature
+                title="Tasks"
+                icon={<ListBulletIcon width={20} height={20} />}
+                description="Keep track of chores, repairs, and routines — clearly categorized."
+              />
             </GridCol>
             <GridCol span={{ base: 12, sm: 6, md: 3 }}>
-              <Card>
-                <Title size="h4" mb="sm">
-                  Boards
-                </Title>
-                <Text>
-                  Lightweight spaces for ideas, notes, and running lists.
-                </Text>
-              </Card>
+              <CardFeature
+                title="Boards"
+                icon={<PencilIcon width={20} height={20} />}
+                description="Lightweight spaces for ideas, notes, and running lists."
+              />
             </GridCol>
             <GridCol span={{ base: 12, sm: 6, md: 3 }}>
-              <Card>
-                <Title size="h4" mb="sm">
-                  Resources
-                </Title>
-                <Text>
-                  A home inventory you&apos;ll actually use — know what you own
-                  and where it is.
-                </Text>
-              </Card>
+              <CardFeature
+                title="Resources"
+                icon={<RectangleGroupIcon width={20} height={20} />}
+                description={
+                  <>
+                    A home inventory you&apos;ll actually use — know what you
+                    own and where it is.
+                  </>
+                }
+              />
             </GridCol>
             <GridCol span={{ base: 12, sm: 6, md: 3 }}>
-              <Card>
-                <Title size="h4" mb="sm">
-                  Categories
-                </Title>
-                <Text>The glue that keeps everything tidy and intuitive.</Text>
-              </Card>
+              <CardFeature
+                title="Categories"
+                icon={<TagIcon width={20} height={20} />}
+                description={
+                  <>The glue that keeps everything tidy and intuitive.</>
+                }
+              />
             </GridCol>
           </Grid>
         </Container>
       </Box>
       <Container my="xl">
-        <Box mx="auto" w="fit-content">
-          <Title mb="sm">🐛 Built as a Portfolio Showcase</Title>
-          <Text mb="sm">This project demonstrates:</Text>
-          <List
-            icon={
-              <ThemeIcon color="green" size={24} radius="xl">
-                <CheckCircleIcon />
-              </ThemeIcon>
-            }
-            mb="sm"
+        <Box w="fit-content">
+          <Title mb="xl" ta="center">
+            🐛 Built as a Portfolio Showcase
+          </Title>
+          <Text mb="lg">This project demonstrates:</Text>
+          <Flex
+            direction={{
+              base: "column",
+              sm: "row",
+            }}
           >
-            <List.Item>A consistent and thoughtful user experience</List.Item>
-            <List.Item>A clean, vertically-sliced architecture</List.Item>
-            <List.Item>
-              A maintainable foundation designed for feature expansion
-            </List.Item>
-            <List.Item>State management powered by React Query</List.Item>
-            <List.Item>A component-driven, reusable UI</List.Item>
-            <List.Item>Authentication and routing</List.Item>
-            <List.Item>Clean, scalable data modeling</List.Item>
-            <List.Item>Full CRUD workflows throughout the app</List.Item>
-            <List.Item>Comprehensive, user-centric testing</List.Item>
-          </List>
+            <List
+              icon={
+                <ThemeIcon color="green" size={24} radius="xl">
+                  <CheckCircleIcon />
+                </ThemeIcon>
+              }
+              mb="sm"
+              style={{
+                flexWrap: "wrap",
+              }}
+            >
+              <List.Item>A consistent and thoughtful user experience</List.Item>
+              <List.Item>A clean, vertically-sliced architecture</List.Item>
+              <List.Item>
+                A maintainable foundation designed for feature expansion
+              </List.Item>
+              <List.Item>State management powered by React Query</List.Item>
+              <List.Item>A component-driven, reusable UI</List.Item>
+            </List>
+            <List
+              icon={
+                <ThemeIcon color="green" size={24} radius="xl">
+                  <CheckCircleIcon />
+                </ThemeIcon>
+              }
+            >
+              <List.Item>Authentication and routing</List.Item>
+              <List.Item>Clean, scalable data modeling</List.Item>
+              <List.Item>Full CRUD workflows throughout the app</List.Item>
+              <List.Item>Comprehensive, user-centric testing</List.Item>
+            </List>
+          </Flex>
         </Box>
       </Container>
     </>
+  );
+}
+
+function CardFeature(props: {
+  title: string;
+  icon: ReactNode;
+  description: ReactNode;
+}) {
+  return (
+    <Card>
+      <Title
+        size="h4"
+        mb="sm"
+        style={{
+          display: "flex",
+          alignContent: "center",
+          gap: "0.4rem",
+        }}
+        c="violet"
+      >
+        {props.icon} {props.title}
+      </Title>
+      <Text>{props.description}</Text>
+    </Card>
   );
 }

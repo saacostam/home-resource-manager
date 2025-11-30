@@ -1,4 +1,16 @@
-export function CubeTransparentIcon() {
+import type { CSSProperties } from "react";
+
+export interface CubeTransparentIconProps {
+  width?: number;
+  height?: number;
+  style?: CSSProperties;
+}
+
+export function CubeTransparentIcon({
+  width,
+  height,
+  style,
+}: CubeTransparentIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,6 +18,9 @@ export function CubeTransparentIcon() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
+      width={width}
+      height={height}
+      style={style}
     >
       <title>Cube Transparent Icon</title>
       <path
