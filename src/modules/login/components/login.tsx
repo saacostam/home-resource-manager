@@ -24,7 +24,7 @@ export function Login() {
       <Title size="h3" ta="center">
         Login
       </Title>
-      <Text size="sm" c="dark" ta="center">
+      <Text size="sm" ta="center">
         🌱 Organize. Simplify. Enjoy your space.
       </Text>
       <Space my="sm" />
@@ -59,7 +59,7 @@ export function Login() {
         </Button>
       </form>
       <Space h="xl" />
-      <Text size="sm" c="dark" ta="center">
+      <Text size="sm" ta="center">
         Don't have an account?{" "}
         <Anchor component={Link} to={genRoute({ type: TRouteType.SIGNUP })}>
           Sign up

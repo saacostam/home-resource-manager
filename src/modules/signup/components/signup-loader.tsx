@@ -14,7 +14,7 @@ export function SignupLoader() {
       <Title size="h3" ta="center">
         Sign Up
       </Title>
-      <Text size="sm" c="dark" ta="center">
+      <Text size="sm" ta="center">
         🏡 Manage. Streamline. Love your home.
       </Text>
       <Space my="xl" />
@@ -32,7 +32,7 @@ export function SignupLoader() {
       )}
       {status === "loading" && <SignupSkeleton />}
       <Space h="xl" />
-      <Text size="sm" c="dark" ta="center">
+      <Text size="sm" ta="center">
         Already have an account?{" "}
         <Anchor component={Link} to={genRoute({ type: TRouteType.LOGIN })}>
           Login
