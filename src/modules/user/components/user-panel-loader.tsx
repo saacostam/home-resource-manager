@@ -2,13 +2,25 @@ import { Avatar, Menu, UnstyledButton } from "@mantine/core";
 import { useUserPanelLoader } from "../hooks";
 import { UserPanelContent } from "./user-panel-content";
 import { Link } from "react-router-dom";
-import { ArrowRightStartOnRectangleIcon, Cog6ToothIcon } from "@/modules/icons";
+import {
+  ArrowRightStartOnRectangleIcon,
+  Cog6ToothIcon,
+  MoonIcon,
+  SunIcon,
+} from "@/modules/icons";
 import { useAuth } from "@/modules/auth";
 import { genRoute, TRouteType } from "@/modules/routing";
+import { useAdapters } from "@/modules/adapters/core/app";
+import { IThemeVariant } from "@/modules/adapters/theme/domain";
+import { useToggleTheme } from "@/modules/theme/app";
 
 export function UserPanelLoader() {
   const { logout } = useAuth();
+  const { theme } = useAdapters();
   const { status, data } = useUserPanelLoader();
+
+  const ThemeIcon = theme.theme === IThemeVariant.DARK ? SunIcon : MoonIcon;
+  const { toggleTheme } = useToggleTheme();
 
   return (
     <Menu trigger="hover">
@@ -28,6 +40,12 @@ export function UserPanelLoader() {
           leftSection={<Cog6ToothIcon width={16} height={16} />}
         >
           Settings
+        </Menu.Item>
+        <Menu.Item
+          leftSection={<ThemeIcon width={16} height={16} />}
+          onClick={toggleTheme}
+        >
+          Appearance
         </Menu.Item>
         <Menu.Item
           onClick={logout}
