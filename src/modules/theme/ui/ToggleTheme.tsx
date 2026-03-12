@@ -1,8 +1,8 @@
 import { ActionIcon } from "@mantine/core";
-import { useCallback } from "react";
 import { useAdapters } from "@/modules/adapters/core/app";
 import { IThemeVariant } from "@/modules/adapters/theme/domain";
 import { MoonIcon, SunIcon } from "@/modules/icons";
+import { useToggleTheme } from "@/modules/theme/app";
 
 const iconProps = {
   style: {
@@ -13,14 +13,7 @@ const iconProps = {
 
 export function ThemeToggle() {
   const { theme } = useAdapters();
-
-  const toggleTheme = useCallback(() => {
-    theme.setTheme(
-      theme.theme === IThemeVariant.DARK
-        ? IThemeVariant.LIGHT
-        : IThemeVariant.DARK,
-    );
-  }, [theme]);
+  const { toggleTheme } = useToggleTheme();
 
   return (
     <ActionIcon onClick={toggleTheme} size="lg" variant="subtle">
