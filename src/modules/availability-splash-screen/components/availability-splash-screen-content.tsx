@@ -17,7 +17,7 @@ export function AvailabilitySplashScreenContent({
           Connecting to your space...
         </Title>
         <Space h="xs" />
-        <Text size="sm" c="dark" ta="center">
+        <Text size="sm" ta="center">
           {isTakingLongerThanExpected
             ? "🌱 It's taking a little longer than usual — thanks for your patience while we finish getting things ready."
             : "🚀 Our servers are starting — we'll be with you in a moment."}

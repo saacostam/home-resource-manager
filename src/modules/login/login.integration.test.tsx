@@ -46,6 +46,9 @@ describe("Login [Integration]", () => {
           login: mockLogin,
         },
       },
+      adapters: {
+        theme: {},
+      },
     });
 
     await submitLoginForm("username", "password");
@@ -71,6 +74,9 @@ describe("Login [Integration]", () => {
         auth: {
           login: mockLogin,
         },
+      },
+      adapters: {
+        theme: {},
       },
     });
 
@@ -98,6 +104,9 @@ describe("Login [Integration]", () => {
           login: mockLogin,
         },
       },
+      adapters: {
+        theme: {},
+      },
     });
 
     await submitLoginForm("user", "pass");
@@ -121,6 +130,9 @@ describe("Login [Integration]", () => {
         auth: {
           login: mockLogin,
         },
+      },
+      adapters: {
+        theme: {},
       },
     });
 

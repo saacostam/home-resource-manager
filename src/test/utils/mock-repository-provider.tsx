@@ -3,25 +3,37 @@ import {
   type IRepositories,
   RepositoryContext,
 } from "@/modules/repositories/app";
+import type { IAdapters } from "@/modules/adapters/core/domain";
+import { AdaptersContext } from "@/modules/adapters/core/app";
 
 export type MockRepositories = {
   [K in keyof IRepositories]?: Partial<IRepositories[K]>;
 };
 
+export type MockAdapters = {
+  [K in keyof IAdapters]?: Partial<IAdapters[K]>;
+};
+
 interface RepositoryProviderProps {
   children: ReactNode;
-  mock?: MockRepositories;
+  mockRepositories?: MockRepositories;
+  mockAdapters?: MockAdapters;
 }
 
-export function MockRepositoryProvider({
+export function MockProvider({
   children,
-  mock,
+  mockRepositories,
+  mockAdapters,
 }: RepositoryProviderProps) {
   // Provide only the mock repos, nothing else
-  const value = mock as IRepositories;
+  const repoes = mockRepositories as IRepositories;
+  const adapts = mockAdapters as IAdapters;
+
   return (
-    <RepositoryContext.Provider value={value}>
-      {children}
-    </RepositoryContext.Provider>
+    <AdaptersContext.Provider value={adapts}>
+      <RepositoryContext.Provider value={repoes}>
+        {children}
+      </RepositoryContext.Provider>
+    </AdaptersContext.Provider>
   );
 }

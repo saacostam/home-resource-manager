@@ -25,7 +25,7 @@ export default function ErrorPage() {
           404
         </Title>
         <Space h="xs" />
-        <Text size="sm" fw={500} c="dark">
+        <Text size="sm" fw={500}>
           Sorry, we couldn&apos;t find the page you&apos;re looking for.
         </Text>
         <Space h="md" />

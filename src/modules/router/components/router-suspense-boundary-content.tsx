@@ -11,7 +11,7 @@ export function RouterSuspenseBoundaryContent() {
           Loading the app...
         </Title>
         <Space h="xs" />
-        <Text size="sm" c="dark" ta="center">
+        <Text size="sm" ta="center">
           ⏳ Just a moment…
         </Text>
         <Space h="md" />
