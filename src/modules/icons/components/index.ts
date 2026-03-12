@@ -2,6 +2,7 @@ export * from "./arrow-right-start-on-rectangle.icon";
 export * from "./bell-alert.icon";
 export * from "./calendar-days.icon";
 export * from "./check-circle.icon";
+export * from "./chevron-left.icon";
 export * from "./chevron-right.icon";
 export * from "./clipboard.icon";
 export * from "./clock.icon";
