@@ -6,7 +6,8 @@ import {
 import type { RenderOptions } from "@testing-library/react";
 import { TestProviders } from "./test-providers";
 import {
-  MockRepositoryProvider,
+  MockProvider,
+  type MockAdapters,
   type MockRepositories,
 } from "./mock-repository-provider";
 
@@ -15,16 +16,18 @@ export function renderWithProviders(
   options?: Omit<RenderOptions, "wrapper"> & {
     initialEntries?: string[];
     repositories?: MockRepositories;
+    adapters?: MockAdapters;
   },
 ) {
-  const { initialEntries, repositories, ...renderOptions } = options ?? {};
+  const { initialEntries, repositories, adapters, ...renderOptions } =
+    options ?? {};
 
   return render(ui, {
     wrapper: ({ children }) => (
       <TestProviders initialEntries={initialEntries}>
-        <MockRepositoryProvider mock={repositories}>
+        <MockProvider mockRepositories={repositories} mockAdapters={adapters}>
           {children}
-        </MockRepositoryProvider>
+        </MockProvider>
       </TestProviders>
     ),
     ...renderOptions,
@@ -36,16 +39,18 @@ export function renderHookWithProviders<Result, Props>(
   options?: Omit<RenderHookOptions<Props>, "wrapper"> & {
     initialEntries?: string[];
     repositories?: MockRepositories;
+    adapters?: MockAdapters;
   },
 ) {
-  const { initialEntries, repositories, ...renderOptions } = options ?? {};
+  const { initialEntries, repositories, adapters, ...renderOptions } =
+    options ?? {};
 
   return renderHook(callback, {
     wrapper: ({ children }) => (
       <TestProviders initialEntries={initialEntries}>
-        <MockRepositoryProvider mock={repositories}>
+        <MockProvider mockRepositories={repositories} mockAdapters={adapters}>
           {children}
-        </MockRepositoryProvider>
+        </MockProvider>
       </TestProviders>
     ),
     ...renderOptions,
