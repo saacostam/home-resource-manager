@@ -5,6 +5,7 @@ import { AuthSessionProvider } from "../auth";
 import { RouterSuspenseBoundaryContent } from "./components";
 import { RepositoriesProvider } from "../repositories/app";
 import { LandingPage } from "../pages";
+import { AdaptersProvider } from "@/modules/adapters/core/ui";
 
 // Lazy-loaded pages
 const HomePage = lazy(() => import("@/modules/pages/home/home.page"));
@@ -32,11 +33,13 @@ export const router = createHashRouter([
     path: "/",
     element: (
       <AuthSessionProvider>
-        <RepositoriesProvider>
-          <Suspense fallback={<RouterSuspenseBoundaryContent />}>
-            <Outlet />
-          </Suspense>
-        </RepositoriesProvider>
+        <AdaptersProvider>
+          <RepositoriesProvider>
+            <Suspense fallback={<RouterSuspenseBoundaryContent />}>
+              <Outlet />
+            </Suspense>
+          </RepositoriesProvider>
+        </AdaptersProvider>
       </AuthSessionProvider>
     ),
     children: [
