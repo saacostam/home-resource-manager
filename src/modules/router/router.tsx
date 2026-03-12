@@ -33,13 +33,11 @@ export const router = createHashRouter([
     path: "/",
     element: (
       <AuthSessionProvider>
-        <AdaptersProvider>
-          <RepositoriesProvider>
-            <Suspense fallback={<RouterSuspenseBoundaryContent />}>
-              <Outlet />
-            </Suspense>
-          </RepositoriesProvider>
-        </AdaptersProvider>
+        <RepositoriesProvider>
+          <Suspense fallback={<RouterSuspenseBoundaryContent />}>
+            <Outlet />
+          </Suspense>
+        </RepositoriesProvider>
       </AuthSessionProvider>
     ),
     children: [

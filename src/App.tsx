@@ -9,6 +9,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { RouterProvider } from "react-router-dom";
 import { AvailabilitySplashScreenLoader } from "@/modules/availability-splash-screen";
 import { router } from "@/modules/router";
+import { AdaptersProvider } from "@/modules/adapters/core/ui";
 
 const client = new QueryClient();
 
@@ -17,13 +18,15 @@ function App() {
     <MantineProvider
       theme={{ primaryColor: "violet", black: "#00032F", defaultRadius: "md" }}
     >
-      <QueryClientProvider client={client}>
-        <AvailabilitySplashScreenLoader>
-          <RouterProvider router={router} />
-        </AvailabilitySplashScreenLoader>
-        <Notifications />
-        <ReactQueryDevtools buttonPosition="bottom-left" />
-      </QueryClientProvider>
+      <AdaptersProvider>
+        <QueryClientProvider client={client}>
+          <AvailabilitySplashScreenLoader>
+            <RouterProvider router={router} />
+          </AvailabilitySplashScreenLoader>
+          <Notifications />
+          <ReactQueryDevtools buttonPosition="bottom-left" />
+        </QueryClientProvider>
+      </AdaptersProvider>
     </MantineProvider>
   );
 }
