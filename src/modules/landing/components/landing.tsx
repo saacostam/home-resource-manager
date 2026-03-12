@@ -25,6 +25,7 @@ import {
 import { Carousel } from "@mantine/carousel";
 import { Link } from "react-router-dom";
 import type { ReactNode } from "react";
+import { ThemeToggle } from "@/modules/theme/ui";
 
 const ScreenShotsUrl: string[] = [
   "home.png",
@@ -59,6 +60,7 @@ export function Landing() {
             >
               Sign up
             </Button>
+            <ThemeToggle />
           </Flex>
         </Flex>
       </Container>

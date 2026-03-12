@@ -23,7 +23,7 @@ export function ThemeToggle() {
   }, [theme]);
 
   return (
-    <ActionIcon onClick={toggleTheme} size="lg" variant="light">
+    <ActionIcon onClick={toggleTheme} size="lg" variant="subtle">
       {theme.theme === IThemeVariant.DARK ? (
         <SunIcon {...iconProps} />
       ) : (
