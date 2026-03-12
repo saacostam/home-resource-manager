@@ -18,11 +18,12 @@ export function AuthLayout({ children }: PropsWithChildren) {
               style={{ strokeWidth: "2" }}
             />
           }
-          size="xs"
+          size="sm"
           component={Link}
           to={genRoute({ type: TRouteType.LANDING })}
+          variant="subtle"
         >
-          Back
+          Landing
         </Button>
         <ThemeToggle />
       </Flex>
