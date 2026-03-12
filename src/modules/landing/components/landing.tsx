@@ -12,6 +12,7 @@ import {
   Button,
   Card,
   Container,
+  Divider,
   Flex,
   Grid,
   GridCol,
@@ -64,51 +65,32 @@ export function Landing() {
           </Flex>
         </Flex>
       </Container>
-      <Box bg="violet" c="white">
-        <Container>
-          <Flex
-            align="center"
-            direction={{ base: "column", xs: "row" }}
-            gap="md"
-            justify="center"
-            py="xl"
+      <Divider />
+      <Container py="6rem">
+        <Flex direction="column" gap="md" align="center">
+          <Title size="3.5rem" ta="center" c="violet">
+            Home Resource Manager
+          </Title>
+          <Text ta="center">
+            Get a clear overview of everything happening in your home — tasks,
+            items, <br />
+            notes, and more, always organized and easy to access.
+          </Text>
+          <Button
+            component={Link}
+            to={genRoute({ type: TRouteType.LOGIN })}
+            w="fit-content"
+            size="lg"
           >
-            <Flex direction="column" gap="md" flex={{ base: 1, xs: 2, sm: 3 }}>
-              <Title size="2.5rem">Home Resource Manager</Title>
-              <Text>
-                Get a clear overview of everything happening in your home —
-                tasks, items, notes, and more, always organized and easy to
-                access.
-              </Text>
-              <Button
-                component={Link}
-                to={genRoute({ type: TRouteType.LOGIN })}
-                variant="white"
-                w="fit-content"
-              >
-                Explore the Demo
-              </Button>
-            </Flex>
-            <Box flex={{ base: 1, xs: 3, sm: 4 }}>
-              <Image src="hero.png" radius="md" />
-            </Box>
-          </Flex>
-        </Container>
-      </Box>
+            Explore the Demo
+          </Button>
+        </Flex>
+      </Container>
+      <Divider />
       <Container my="xl">
-        <Title c="violet" ta="center" mb="lg">
+        <Title size="1.6rem" ta="center" mb="lg">
           🌱 About the Project
         </Title>
-        <Text
-          size="xl"
-          fw="bold"
-          my="xs"
-          variant="gradient"
-          gradient={{ to: "violet", from: "black" }}
-          ta="center"
-        >
-          Built to bring order to everyday home life.
-        </Text>
         <Text>
           HRM started as a personal tool to keep my home organized — tasks,
           notes, items, and categories all scattered across different apps. So I
@@ -129,56 +111,53 @@ export function Landing() {
           ))}
         </Carousel>
       </Container>
-      <Box bg="violet" c="white" py="xl">
-        <Container>
-          <Title ta="center" mb="md">
-            🏡 What You Can Do:
-          </Title>
-          <Text size="xl" fw="bold" mb="xl" ta="center">
-            A simple, calm way to manage your home.
-          </Text>
-          <Grid>
-            <GridCol span={{ base: 12, sm: 6, md: 3 }}>
-              <CardFeature
-                title="Tasks"
-                icon={<ListBulletIcon width={20} height={20} />}
-                description="Keep track of chores, repairs, and routines — clearly categorized."
-              />
-            </GridCol>
-            <GridCol span={{ base: 12, sm: 6, md: 3 }}>
-              <CardFeature
-                title="Boards"
-                icon={<PencilIcon width={20} height={20} />}
-                description="Lightweight spaces for ideas, notes, and running lists."
-              />
-            </GridCol>
-            <GridCol span={{ base: 12, sm: 6, md: 3 }}>
-              <CardFeature
-                title="Resources"
-                icon={<RectangleGroupIcon width={20} height={20} />}
-                description={
-                  <>
-                    A home inventory you&apos;ll actually use — know what you
-                    own and where it is.
-                  </>
-                }
-              />
-            </GridCol>
-            <GridCol span={{ base: 12, sm: 6, md: 3 }}>
-              <CardFeature
-                title="Categories"
-                icon={<TagIcon width={20} height={20} />}
-                description={
-                  <>The glue that keeps everything tidy and intuitive.</>
-                }
-              />
-            </GridCol>
-          </Grid>
-        </Container>
-      </Box>
+      <Divider />
+      <Container py="xl">
+        <Title size="1.6rem" ta="center" mb="lg">
+          🏡 What You Can Do:
+        </Title>
+        <Grid>
+          <GridCol span={{ base: 12, sm: 6, md: 3 }}>
+            <CardFeature
+              title="Tasks"
+              icon={<ListBulletIcon width={20} height={20} />}
+              description="Keep track of chores, repairs, and routines — clearly categorized."
+            />
+          </GridCol>
+          <GridCol span={{ base: 12, sm: 6, md: 3 }}>
+            <CardFeature
+              title="Boards"
+              icon={<PencilIcon width={20} height={20} />}
+              description="Lightweight spaces for ideas, notes, and running lists."
+            />
+          </GridCol>
+          <GridCol span={{ base: 12, sm: 6, md: 3 }}>
+            <CardFeature
+              title="Resources"
+              icon={<RectangleGroupIcon width={20} height={20} />}
+              description={
+                <>
+                  A home inventory you&apos;ll actually use — know what you own
+                  and where it is.
+                </>
+              }
+            />
+          </GridCol>
+          <GridCol span={{ base: 12, sm: 6, md: 3 }}>
+            <CardFeature
+              title="Categories"
+              icon={<TagIcon width={20} height={20} />}
+              description={
+                <>The glue that keeps everything tidy and intuitive.</>
+              }
+            />
+          </GridCol>
+        </Grid>
+      </Container>
+      <Divider />
       <Container my="xl">
         <Box w="fit-content">
-          <Title mb="xl" ta="center">
+          <Title size="1.6rem" mb="xl" ta="center">
             🐛 Built as a Portfolio Showcase
           </Title>
           <Text mb="lg">This project demonstrates:</Text>
@@ -232,14 +211,16 @@ function CardFeature(props: {
   description: ReactNode;
 }) {
   return (
-    <Card>
+    <Card withBorder>
       <Title
         size="h4"
         mb="sm"
         style={{
           display: "flex",
           alignContent: "center",
-          gap: "0.4rem",
+          justifyItems: "center",
+          gap: "0.5rem",
+          lineHeight: 1,
         }}
         c="violet"
       >
