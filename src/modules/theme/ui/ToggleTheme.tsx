@@ -1,6 +1,6 @@
 import { ActionIcon } from "@mantine/core";
-import { useAdapters } from "@/modules/adapters/core/app";
-import { IThemeVariant } from "@/modules/adapters/theme/domain";
+import { useAdapters } from "@/shared/adapters/core/app";
+import { IThemeVariant } from "@/shared/adapters/theme/domain";
 import { MoonIcon, SunIcon } from "@/modules/icons";
 import { useToggleTheme } from "@/modules/theme/app";
 

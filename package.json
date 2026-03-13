@@ -13,7 +13,8 @@
     "postinstall": "husky",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
-    "test": "vitest"
+    "test": "vitest",
+    "type-check": "tsc -b"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",

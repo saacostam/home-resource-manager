@@ -1,5 +1,5 @@
-import { useAdapters } from "@/modules/adapters/core/app";
-import { IThemeVariant } from "@/modules/adapters/theme/domain";
+import { useAdapters } from "@/shared/adapters/core/app";
+import { IThemeVariant } from "@/shared/adapters/theme/domain";
 import { useCallback, useMemo } from "react";
 
 export function useToggleTheme() {

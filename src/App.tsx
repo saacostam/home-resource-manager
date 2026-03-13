@@ -9,7 +9,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { RouterProvider } from "react-router-dom";
 import { AvailabilitySplashScreenLoader } from "@/modules/availability-splash-screen";
 import { router } from "@/modules/router";
-import { AdaptersProvider } from "@/modules/adapters/core/ui";
+import { AdaptersProvider } from "@/shared/adapters/core/ui";
 
 const client = new QueryClient();
 

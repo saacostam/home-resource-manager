@@ -3,7 +3,7 @@ import { useEffect, useMemo } from "react";
 import {
   type IThemeAdapter,
   IThemeVariant,
-} from "@/modules/adapters/theme/domain";
+} from "@/shared/adapters/theme/domain";
 
 export function useThemeAdapterImpl(): IThemeAdapter {
   const { colorScheme, setColorScheme } = useMantineColorScheme();

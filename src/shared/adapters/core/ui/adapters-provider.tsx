@@ -1,7 +1,7 @@
 import { useMemo, type PropsWithChildren } from "react";
-import { AdaptersContext } from "@/modules/adapters/core/app";
-import type { IAdapters } from "@/modules/adapters/core/domain";
-import { useThemeAdapterImpl } from "@/modules/adapters/theme/infra";
+import { AdaptersContext } from "@/shared/adapters/core/app";
+import type { IAdapters } from "@/shared/adapters/core/domain";
+import { useThemeAdapterImpl } from "@/shared/adapters/theme/infra";
 
 export function AdaptersProvider({ children }: PropsWithChildren) {
   const theme = useThemeAdapterImpl();

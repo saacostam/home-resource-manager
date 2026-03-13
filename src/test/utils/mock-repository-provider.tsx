@@ -3,8 +3,8 @@ import {
   type IRepositories,
   RepositoryContext,
 } from "@/modules/repositories/app";
-import type { IAdapters } from "@/modules/adapters/core/domain";
-import { AdaptersContext } from "@/modules/adapters/core/app";
+import type { IAdapters } from "@/shared/adapters/core/domain";
+import { AdaptersContext } from "@/shared/adapters/core/app";
 
 export type MockRepositories = {
   [K in keyof IRepositories]?: Partial<IRepositories[K]>;

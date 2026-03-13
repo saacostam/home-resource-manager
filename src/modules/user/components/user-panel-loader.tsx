@@ -10,8 +10,8 @@ import {
 } from "@/modules/icons";
 import { useAuth } from "@/modules/auth";
 import { genRoute, TRouteType } from "@/modules/routing";
-import { useAdapters } from "@/modules/adapters/core/app";
-import { IThemeVariant } from "@/modules/adapters/theme/domain";
+import { useAdapters } from "@/shared/adapters/core/app";
+import { IThemeVariant } from "@/shared/adapters/theme/domain";
 import { useToggleTheme } from "@/modules/theme/app";
 
 export function UserPanelLoader() {

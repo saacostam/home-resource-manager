@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import type { IAdapters } from "@/modules/adapters/core/domain";
+import type { IAdapters } from "@/shared/adapters/core/domain";
 
 export const AdaptersContext = createContext(null as unknown as IAdapters);
 
