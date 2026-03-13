@@ -3,7 +3,7 @@ import { describe, expect, it, vi, beforeEach } from "vitest";
 import { screen, waitFor } from "@testing-library/dom";
 import userEvent from "@testing-library/user-event";
 import { Login } from "./components";
-import { ErrorResponse } from "../error";
+import { ErrorResponse } from "@/shared/error";
 import type {
   IMutationLoginIn,
   IMutationLoginOut,
