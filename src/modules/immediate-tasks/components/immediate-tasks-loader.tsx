@@ -1,5 +1,5 @@
 import { Box, LoadingOverlay } from "@mantine/core";
-import { QueryError } from "@/modules/core.components";
+import { QueryError } from "@/shared/components";
 import { useImmediateTasksLoader } from "../hooks";
 import { ImmediateTasksContent } from "./immediate-tasks-content";
 import { ImmediateTasksSkeleton } from "./immediate-tasks-skeleton";

@@ -1,4 +1,4 @@
-import { ConfirmationModal } from "@/modules/core.components";
+import { ConfirmationModal } from "@/shared/components";
 import type { TBoardModalManagerService } from "@/modules/boards/board-modal-manager";
 import { useDeleteBoard } from "../hooks";
 

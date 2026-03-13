@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from "react";
-import { Logo } from "@/modules/core.components";
+import { Logo } from "@/shared/components";
 import { Button, Container, Flex, Paper, Space } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { genRoute, TRouteType } from "@/modules/routing";

@@ -1,4 +1,4 @@
-import { QueryError } from "@/modules/core.components";
+import { QueryError } from "@/shared/components";
 import { BoardEditorSkeleton } from "./board-editor-skeleton";
 import { BoardEditorContent } from "./board-editor-content";
 import { useBoardEditorLoader } from "../hooks";

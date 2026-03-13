@@ -21,7 +21,7 @@ import {
   TagIcon,
 } from "@/modules/icons";
 import { genRoute, TRouteType } from "@/modules/routing";
-import { Logo } from "../../core.components";
+import { Logo } from "@/shared/components";
 import { UserPanelLoader } from "@/modules/user";
 
 export function AppShell() {

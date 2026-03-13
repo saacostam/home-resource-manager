@@ -8,7 +8,7 @@ import {
 import { BoardSelectorLoader } from "./components/board-selector-loader";
 import { fireEvent, screen, waitFor } from "@testing-library/dom";
 
-vi.mock("@/modules/core.components", async (imporOriginal) => {
+vi.mock("@/shared/components", async (imporOriginal) => {
   const actual = await imporOriginal();
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return

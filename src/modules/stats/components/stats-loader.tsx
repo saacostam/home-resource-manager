@@ -1,4 +1,4 @@
-import { QueryError } from "@/modules/core.components";
+import { QueryError } from "@/shared/components";
 import { useStatsLoader } from "../hooks";
 import { StatsSkeleton } from "./stats-skeleton";
 import { StatsContent } from "./stats-content";

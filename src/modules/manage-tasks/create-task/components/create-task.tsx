@@ -1,4 +1,4 @@
-import { ModalLoader, QueryError } from "@/modules/core.components";
+import { ModalLoader, QueryError } from "@/shared/components";
 import { useCreateTaskLoader } from "../hooks";
 import { CreateTaskContent } from "./create-task-content";
 

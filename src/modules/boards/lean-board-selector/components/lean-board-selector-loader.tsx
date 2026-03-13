@@ -1,4 +1,4 @@
-import { QueryError } from "@/modules/core.components";
+import { QueryError } from "@/shared/components";
 import { LeanBoardSelectorContent } from "./lean-board-selector-content";
 import { LeanBoardSelectorSkeleton } from "./lean-board-selector-skeleton";
 import { useLeanBoardSelectorLoader } from "../hooks";

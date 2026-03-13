@@ -1,4 +1,4 @@
-import { Logo } from "@/modules/core.components";
+import { Logo } from "@/shared/components";
 import { Container, Loader, Paper, Space, Text, Title } from "@mantine/core";
 
 export interface AvailabilitySplashScreenContentProps {

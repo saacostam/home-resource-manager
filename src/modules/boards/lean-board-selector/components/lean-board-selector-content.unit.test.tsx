@@ -11,7 +11,7 @@ vi.mock("@/modules/boards/lean-board-editor", () => ({
   ),
 }));
 
-vi.mock("@/modules/core.components", () => ({
+vi.mock("@/shared/components", () => ({
   EmptyQuery: ({
     title,
     description,

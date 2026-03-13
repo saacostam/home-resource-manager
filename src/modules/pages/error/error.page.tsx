@@ -1,4 +1,4 @@
-import { Logo } from "@/modules/core.components";
+import { Logo } from "@/shared/components";
 import { genRoute, TRouteType } from "@/modules/routing";
 import {
   Button,

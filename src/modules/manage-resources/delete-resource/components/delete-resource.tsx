@@ -1,4 +1,4 @@
-import { ConfirmationModal } from "@/modules/core.components";
+import { ConfirmationModal } from "@/shared/components";
 import { useDeleteResource } from "../hooks";
 
 export interface DeleteResourceProps {

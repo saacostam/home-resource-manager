@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Select, Space } from "@mantine/core";
 import { LeanBoardEditorLoader } from "@/modules/boards/lean-board-editor";
 import type { TLeanBoard } from "@/modules/boards/manage-board";
-import { EmptyQuery } from "@/modules/core.components";
+import { EmptyQuery } from "@/shared/components";
 
 export interface LeanBoardSelectorContentProps {
   boards: TLeanBoard[];

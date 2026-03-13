@@ -1,4 +1,4 @@
-import { QueryError } from "@/modules/core.components";
+import { QueryError } from "@/shared/components";
 import { LeanBoardEditorContent } from "./lean-board-editor-content";
 import { LeanBoardEditorSkeleton } from "./lean-board-editor-skeleton";
 import { useLeanBoardEditorLoader } from "../hooks";

@@ -2,7 +2,7 @@ import { Select, Space } from "@mantine/core";
 import { BoardEditorLoader } from "@/modules/boards/board-editor";
 import { useBoardModalManagerService } from "@/modules/boards/board-modal-manager";
 import type { TLeanBoard } from "@/modules/boards/manage-board";
-import { EmptyQuery } from "@/modules/core.components";
+import { EmptyQuery } from "@/shared/components";
 
 export interface BoardSelectorContentProps {
   boards: TLeanBoard[];

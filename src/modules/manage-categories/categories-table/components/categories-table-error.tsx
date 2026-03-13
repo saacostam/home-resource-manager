@@ -1,4 +1,4 @@
-import { QueryError } from "@/modules/core.components";
+import { QueryError } from "@/shared/components";
 
 export interface CategoriesTableErrorProps {
   isPending: boolean;

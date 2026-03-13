@@ -1,4 +1,4 @@
-import { ModalLoader, QueryError } from "@/modules/core.components";
+import { ModalLoader, QueryError } from "@/shared/components";
 import { useEditCategoryLoader } from "../hooks";
 import { EditCategoryContent } from "./edit-category-content";
 

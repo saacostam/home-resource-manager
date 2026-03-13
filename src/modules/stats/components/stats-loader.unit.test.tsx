@@ -12,7 +12,7 @@ vi.mock("./stats-skeleton", () => ({
   StatsSkeleton: () => <div data-testid="mock-stats-skeleton" />,
 }));
 
-vi.mock("@/modules/core.components", () => ({
+vi.mock("@/shared/components", () => ({
   QueryError: () => <div data-testid="mock-query-error" />,
 }));
 

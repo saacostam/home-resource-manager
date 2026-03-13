@@ -1,4 +1,4 @@
-import { ModalLoader, QueryError } from "@/modules/core.components";
+import { ModalLoader, QueryError } from "@/shared/components";
 import { EditBoardContent } from "./edit-board-content";
 import { useEditBoardLoader } from "../hooks";
 

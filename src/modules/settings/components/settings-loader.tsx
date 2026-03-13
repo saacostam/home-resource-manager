@@ -1,6 +1,6 @@
 import { Flex, Paper, Text, Title } from "@mantine/core";
 import { useSettingsLoader } from "../hooks";
-import { QueryError } from "@/modules/core.components";
+import { QueryError } from "@/shared/components";
 import { SettingsContent } from "./settings-content";
 import { SettingsSkeleton } from "./settings-skeleton";
 

@@ -1,5 +1,5 @@
 import { Button, Flex, Paper, Text, Title } from "@mantine/core";
-import { QueryError } from "@/modules/core.components";
+import { QueryError } from "@/shared/components";
 import { PlusIcon } from "@/modules/icons";
 import { useTasksTableLoader } from "../hooks";
 import { TasksTableContent } from "./tasks-table-content";

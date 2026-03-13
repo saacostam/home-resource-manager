@@ -1,4 +1,4 @@
-import { Logo } from "@/modules/core.components";
+import { Logo } from "@/shared/components";
 import {
   CheckCircleIcon,
   ListBulletIcon,
