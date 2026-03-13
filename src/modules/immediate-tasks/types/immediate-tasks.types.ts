@@ -1,4 +1,4 @@
-import type { TTaskInstanceStatus } from "@/modules/core.types";
+import type { TTaskInstanceStatus } from "@/shared/types";
 
 export interface TImmediateTaskEntry {
   utcDate: Date;

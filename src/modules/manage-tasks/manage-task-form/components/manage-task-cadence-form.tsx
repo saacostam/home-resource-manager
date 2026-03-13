@@ -1,6 +1,6 @@
 import { NumberInput, Select, Space } from "@mantine/core";
 import { useEffect, useState } from "react";
-import type { TCadence } from "@/modules/core.types";
+import type { TCadence } from "@/shared/types";
 import { StringUtils } from "@/modules/string";
 import {
   cadenceTypeChangeHandler,

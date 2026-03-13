@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/modules/auth";
-import type { TCadence } from "@/modules/core.types";
+import type { TCadence } from "@/shared/types";
 import { MutationKey, QueryKey } from "@/modules/fetcher";
 
 export interface TPostCreateTaskRequest {

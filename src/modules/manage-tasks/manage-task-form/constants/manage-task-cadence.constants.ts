@@ -1,4 +1,4 @@
-import type { TCadence } from "@/modules/core.types";
+import type { TCadence } from "@/shared/types";
 import { OrderUtils } from "@/modules/order";
 import type { useManageTaskForm } from "../hooks";
 

@@ -1,5 +1,5 @@
 import type { useAuth } from "@/modules/auth";
-import type { TTaskInstanceStatus } from "@/modules/core.types";
+import type { TTaskInstanceStatus } from "@/shared/types";
 import type {
   IQueryImmediateTaskInstancesOut,
   ITaskInstancesRepository,
