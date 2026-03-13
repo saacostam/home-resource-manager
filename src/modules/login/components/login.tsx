@@ -9,7 +9,7 @@ import {
   Title,
 } from "@mantine/core";
 import { useLogin } from "../hooks";
-import { AuthLayout } from "@/modules/layout";
+import { AuthLayout } from "@/shared/layout";
 import { genRoute, TRouteType } from "@/modules/routing";
 import { Link } from "react-router-dom";
 

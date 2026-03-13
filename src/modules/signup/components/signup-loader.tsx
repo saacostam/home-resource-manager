@@ -1,5 +1,5 @@
 import { Anchor, Space, Text, Title } from "@mantine/core";
-import { AuthLayout } from "@/modules/layout";
+import { AuthLayout } from "@/shared/layout";
 import { Link } from "react-router-dom";
 import { useSignupLoader } from "../hooks";
 import { SignupContent } from "./signup-content";
