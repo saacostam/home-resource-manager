@@ -2,7 +2,7 @@ import { useCallback, useMemo } from "react";
 import {
   type TGetAllResourcesResponse,
   useGetAllResources,
-} from "@/modules/core.fetching-hooks";
+} from "@/shared/core.fetching-hooks";
 import { useResourcesTable } from "../provider";
 import type { TResourceTableEntry } from "../types";
 

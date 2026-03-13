@@ -1,4 +1,4 @@
-import { useDeleteDeleteTask } from "@/modules/core.fetching-hooks";
+import { useDeleteDeleteTask } from "@/shared/core.fetching-hooks";
 import { notifications } from "@mantine/notifications";
 import { useCallback, useMemo } from "react";
 

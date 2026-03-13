@@ -1,7 +1,7 @@
 import { notifications } from "@mantine/notifications";
 import { isAxiosError } from "axios";
 import { useCallback, useMemo } from "react";
-import { usePostCreateResource } from "@/modules/core.fetching-hooks";
+import { usePostCreateResource } from "@/shared/core.fetching-hooks";
 import { handleApiErrors } from "@/modules/forms";
 import {
   type TManageResourceForm,

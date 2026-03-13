@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useQueryBoardById } from "@/modules/core.fetching-hooks";
+import { useQueryBoardById } from "@/shared/core.fetching-hooks";
 import type { IQueryBoardByIdOut } from "@/shared/repositories/app";
 import type { TBoard } from "../../manage-board";
 

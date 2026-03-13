@@ -1,6 +1,6 @@
 import { notifications } from "@mantine/notifications";
 import { useCallback, useMemo } from "react";
-import { useDeleteDeleteCategory } from "@/modules/core.fetching-hooks";
+import { useDeleteDeleteCategory } from "@/shared/core.fetching-hooks";
 
 export interface UseDeleteCategoryProps {
   id: string;

@@ -1,4 +1,4 @@
-import type { TGetCategoryByIdResponse } from "@/modules/core.fetching-hooks";
+import type { TGetCategoryByIdResponse } from "@/shared/core.fetching-hooks";
 import { ManageCategoryForm } from "../../manage-category-form";
 import { useEditCategory } from "../hooks";
 

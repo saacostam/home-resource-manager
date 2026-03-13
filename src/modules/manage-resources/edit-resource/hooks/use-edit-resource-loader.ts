@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import {
   useGetAllCategories,
   useGetResourceById,
-} from "@/modules/core.fetching-hooks";
+} from "@/shared/core.fetching-hooks";
 
 export interface UseEditResourceLoaderProps {
   id: string;

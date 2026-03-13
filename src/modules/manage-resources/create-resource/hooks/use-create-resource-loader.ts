@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useGetAllCategories } from "@/modules/core.fetching-hooks";
+import { useGetAllCategories } from "@/shared/core.fetching-hooks";
 
 export function useCreateResourceLoader() {
   const categories = useGetAllCategories();

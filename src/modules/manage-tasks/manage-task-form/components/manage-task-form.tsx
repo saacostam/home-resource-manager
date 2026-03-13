@@ -12,7 +12,7 @@ import { DatePickerInput } from "@mantine/dates";
 import type {
   TGetAllCategoriesResponse,
   TGetAllResourcesResponse,
-} from "@/modules/core.fetching-hooks";
+} from "@/shared/core.fetching-hooks";
 import type { TManageTaskForm, useManageTaskForm } from "../hooks";
 import { ManageTaskFormCadence } from "./manage-task-cadence-form";
 

@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import {
   useGetAllCategories,
   useGetAllResources,
-} from "@/modules/core.fetching-hooks";
+} from "@/shared/core.fetching-hooks";
 
 export function useCreateTaskLoader() {
   const categories = useGetAllCategories();

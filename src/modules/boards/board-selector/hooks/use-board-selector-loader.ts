@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from "react";
-import { useQueryAllBoards } from "@/modules/core.fetching-hooks";
+import { useQueryAllBoards } from "@/shared/core.fetching-hooks";
 import { useBoardModalManagerService } from "@/modules/boards/board-modal-manager";
 import type { TLeanBoard } from "@/modules/boards/manage-board";
 import type { IQueryAllBoardsOut } from "@/shared/repositories/app";

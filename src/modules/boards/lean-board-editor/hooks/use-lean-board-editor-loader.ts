@@ -5,7 +5,7 @@ import type { TBoard } from "@/modules/boards/manage-board";
 import {
   useQueryBoardById,
   useMutationUpdateBoardById,
-} from "@/modules/core.fetching-hooks";
+} from "@/shared/core.fetching-hooks";
 import type { IQueryBoardByIdOut } from "@/shared/repositories/app";
 import type { LeanBoardEditorContentProps } from "../components/lean-board-editor-content";
 

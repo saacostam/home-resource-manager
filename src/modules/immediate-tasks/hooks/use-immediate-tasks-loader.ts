@@ -5,7 +5,7 @@ import {
   useMutationDeleteTaskCompletion,
   useQueryImmediateTaskInstances,
   useMutationCreateTaskCompletion,
-} from "@/modules/core.fetching-hooks";
+} from "@/shared/core.fetching-hooks";
 import { QueryKey } from "@/modules/fetcher";
 import type { ImmediateTasksContentProps } from "../components/immediate-tasks-content";
 import type { TImmediateTaskEntry } from "../types";

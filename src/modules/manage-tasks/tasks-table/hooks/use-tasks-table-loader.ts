@@ -2,7 +2,7 @@ import { useCallback, useMemo } from "react";
 import {
   type TGetAllTasksResponse,
   useGetAllTasks,
-} from "@/modules/core.fetching-hooks";
+} from "@/shared/core.fetching-hooks";
 import { useTasksTable } from "../provider";
 import { type TTaskTableEntry, TTaskTableModeType } from "../types";
 

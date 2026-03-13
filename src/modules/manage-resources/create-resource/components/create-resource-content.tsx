@@ -1,4 +1,4 @@
-import type { TGetAllCategoriesResponse } from "@/modules/core.fetching-hooks";
+import type { TGetAllCategoriesResponse } from "@/shared/core.fetching-hooks";
 import { ManageResourceForm } from "@/modules/manage-resources/manage-resource-form";
 import { useCreateResource } from "../hooks";
 

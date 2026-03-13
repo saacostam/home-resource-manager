@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useGetCategoryById } from "@/modules/core.fetching-hooks";
+import { useGetCategoryById } from "@/shared/core.fetching-hooks";
 
 export interface UseEditCategoryLoaderProps {
   id: string;

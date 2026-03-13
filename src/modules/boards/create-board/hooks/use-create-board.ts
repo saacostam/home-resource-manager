@@ -5,7 +5,7 @@ import {
   useManageBoardForm,
   type TManageBoardForm,
 } from "@/modules/boards/manage-board";
-import { useMutationCreateBoard } from "@/modules/core.fetching-hooks";
+import { useMutationCreateBoard } from "@/shared/core.fetching-hooks";
 import { notifications } from "@mantine/notifications";
 import { handleApiErrors } from "@/modules/forms";
 

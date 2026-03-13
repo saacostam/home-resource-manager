@@ -2,7 +2,7 @@ import { useCallback, useMemo } from "react";
 import {
   type TGetAllCategoriesResponse,
   useGetAllCategories,
-} from "@/modules/core.fetching-hooks";
+} from "@/shared/core.fetching-hooks";
 import { useCategoriesTable } from "../provider";
 import type { TCategoryTableEntry } from "../types";
 

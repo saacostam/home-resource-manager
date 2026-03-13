@@ -6,7 +6,7 @@ import type { TBoard } from "@/modules/boards/manage-board";
 import {
   useQueryBoardById,
   useMutationUpdateBoardById,
-} from "@/modules/core.fetching-hooks";
+} from "@/shared/core.fetching-hooks";
 import type { IQueryBoardByIdOut } from "@/shared/repositories/app";
 import type { BoardEditorContentProps } from "../components/board-editor-content";
 

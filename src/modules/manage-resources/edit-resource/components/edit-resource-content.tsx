@@ -1,7 +1,7 @@
 import type {
   TGetAllCategoriesResponse,
   TGetResourceByIdResponse,
-} from "@/modules/core.fetching-hooks";
+} from "@/shared/core.fetching-hooks";
 import { ManageResourceForm } from "@/modules/manage-resources/manage-resource-form";
 import { useEditResource } from "../hooks";
 

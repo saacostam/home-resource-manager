@@ -1,7 +1,7 @@
 import { notifications } from "@mantine/notifications";
 import { isAxiosError } from "axios";
 import { useCallback, useMemo } from "react";
-import { usePostCreateTask } from "@/modules/core.fetching-hooks";
+import { usePostCreateTask } from "@/shared/core.fetching-hooks";
 import { DateUtils } from "@/modules/date";
 import { handleApiErrors } from "@/modules/forms";
 import {

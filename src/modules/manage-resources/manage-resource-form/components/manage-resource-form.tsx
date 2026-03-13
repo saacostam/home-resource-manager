@@ -7,7 +7,7 @@ import {
   Textarea,
   TextInput,
 } from "@mantine/core";
-import type { TGetAllCategoriesResponse } from "@/modules/core.fetching-hooks";
+import type { TGetAllCategoriesResponse } from "@/shared/core.fetching-hooks";
 import type { TManageResourceForm, useManageResourceForm } from "../hooks";
 
 export interface ManageResourceFormProps {

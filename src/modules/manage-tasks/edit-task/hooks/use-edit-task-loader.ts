@@ -3,7 +3,7 @@ import {
   useGetAllCategories,
   useGetAllResources,
   useGetTaskById,
-} from "@/modules/core.fetching-hooks";
+} from "@/shared/core.fetching-hooks";
 
 export interface UseEditTaskLoaderProps {
   id: string;

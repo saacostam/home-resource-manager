@@ -6,7 +6,7 @@ import {
   type TGetAllResourcesResponse,
   type TGetTaskByIdResponse,
   usePutUpdateTaskById,
-} from "@/modules/core.fetching-hooks";
+} from "@/shared/core.fetching-hooks";
 import { handleApiErrors } from "@/modules/forms";
 import {
   type TManageTaskForm,

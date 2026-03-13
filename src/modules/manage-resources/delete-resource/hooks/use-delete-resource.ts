@@ -1,6 +1,6 @@
 import { notifications } from "@mantine/notifications";
 import { useCallback, useMemo } from "react";
-import { useDeleteDeleteResource } from "@/modules/core.fetching-hooks";
+import { useDeleteDeleteResource } from "@/shared/core.fetching-hooks";
 
 export interface UseDeleteResourceProps {
   id: string;

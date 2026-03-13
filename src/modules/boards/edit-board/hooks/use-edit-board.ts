@@ -5,7 +5,7 @@ import {
   type TBoard,
   type TManageBoardForm,
 } from "@/modules/boards/manage-board";
-import { useMutationUpdateBoardById } from "@/modules/core.fetching-hooks";
+import { useMutationUpdateBoardById } from "@/shared/core.fetching-hooks";
 import { handleApiErrors } from "@/modules/forms";
 import { notifications } from "@mantine/notifications";
 

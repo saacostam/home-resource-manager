@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useQueryImmediateTaskInstances } from "@/modules/core.fetching-hooks";
+import { useQueryImmediateTaskInstances } from "@/shared/core.fetching-hooks";
 import type { IQueryImmediateTaskInstancesOut } from "@/shared/repositories/app";
 import type { TStats } from "../types";
 

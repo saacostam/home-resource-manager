@@ -1,7 +1,7 @@
 import type {
   TGetAllCategoriesResponse,
   TGetAllResourcesResponse,
-} from "@/modules/core.fetching-hooks";
+} from "@/shared/core.fetching-hooks";
 import { ManageTaskForm } from "@/modules/manage-tasks/manage-task-form";
 import { useCreateTask } from "../hooks";
 
