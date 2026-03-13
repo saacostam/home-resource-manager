@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/modules/auth";
 import type { TCadence } from "@/shared/types";
-import { MutationKey, QueryKey } from "@/modules/fetcher";
+import { MutationKey, QueryKey } from "@/shared/fetcher";
 
 export interface TPostCreateTaskRequest {
   name: string;

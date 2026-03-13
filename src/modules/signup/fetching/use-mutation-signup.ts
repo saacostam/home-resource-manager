@@ -1,4 +1,4 @@
-import { MutationKey } from "@/modules/fetcher";
+import { MutationKey } from "@/shared/fetcher";
 import {
   useRepositories,
   type IMutationSignUpIn,

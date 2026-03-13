@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/modules/auth";
 import type { TCadence } from "@/shared/types";
-import { QueryKey } from "@/modules/fetcher";
+import { QueryKey } from "@/shared/fetcher";
 
 export type TGetAllTasksResponse = {
   id: string;

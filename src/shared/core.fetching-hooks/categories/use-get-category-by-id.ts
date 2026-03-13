@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/modules/auth";
-import { QueryKey } from "@/modules/fetcher";
+import { QueryKey } from "@/shared/fetcher";
 
 export interface TGetCategoryByIdRequest {
   id: string;

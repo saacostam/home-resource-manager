@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
-import { apiFetcher } from "@/modules/fetcher";
+import { apiFetcher } from "@/shared/fetcher";
 import { LocalStorageKey, LocalStorageUtils } from "@/modules/local-storage";
 import { genRoute, TRouteType } from "@/modules/routing";
 import { isAuthError } from "../utils";

@@ -1,4 +1,4 @@
-import { apiFetcher, QueryKey } from "@/modules/fetcher";
+import { apiFetcher, QueryKey } from "@/shared/fetcher";
 import { useQuery } from "@tanstack/react-query";
 
 export function useGetApiHealth() {

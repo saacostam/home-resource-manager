@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { QueryKey } from "@/modules/fetcher";
+import { QueryKey } from "@/shared/fetcher";
 import { useRepositories } from "@/shared/repositories/app";
 
 export function useQueryImmediateTaskInstances() {

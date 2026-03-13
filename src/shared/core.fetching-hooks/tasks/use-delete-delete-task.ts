@@ -1,5 +1,5 @@
 import { useAuth } from "@/modules/auth";
-import { MutationKey, QueryKey } from "@/modules/fetcher";
+import { MutationKey, QueryKey } from "@/shared/fetcher";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export interface TDeleteDeleteTaskRequest {

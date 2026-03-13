@@ -6,7 +6,7 @@ import {
   useQueryImmediateTaskInstances,
   useMutationCreateTaskCompletion,
 } from "@/shared/core.fetching-hooks";
-import { QueryKey } from "@/modules/fetcher";
+import { QueryKey } from "@/shared/fetcher";
 import type { ImmediateTasksContentProps } from "../components/immediate-tasks-content";
 import type { TImmediateTaskEntry } from "../types";
 import type { IQueryImmediateTaskInstancesOut } from "@/shared/repositories/app";

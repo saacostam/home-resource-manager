@@ -1,6 +1,6 @@
 import type { AxiosError } from "axios";
 import type { FieldPath, FieldValues, UseFormSetError } from "react-hook-form";
-import type { BackendErrorResponse } from "@/modules/fetcher";
+import type { BackendErrorResponse } from "@/shared/fetcher";
 
 export function handleApiErrors<
   TFormValues extends FieldValues = FieldValues,

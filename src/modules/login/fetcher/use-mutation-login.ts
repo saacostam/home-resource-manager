@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { MutationKey } from "@/modules/fetcher";
+import { MutationKey } from "@/shared/fetcher";
 import {
   useRepositories,
   type IMutationLoginIn,
