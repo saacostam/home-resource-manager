@@ -4,28 +4,28 @@ import { AppShell } from "@/shared/layout";
 import { AuthSessionProvider } from "../auth";
 import { RouterSuspenseBoundaryContent } from "./components";
 import { RepositoriesProvider } from "@/shared/repositories/app";
-import { LandingPage } from "../pages";
+import { LandingPage } from "@/shared/pages";
 
 // Lazy-loaded pages
-const HomePage = lazy(() => import("@/modules/pages/home/home.page"));
+const HomePage = lazy(() => import("@/shared/pages/home/home.page"));
 const SettingsPage = lazy(
-  () => import("@/modules/pages/settings/settings.page"),
+  () => import("@/shared/pages/settings/settings.page"),
 );
 const ManageCategoriesPage = lazy(
-  () => import("@/modules/pages/manage-categories/manage-categories.page"),
+  () => import("@/shared/pages/manage-categories/manage-categories.page"),
 );
 const ManageResourcesPage = lazy(
-  () => import("@/modules/pages/manage-resources/manage-resources.page"),
+  () => import("@/shared/pages/manage-resources/manage-resources.page"),
 );
 const ManageBoardsPage = lazy(
-  () => import("@/modules/pages/manage-boards/manage-boards.page"),
+  () => import("@/shared/pages/manage-boards/manage-boards.page"),
 );
 const ManageTasksPage = lazy(
-  () => import("@/modules/pages/manage-tasks/manage-tasks.page"),
+  () => import("@/shared/pages/manage-tasks/manage-tasks.page"),
 );
-const LoginPage = lazy(() => import("@/modules/pages/login/login.page"));
-const SignupPage = lazy(() => import("@/modules/pages/signup/signup.page"));
-const ErrorPage = lazy(() => import("@/modules/pages/error/error.page"));
+const LoginPage = lazy(() => import("@/shared/pages/login/login.page"));
+const SignupPage = lazy(() => import("@/shared/pages/signup/signup.page"));
+const ErrorPage = lazy(() => import("@/shared/pages/error/error.page"));
 
 export const router = createHashRouter([
   {
