@@ -3,7 +3,7 @@ import { MutationKey, QueryKey } from "@/modules/fetcher";
 import {
   useRepositories,
   type IMutationUpdateBoardByIdIn,
-} from "@/modules/repositories/app";
+} from "@/shared/repositories/app";
 
 export function useMutationUpdateBoardById() {
   const queryClient = useQueryClient();

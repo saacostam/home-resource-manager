@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { QueryKey } from "@/modules/fetcher";
-import { useRepositories } from "@/modules/repositories/app";
+import { useRepositories } from "@/shared/repositories/app";
 
 export function useQueryAllBoards() {
   const { board } = useRepositories();

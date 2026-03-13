@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useQueryImmediateTaskInstances } from "@/modules/core.fetching-hooks";
-import type { IQueryImmediateTaskInstancesOut } from "@/modules/repositories/app";
+import type { IQueryImmediateTaskInstancesOut } from "@/shared/repositories/app";
 import type { TStats } from "../types";
 
 export function useStatsLoader() {

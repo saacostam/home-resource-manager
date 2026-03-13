@@ -1,5 +1,5 @@
 import { QueryKey } from "@/modules/fetcher";
-import { useRepositories } from "@/modules/repositories/app";
+import { useRepositories } from "@/shared/repositories/app";
 import { useQuery } from "@tanstack/react-query";
 
 export function useQueryAllTimezones() {

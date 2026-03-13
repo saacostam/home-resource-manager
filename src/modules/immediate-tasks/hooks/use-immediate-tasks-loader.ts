@@ -9,7 +9,7 @@ import {
 import { QueryKey } from "@/modules/fetcher";
 import type { ImmediateTasksContentProps } from "../components/immediate-tasks-content";
 import type { TImmediateTaskEntry } from "../types";
-import type { IQueryImmediateTaskInstancesOut } from "@/modules/repositories/app";
+import type { IQueryImmediateTaskInstancesOut } from "@/shared/repositories/app";
 
 export function useImmediateTasksLoader() {
   const queryClient = useQueryClient();

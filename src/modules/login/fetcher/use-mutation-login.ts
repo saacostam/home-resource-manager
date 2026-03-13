@@ -3,7 +3,7 @@ import { MutationKey } from "@/modules/fetcher";
 import {
   useRepositories,
   type IMutationLoginIn,
-} from "@/modules/repositories/app";
+} from "@/shared/repositories/app";
 
 export function useMutationLogin() {
   const { auth } = useRepositories();

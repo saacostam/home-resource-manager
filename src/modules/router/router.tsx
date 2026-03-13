@@ -3,7 +3,7 @@ import { createHashRouter, Outlet } from "react-router-dom";
 import { AppShell } from "@/shared/layout";
 import { AuthSessionProvider } from "../auth";
 import { RouterSuspenseBoundaryContent } from "./components";
-import { RepositoriesProvider } from "../repositories/app";
+import { RepositoriesProvider } from "@/shared/repositories/app";
 import { LandingPage } from "../pages";
 
 // Lazy-loaded pages

@@ -3,7 +3,7 @@ import { MutationKey, QueryKey } from "@/modules/fetcher";
 import {
   useRepositories,
   type IMutationDeleteBoardByIdIn,
-} from "@/modules/repositories/app";
+} from "@/shared/repositories/app";
 
 export function useMutationDeleteBoardById() {
   const queryClient = useQueryClient();

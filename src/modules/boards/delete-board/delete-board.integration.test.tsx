@@ -3,7 +3,7 @@ import { notifications } from "@mantine/notifications";
 import { fireEvent, screen, waitFor } from "@testing-library/dom";
 import { act } from "@testing-library/react";
 import { renderWithProviders } from "@/test";
-import type { IMutationDeleteBoardByIdIn } from "@/modules/repositories/app";
+import type { IMutationDeleteBoardByIdIn } from "@/shared/repositories/app";
 import { DeleteBoard } from "./components";
 
 vi.mock("@mantine/notifications", () => ({

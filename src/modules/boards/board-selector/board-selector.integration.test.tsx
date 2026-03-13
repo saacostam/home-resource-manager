@@ -1,4 +1,4 @@
-import type { IQueryAllBoardsOut } from "@/modules/repositories/app";
+import type { IQueryAllBoardsOut } from "@/shared/repositories/app";
 import { renderWithProviders } from "@/test";
 import { describe, expect, it, vi } from "vitest";
 import {

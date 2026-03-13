@@ -3,7 +3,7 @@ import { MutationKey, QueryKey } from "@/modules/fetcher";
 import {
   type IMutationCreateTaskCompletionIn,
   useRepositories,
-} from "@/modules/repositories/app";
+} from "@/shared/repositories/app";
 
 export function useMutationCreateTaskCompletion() {
   const queryClient = useQueryClient();

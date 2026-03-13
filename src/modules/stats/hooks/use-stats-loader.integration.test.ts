@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import { waitFor } from "@testing-library/dom";
 import { renderHookWithProviders, type MockRepositories } from "@/test";
-import type { IQueryImmediateTaskInstancesOut } from "@/modules/repositories/app";
+import type { IQueryImmediateTaskInstancesOut } from "@/shared/repositories/app";
 import { useStatsLoader } from "./use-stats-loader";
 
 const mockQueryImmediateTaskInstancesOut: IQueryImmediateTaskInstancesOut = {

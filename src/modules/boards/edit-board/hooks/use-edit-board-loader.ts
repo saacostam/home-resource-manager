@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useQueryBoardById } from "@/modules/core.fetching-hooks";
-import type { IQueryBoardByIdOut } from "@/modules/repositories/app";
+import type { IQueryBoardByIdOut } from "@/shared/repositories/app";
 import type { TBoard } from "../../manage-board";
 
 export interface UseEditBoardLoaderArgs {

@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import {
   type IRepositories,
   RepositoryContext,
-} from "@/modules/repositories/app";
+} from "@/shared/repositories/app";
 import type { IAdapters } from "@/shared/adapters/core/domain";
 import { AdaptersContext } from "@/shared/adapters/core/app";
 

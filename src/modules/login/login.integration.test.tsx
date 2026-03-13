@@ -4,7 +4,10 @@ import { screen, waitFor } from "@testing-library/dom";
 import userEvent from "@testing-library/user-event";
 import { Login } from "./components";
 import { ErrorResponse } from "../error";
-import type { IMutationLoginIn, IMutationLoginOut } from "../repositories/app";
+import type {
+  IMutationLoginIn,
+  IMutationLoginOut,
+} from "@/shared/repositories/app";
 import { genRoute, TRouteType } from "../routing";
 
 const mockNavigate = vi.fn();

@@ -3,7 +3,7 @@ import { QueryKey } from "@/modules/fetcher";
 import {
   useRepositories,
   type IQueryBoardByIdIn,
-} from "@/modules/repositories/app";
+} from "@/shared/repositories/app";
 
 export interface UseQueryBoardByIdArgs {
   args: IQueryBoardByIdIn;

@@ -1,7 +1,7 @@
 import { renderWithProviders } from "@/test";
 import { describe, it } from "vitest";
 import { BoardSelector } from "./board-selector";
-import type { IQueryAllBoardsOut } from "@/modules/repositories/app";
+import type { IQueryAllBoardsOut } from "@/shared/repositories/app";
 
 const leanBoards: IQueryAllBoardsOut = {
   boards: [

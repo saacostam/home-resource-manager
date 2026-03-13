@@ -4,7 +4,7 @@ import { act } from "@testing-library/react";
 import type {
   IMutationUpdateBoardByIdIn,
   IQueryBoardByIdOut,
-} from "@/modules/repositories/app";
+} from "@/shared/repositories/app";
 import { renderWithProviders } from "@/test";
 import { LeanBoardEditorLoader } from "./components";
 import { notifications } from "@mantine/notifications";

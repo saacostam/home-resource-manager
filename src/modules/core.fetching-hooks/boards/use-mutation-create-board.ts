@@ -3,7 +3,7 @@ import { MutationKey, QueryKey } from "@/modules/fetcher";
 import {
   useRepositories,
   type IMutationCreateBoardIn,
-} from "@/modules/repositories/app";
+} from "@/shared/repositories/app";
 
 export function useMutationCreateBoard() {
   const queryClient = useQueryClient();

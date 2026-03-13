@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { TCountryTimezone } from "@/modules/timezones";
 import { SignupContent } from "./signup-content";
 import userEvent from "@testing-library/user-event";
-import type { IMutationSignUpIn } from "@/modules/repositories/app";
+import type { IMutationSignUpIn } from "@/shared/repositories/app";
 
 const countryTimezones: TCountryTimezone[] = [
   {

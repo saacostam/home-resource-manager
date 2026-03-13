@@ -2,7 +2,7 @@ import { renderWithProviders } from "@/test";
 import { describe, expect, it, vi } from "vitest";
 import { ImmediateTasksLoader } from "./components";
 import { fireEvent, screen, waitFor } from "@testing-library/dom";
-import type { IQueryImmediateTaskInstancesOut } from "../repositories/app";
+import type { IQueryImmediateTaskInstancesOut } from "@/shared/repositories/app";
 
 enum Selectors {
   ERROR = "query-error",

@@ -2,7 +2,7 @@ import { MutationKey } from "@/modules/fetcher";
 import {
   useRepositories,
   type IMutationUpdateSettingsIn,
-} from "@/modules/repositories/app";
+} from "@/shared/repositories/app";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export function useMutationUpdateSettings() {

@@ -12,7 +12,7 @@ import { CalendarDaysIcon } from "@/modules/icons";
 import type {
   IMutationCreateTaskCompletionIn,
   IMutationDeleteTaskCompletionIn,
-} from "@/modules/repositories/app";
+} from "@/shared/repositories/app";
 import type { TImmediateTaskEntry } from "../types";
 
 export interface ImmediateTasksContentProps {
