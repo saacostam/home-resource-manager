@@ -1,5 +1,5 @@
 import { Alert, Button, Text } from "@mantine/core";
-import { ExclamationCircleIcon } from "@/modules/icons";
+import { ExclamationCircleIcon } from "@/shared/icons";
 
 export interface QueryErrorProps {
   title: string;

@@ -1,5 +1,5 @@
 import { Alert, Space, Text } from "@mantine/core";
-import { RocketLaunchIcon } from "@/modules/icons";
+import { RocketLaunchIcon } from "@/shared/icons";
 
 export function FeatureInProgressMessage() {
   return (

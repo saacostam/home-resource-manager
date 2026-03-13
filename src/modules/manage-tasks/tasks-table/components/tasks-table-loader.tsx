@@ -1,6 +1,6 @@
 import { Button, Flex, Paper, Text, Title } from "@mantine/core";
 import { QueryError } from "@/shared/components";
-import { PlusIcon } from "@/modules/icons";
+import { PlusIcon } from "@/shared/icons";
 import { useTasksTableLoader } from "../hooks";
 import { TasksTableContent } from "./tasks-table-content";
 import { TasksTableModalManager } from "./tasks-table-modal-manager";

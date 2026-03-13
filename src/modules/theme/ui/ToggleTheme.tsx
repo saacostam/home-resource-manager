@@ -1,7 +1,7 @@
 import { ActionIcon } from "@mantine/core";
 import { useAdapters } from "@/shared/adapters/core/app";
 import { IThemeVariant } from "@/shared/adapters/theme/domain";
-import { MoonIcon, SunIcon } from "@/modules/icons";
+import { MoonIcon, SunIcon } from "@/shared/icons";
 import { useToggleTheme } from "@/modules/theme/app";
 
 const iconProps = {

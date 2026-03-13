@@ -1,6 +1,6 @@
 import { ActionIcon, Badge, Group, Table, Text, Tooltip } from "@mantine/core";
 import { EmptyQuery } from "@/shared/components";
-import { PencilSquareIcon, TrashIcon } from "@/modules/icons";
+import { PencilSquareIcon, TrashIcon } from "@/shared/icons";
 import type { TResourceTableEntry } from "../types";
 
 export interface ResourcesTableContentProps {

@@ -3,7 +3,7 @@ import { Logo } from "@/shared/components";
 import { Button, Container, Flex, Paper, Space } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { genRoute, TRouteType } from "@/modules/routing";
-import { ChevronLeftIcon } from "@/modules/icons";
+import { ChevronLeftIcon } from "@/shared/icons";
 import { ThemeToggle } from "@/modules/theme/ui";
 
 export function AuthLayout({ children }: PropsWithChildren) {

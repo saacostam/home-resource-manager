@@ -5,7 +5,7 @@ import {
   PencilIcon,
   RectangleGroupIcon,
   TagIcon,
-} from "@/modules/icons";
+} from "@/shared/icons";
 import { genRoute, TRouteType } from "@/modules/routing";
 import {
   Box,

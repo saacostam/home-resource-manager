@@ -1,6 +1,6 @@
 import { ActionIcon, Badge, Group, Table, Text, Tooltip } from "@mantine/core";
 import { EmptyQuery } from "@/shared/components";
-import { PencilSquareIcon, TrashIcon } from "@/modules/icons";
+import { PencilSquareIcon, TrashIcon } from "@/shared/icons";
 import { StringUtils } from "@/modules/string";
 import type { TTaskTableEntry } from "../types";
 

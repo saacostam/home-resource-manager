@@ -6,7 +6,7 @@ import {
   PencilIcon,
   RectangleGroupIcon,
   TagIcon,
-} from "@/modules/icons";
+} from "@/shared/icons";
 import { ImmediateTasksLoader } from "@/modules/immediate-tasks";
 import { genRoute, TRouteType } from "@/modules/routing";
 import { StatsLoader } from "@/modules/stats";

@@ -4,7 +4,7 @@ import {
   CheckCircleIcon,
   ClockIcon,
   RectangleGroupIcon,
-} from "@/modules/icons";
+} from "@/shared/icons";
 import type { TStats } from "../../types";
 import { StatsItem } from "./stats-item";
 

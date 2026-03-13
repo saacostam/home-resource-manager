@@ -8,7 +8,7 @@ import {
   Text,
   ThemeIcon,
 } from "@mantine/core";
-import { CalendarDaysIcon } from "@/modules/icons";
+import { CalendarDaysIcon } from "@/shared/icons";
 import type {
   IMutationCreateTaskCompletionIn,
   IMutationDeleteTaskCompletionIn,

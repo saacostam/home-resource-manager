@@ -7,7 +7,7 @@ import {
   Cog6ToothIcon,
   MoonIcon,
   SunIcon,
-} from "@/modules/icons";
+} from "@/shared/icons";
 import { useAuth } from "@/modules/auth";
 import { genRoute, TRouteType } from "@/modules/routing";
 import { useAdapters } from "@/shared/adapters/core/app";

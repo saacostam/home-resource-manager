@@ -1,5 +1,5 @@
 import { Button, Flex, Paper, Text, Title } from "@mantine/core";
-import { PlusIcon } from "@/modules/icons";
+import { PlusIcon } from "@/shared/icons";
 import { useCategoriesTableLoader } from "../hooks";
 import { CategoriesTableContent } from "./categories-table-content";
 import { CategoriesTableError } from "./categories-table-error";

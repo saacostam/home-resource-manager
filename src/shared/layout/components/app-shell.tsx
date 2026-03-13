@@ -19,7 +19,7 @@ import {
   PencilIcon,
   RectangleGroupIcon,
   TagIcon,
-} from "@/modules/icons";
+} from "@/shared/icons";
 import { genRoute, TRouteType } from "@/modules/routing";
 import { Logo } from "@/shared/components";
 import { UserPanelLoader } from "@/modules/user";

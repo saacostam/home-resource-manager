@@ -1,7 +1,7 @@
 import { Button, Flex, Paper, Text, Title } from "@mantine/core";
 
 import { QueryError } from "@/shared/components";
-import { PencilSquareIcon } from "@/modules/icons";
+import { PencilSquareIcon } from "@/shared/icons";
 import { useBoardSelectorLoader } from "../hooks";
 import { BoardSelectorSkeleton } from "./board-selector-skeleton";
 import { BoardSelectorContent } from "./board-selector-content";

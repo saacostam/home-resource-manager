@@ -1,5 +1,5 @@
 import { Flex, Text, ThemeIcon, Title } from "@mantine/core";
-import { CubeTransparentIcon } from "@/modules/icons";
+import { CubeTransparentIcon } from "@/shared/icons";
 
 export interface EmptyQueryProps {
   title?: string;
