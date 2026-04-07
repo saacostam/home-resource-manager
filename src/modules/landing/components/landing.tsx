@@ -8,6 +8,7 @@ import {
 } from "@/shared/icons";
 import { genRoute, TRouteType } from "@/modules/routing";
 import {
+  AspectRatio,
   Box,
   Button,
   Card,
@@ -82,9 +83,28 @@ export function Landing() {
             w="fit-content"
             size="lg"
           >
-            Explore the Demo
+            Start
           </Button>
         </Flex>
+      </Container>
+      <Divider />
+      <Container my="xl">
+        <Title size="1.6rem" ta="center" mb="lg">
+          Demo
+        </Title>
+        <AspectRatio ratio={16 / 9}>
+          <iframe
+            src={`https://www.youtube.com/embed/PTcXe9JAD9Y`}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            style={{
+              width: "100%",
+              height: "100%",
+              border: 0,
+            }}
+          />
+        </AspectRatio>
       </Container>
       <Divider />
       <Container my="xl">
